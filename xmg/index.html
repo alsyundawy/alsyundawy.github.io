@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="referrer" content="no-referrer">
+
+    
+    <title>Error 404 - Page Not Found</title>
+    
+    <!-- Preconnect & DNS Prefetch -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net"> 
+    <link rel="preconnect" href="https://unpkg.com" crossorigin> 
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --error-gradient: linear-gradient(135deg, #3A86FF 0%, #2563EB 100%);
+            --error-shadow: rgba(58, 134, 255, 0.3);
+            --space-gradient: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            --dark-gradient: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8d1;
+            --accent-blue: #60A5FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--dark-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Starfield Background */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 4s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        /* Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--error-gradient);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--space-gradient);
+            bottom: -200px;
+            right: -200px;
+            animation-delay: 5s;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #60A5FA 0%, #3730A3 100%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, -100px) rotate(90deg); }
+            50% { transform: translate(-50px, -200px) rotate(180deg); }
+            75% { transform: translate(-100px, 50px) rotate(270deg); }
+        }
+
+        /* Main Container */
+        .error-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 60px 40px;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+                        0 0 100px var(--error-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--accent-blue), 
+                transparent);
+            animation: scan-line 3s linear infinite;
+        }
+
+        @keyframes scan-line {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Lost Astronaut */
+        .lost-container {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            height: 120px;
+        }
+
+        .astronaut {
+            font-size: 60px;
+            color: var(--accent-blue);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            animation: float-astronaut 6s ease-in-out infinite;
+        }
+
+        @keyframes float-astronaut {
+            0%, 100% { transform: translate(-50%, -50%) rotate(-5deg); }
+            25% { transform: translate(-45%, -55%) rotate(5deg); }
+            50% { transform: translate(-55%, -50%) rotate(-5deg); }
+            75% { transform: translate(-45%, -45%) rotate(5deg); }
+        }
+
+        .planet {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: var(--space-gradient);
+            border-radius: 50%;
+            right: 20%;
+            top: 10%;
+            animation: orbit 20s linear infinite;
+            box-shadow: 0 0 30px var(--error-shadow);
+        }
+
+        .planet::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -40%;
+            right: -40%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: rotateZ(-20deg);
+        }
+
+        @keyframes orbit {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Error Code */
+        .error-code {
+            font-size: clamp(120px, 18vw, 180px);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 20px;
+            background: var(--error-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            position: relative;
+            letter-spacing: -0.05em;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { 
+                filter: drop-shadow(0 0 20px var(--error-shadow));
+            }
+            to { 
+                filter: drop-shadow(0 0 40px var(--error-shadow));
+            }
+        }
+
+        /* Error Title */
+        .error-title {
+            font-size: clamp(32px, 5vw, 42px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        /* Error Description */
+        .error-description {
+            font-size: clamp(16px, 2.5vw, 18px);
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Search Box */
+        .search-box {
+            background: rgba(58, 134, 255, 0.1);
+            border: 1px solid rgba(58, 134, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-btn {
+            background: var(--error-gradient);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Suggestions */
+        .suggestions {
+            margin-bottom: 30px;
+        }
+
+        .suggestions-title {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .suggestion-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .suggestion-link {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .suggestion-link:hover {
+            background: rgba(58, 134, 255, 0.2);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-glass {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+
+        .btn-glass:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+        }
+
+        .btn-glass::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-glass:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: var(--error-gradient);
+            border: none;
+            color: white;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            color: white;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 10px 30px var(--error-shadow);
+        }
+
+        /* Tech Details */
+        .tech-details {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: none;
+            border: 1px solid rgba(58, 134, 255, 0.1);
+        }
+
+        .tech-details.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tech-details code {
+            color: var(--accent-blue);
+            background: rgba(58, 134, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .tech-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            flex-wrap: wrap;
+        }
+
+        .tech-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* Toggle Button */
+        .toggle-details {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .toggle-details:hover {
+            color: var(--text-primary);
+        }
+
+        /* Particles */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.8;
+            z-index: 9999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 40px 24px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn-glass {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .error-code {
+                font-size: clamp(100px, 25vw, 140px);
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .search-btn {
+                width: 100%;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* High Contrast Mode */
+        @media (prefers-contrast: high) {
+            .glass-card {
+                background: rgba(0, 0, 0, 0.9);
+                border: 2px solid white;
+            }
+            
+            .btn-glass {
+                border: 2px solid white;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .bg-animation, .starfield, .action-buttons, .toggle-details, .search-box {
+                display: none !important;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .glass-card {
+                box-shadow: none;
+                border: 1px solid black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Starfield -->
+    <div class="starfield" id="starfield"></div>
+
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="error-container">
+        <div class="glass-card" data-aos="fade-up" data-aos-duration="800">
+            
+            <div class="lost-container" data-aos="zoom-in" data-aos-delay="200">
+                <div class="astronaut">
+                    <i class="fas fa-user-astronaut"></i>
+                </div>
+                <div class="planet"></div>
+            </div>
+            
+            <div class="error-code" data-aos="fade-down" data-aos-delay="400">404</div>
+            
+            <h1 class="error-title">Lost in Space</h1>
+            
+            <p class="error-description">
+                Houston, we have a problem! The page you're looking for has drifted off into the digital cosmos. It might have been moved, deleted, or perhaps it never existed.
+            </p>
+            
+            <div class="search-box" data-aos="fade-up" data-aos-delay="600">
+                <i class="fas fa-search" style="color: var(--accent-blue);"></i>
+                <input type="text" class="search-input" placeholder="Search for what you need..." id="searchInput">
+                <button class="search-btn" onclick="performSearch()">
+                    <i class="fas fa-rocket"></i>
+                </button>
+            </div>
+            
+            <div class="suggestions" data-aos="fade-up" data-aos-delay="700">
+                <p class="suggestions-title">Popular destinations:</p>
+                <div class="suggestion-links">
+                    <a href="/" class="suggestion-link">Home</a>
+                    <a href="/about" class="suggestion-link">About</a>
+                    <a href="/services" class="suggestion-link">Services</a>
+                    <a href="/contact" class="suggestion-link">Contact</a>
+                    <a href="/blog" class="suggestion-link">Blog</a>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="/" class="btn-glass btn-primary">
+                    <i class="fas fa-home"></i>
+                    Return to Earth
+                </a>
+                <a href="javascript:history.back()" class="btn-glass">
+                    <i class="fas fa-arrow-left"></i>
+                    Go Back
+                </a>
+                <button class="btn-glass" onclick="location.reload()">
+                    <i class="fas fa-sync-alt"></i>
+                    Retry Mission
+                </button>
+            </div>
+            
+            <center>
+                <button class="toggle-details" onclick="toggleTechDetails()">
+                    <i class="fas fa-chevron-down" id="toggleIcon"></i>
+                    Mission Log
+                </button>
+            </center>
+            
+            <div class="tech-details" id="techDetails">
+                <div class="tech-row">
+                    <strong>Error Code:</strong>
+                    <code>404 Not Found</code>
+                </div>
+                <div class="tech-row">
+                    <strong>Timestamp:</strong>
+                    <code id="timestamp"></code>
+                </div>
+                <div class="tech-row">
+                    <strong>Request ID:</strong>
+                    <code id="requestId"></code>
+                </div>
+                <div class="tech-row">
+                    <strong>Lost Path:</strong>
+                    <code id="lostPath"></code>
+                </div>
+                <div class="tech-row">
+                    <strong>Referrer:</strong>
+                    <code id="referrer"></code>
+                </div>
+                <div class="tech-row">
+                    <strong>Navigation Time:</strong>
+                    <code id="navTime"></code>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+
+        // Create starfield
+        function createStarfield() {
+            const starfield = $('#starfield');
+            const starCount = 100;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = $('<div class="star"></div>');
+                const size = Math.random() * 3 + 1;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const delay = Math.random() * 4;
+                
+                star.css({
+                    width: size + 'px',
+                    height: size + 'px',
+                    left: x + '%',
+                    top: y + '%',
+                    animationDelay: delay + 's'
+                });
+                
+                starfield.append(star);
+            }
+        }
+
+        // Update technical details
+        function updateTechDetails() {
+            const now = new Date();
+            $('#timestamp').text(now.toISOString());
+            $('#requestId').text('req_' + Math.random().toString(36).substr(2, 9).toUpperCase());
+            $('#lostPath').text(window.location.pathname || '/unknown');
+            $('#referrer').text(document.referrer || 'Direct Access');
+            
+            // Calculate navigation time
+            const navTime = performance.navigation.type === 1 ? 'Page Reload' : 'New Navigation';
+            $('#navTime').text(navTime);
+        }
+
+        // Toggle technical details
+        function toggleTechDetails() {
+            $('#techDetails').toggleClass('show');
+            $('#toggleIcon').toggleClass('fa-chevron-down fa-chevron-up');
+        }
+
+        // Search functionality
+        function performSearch() {
+            const query = $('#searchInput').val().trim();
+            if (query) {
+                // Simulate search redirect
+                window.location.href = '/search?q=' + encodeURIComponent(query);
+            }
+        }
+
+        // Enter key for search
+        $('#searchInput').keypress(function(e) {
+            if (e.which === 13) {
+                performSearch();
+            }
+        });
+
+        // Keyboard shortcuts
+        $(document).keydown(function(e) {
+            if (e.key === 'Escape') {
+                window.history.back();
+            } else if (e.key === '/' && !$('#searchInput').is(':focus')) {
+                e.preventDefault();
+                $('#searchInput').focus();
+            } else if (e.key === 'd' && e.altKey) {
+                e.preventDefault();
+                toggleTechDetails();
+            }
+        });
+
+        // Space particles on click
+        $(document).click(function(e) {
+            if (!$(e.target).closest('button, a, input').length) {
+                createSpaceParticle(e.pageX, e.pageY);
+            }
+        });
+
+        function createSpaceParticle(x, y) {
+            const colors = ['#3A86FF', '#60A5FA', '#7C3AED', '#4F46E5'];
+            const particleCount = 8;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = $('<div class="particle"></div>');
+                const size = Math.random() * 6 + 2;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const angle = (Math.PI * 2 / particleCount) * i;
+                const velocity = Math.random() * 100 + 50;
+                
+                particle.css({
+                    left: x + 'px',
+                    top: y + 'px',
+                    width: size + 'px',
+                    height: size + 'px',
+                    background: color,
+                    borderRadius: '50%',
+                    boxShadow: `0 0 ${size * 2}px ${color}`
+                });
+                
+                $('body').append(particle);
+                
+                const dx = Math.cos(angle) * velocity;
+                const dy = Math.sin(angle) * velocity;
+                
+                particle.animate({
+                    left: x + dx + 'px',
+                    top: y + dy + 'px',
+                    opacity: 0
+                }, {
+                    duration: 1000,
+                    easing: 'easeOutQuad',
+                    complete: function() {
+                        particle.remove();
+                    }
+                });
+            }
+        }
+
+        // Parallax effect on mouse move
+        $(window).on('mousemove', function(e) {
+            const x = (e.clientX / window.innerWidth - 0.5) * 2;
+            const y = (e.clientY / window.innerHeight - 0.5) * 2;
+            
+            $('.orb-1').css('transform', `translate(${x * 20}px, ${y * 20}px)`);
+            $('.orb-2').css('transform', `translate(${-x * 25}px, ${-y * 25}px)`);
+            $('.orb-3').css('transform', `translate(${x * 15}px, ${-y * 15}px) translate(-50%, -50%)`);
+            
+            // Starfield parallax
+            $('.starfield').css('transform', `translate(${x * 10}px, ${y * 10}px)`);
+        });
+
+        // Initialize on page load
+        $(document).ready(function() {
+            createStarfield();
+            updateTechDetails();
+            
+            // Astronaut random movements
+            setInterval(function() {
+                const randomX = Math.random() * 20 - 10;
+                const randomY = Math.random() * 20 - 10;
+                $('.astronaut').css('transform', `translate(-50%, -50%) translate(${randomX}px, ${randomY}px)`);
+            }, 3000);
+            
+            // Auto-refresh timestamp
+            setInterval(function() {
+                if ($('#techDetails').hasClass('show')) {
+                    $('#timestamp').text(new Date().toISOString());
+                }
+            }, 1000);
+        });
+
+        // Security: Prevent clickjacking
+        if (self !== top) {
+            top.location = self.location;
+        }
+
+        // Console Easter Egg
+        console.log('%c?? ERROR 404: LOST IN SPACE', 'font-size: 30px; color: #3A86FF; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);');
+        console.log('%c?? The page you seek is in another galaxy...', 'font-size: 16px; color: #60A5FA;');
+        console.log('\n%c? Fun fact:', 'font-weight: bold; color: #7C3AED;');
+        console.log('Did you know? The term "404" comes from room 404 at CERN, where the World Wide Web was born!');
+    </script>
+</body>
+</html>

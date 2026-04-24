@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=5">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ALSYUNDAWY IT SOLUTION - System Administrator | DNS & ISP Infrastructure Specialist | Professional Portfolio</title>
+    <meta name="description" content="System Administrator dengan 15+ tahun pengalaman spesialisasi dalam DNS infrastructure (PowerDNS, BIND9, RPZ), ISP hardware, hypervisor (Proxmox VE, VMware), mail systems (Zimbra), dan Apple Mac ecosystem services.">
+    <meta name="keywords" content="alsyundawy, Harry Dertin Sutisna, System Administrator, DNS Specialist, PowerDNS, BIND9, RPZ, TrustPositif, MikroTik, ISP Infrastructure, Proxmox VE, VMware, ESXi, Zimbra, Jakarta">
+    <meta name="author" content="Harry Dertin Sutisna Alsyundawy">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://alsyundawy.github.io">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alsyundawy.github.io">
+    <meta property="og:title" content="ALSYUNDAWY IT SOLUTION - Professional Portfolio">
+    <meta property="og:description" content="System Administrator 15+ tahun - DNS, ISP, Hypervisor, Mail & Mac Specialist">
+    <meta property="og:image" content="https://alsyundawy.github.io/portofolio.webp">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@Alsyundawy">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Harry Dertin Sutisna","alternateName":"ALSYUNDAWY","url":"https://alsyundawy.com","jobTitle":"System Administrator · DNS & ISP Infrastructure Specialist","email":"alsyundawy@gmail.com","telephone":"+6285658515212","address":{"@type":"PostalAddress","addressLocality":"Tebet","addressRegion":"Jakarta Selatan","addressCountry":"ID"},"sameAs":["https://github.com/alsyundawy","https://x.com/Alsyundawy","https://www.instagram.com/harry.ds.alsyundawy/","https://www.facebook.com/alsyundawy","https://t.me/alsyundawy","https://www.linkedin.com/in/alsyundawy"]}
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+    :root,[data-bs-theme=light]{--primary:#3b82f6;--secondary:#7c3aed;--accent:#10b981;--highlight:#f97316;--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;--text-primary:#0f172a;--text-secondary:#475569;--text-muted:#64748b;--border:#e2e8f0;--shadow:rgba(59,130,246,.12);--shadow-md:rgba(59,130,246,.18);--shadow-lg:rgba(59,130,246,.25);--gradient:linear-gradient(135deg,#3b82f6 0%,#7c3aed 100%);--navbar-bg:rgba(255,255,255,.98);--hero-gradient:linear-gradient(135deg,#0066cc 0%,#004499 100%);--font-primary:'Inter',system-ui,sans-serif;--transition-fast:.15s;--transition-normal:.3s;--easing:cubic-bezier(.4,0,.2,1)}
+    [data-bs-theme=dark]{--primary:#60a5fa;--secondary:#a78bfa;--accent:#34d399;--highlight:#fb923c;--bg-primary:#0f172a;--bg-secondary:#1e293b;--bg-tertiary:#334155;--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-muted:#94a3b8;--border:#334155;--shadow:rgba(0,0,0,.3);--shadow-md:rgba(0,0,0,.4);--shadow-lg:rgba(0,0,0,.5);--gradient:linear-gradient(135deg,#60a5fa 0%,#a78bfa 100%);--navbar-bg:rgba(15,23,42,.98);--hero-gradient:linear-gradient(135deg,#002244 0%,#004499 50%,#003366 100%)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:13px;scroll-padding-top:70px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    body{font-family:var(--font-primary);background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden;transition:background-color var(--transition-normal) var(--easing),color var(--transition-normal) var(--easing);font-size:.9rem}
+    h1,h2,h3,h4,h5,h6{font-weight:700;line-height:1.2;margin-bottom:.8rem;color:var(--text-primary)}
+    h1{font-size:clamp(1.3rem,3vw,1.5rem)}h2{font-size:clamp(1.3rem,2.8vw,1.5rem)}h3{font-size:clamp(1.05rem,2.2vw,1.15rem)}
+    p{margin-bottom:.8rem;color:var(--text-secondary);font-size:.9rem}
+    a{color:var(--primary);text-decoration:none;transition:color var(--transition-fast) var(--easing)}
+    a:hover{color:var(--secondary)}
+    section{padding:clamp(2.5rem,6vw,4rem) 0;position:relative}
+    .container{max-width:1200px;margin:0 auto;padding:0 1.2rem}
+    .navbar{background:var(--navbar-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.8rem 0;position:sticky;top:0;z-index:1000;transition:all var(--transition-fast) var(--easing);box-shadow:0 2px 8px var(--shadow)}
+    .navbar.scrolled{padding:.6rem 0;box-shadow:0 2px 12px var(--shadow-md)}
+    .navbar-brand{font-size:clamp(.82rem,1.8vw,1.05rem);font-weight:700;color:var(--text-primary);display:flex;align-items:center;gap:.5rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100vw - 140px)}
+    .navbar-logo{height:clamp(32px,6vw,46px);width:auto;object-fit:contain;transition:all var(--transition-fast) var(--easing)}
+    .navbar-logo:hover{transform:scale(1.05) rotate(-2deg)}
+    .navbar-brand:hover{color:var(--primary)}
+    .navbar-toggler{border:none;padding:.4rem .6rem}.navbar-toggler:focus{box-shadow:none}
+    .nav-link{color:#334155!important;font-weight:600;font-size:clamp(.8rem,1.4vw,.88rem);padding:.5rem .8rem!important;margin:0 .15rem;border-radius:8px;transition:all var(--transition-fast) var(--easing);position:relative;letter-spacing:.01em}
+    [data-bs-theme=dark] .nav-link{color:var(--text-secondary)!important}
+    .nav-link::before{content:'';position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--gradient);transition:width var(--transition-fast) var(--easing)}
+    .nav-link:hover,.nav-link.active{color:var(--primary)!important;background:var(--bg-tertiary)}
+    .nav-link:hover::before{width:50%}
+    .dropdown-menu{background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;box-shadow:0 4px 16px var(--shadow-lg);padding:.4rem;margin-top:.4rem;min-width:200px}
+    .dropdown-item{color:var(--text-secondary);padding:.5rem .9rem;border-radius:7px;font-size:.85rem;transition:all var(--transition-fast) var(--easing);display:flex;align-items:center;gap:.6rem}
+    .dropdown-item i{color:var(--primary);width:18px;text-align:center}
+    .dropdown-item:hover{background:var(--bg-tertiary);color:var(--primary)}
+    .theme-toggle{background:var(--bg-secondary);border:2px solid var(--border);border-radius:9px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--transition-fast) var(--easing);margin-left:.8rem;color:var(--text-primary);box-shadow:0 2px 6px var(--shadow)}
+    .theme-toggle:hover{border-color:var(--primary);transform:scale(1.05)}
+    .theme-toggle i{font-size:1rem;transition:transform .4s}
+    .theme-toggle:hover i{transform:rotate(15deg)}
+    .back-to-top{position:fixed;bottom:25px;right:25px;width:45px;height:45px;background:var(--gradient);color:#fff;border:none;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;z-index:999;box-shadow:0 4px 16px var(--shadow-lg);transition:all var(--transition-fast) var(--easing);opacity:0;transform:scale(0)}
+    .back-to-top.show{display:flex;opacity:1;transform:scale(1)}
+    .back-to-top:hover{transform:scale(1.1)}
+    #hero{min-height:60vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:2.5vw 0 2vw;background:url(alsyundawy-hero.webp) no-repeat center center,var(--hero-gradient);background-size:cover;flex-shrink:0}
+    #hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,68,153,.3);pointer-events:none;z-index:1}
+    .hero-content{text-align:center;position:relative;z-index:3;animation:fadeInUp .8s ease;max-width:1100px;margin:0 auto;padding:0 1.2rem}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .profile-pic{width:clamp(110px,16vw,140px);height:clamp(110px,16vw,140px);border-radius:50%;border:4px solid rgba(255,255,255,.7);box-shadow:0 10px 28px rgba(0,0,0,.25);margin:0 auto 1.2rem;object-fit:cover;transition:all var(--transition-normal) var(--easing);background:var(--bg-secondary)}
+    .profile-pic:hover{transform:scale(1.05) rotate(3deg);box-shadow:0 14px 36px rgba(0,0,0,.35)}
+    .hero-tagline{font-size:clamp(.95rem,1.7vw,1rem);color:#fff;margin-bottom:.7rem;font-weight:900;letter-spacing:.04em;text-shadow:0 2px 6px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.5);white-space:nowrap}
+    #hero h1{color:#fff!important;text-shadow:0 3px 10px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.5);font-weight:900;font-size:clamp(1.15rem,3.2vw,2.75rem);white-space:nowrap}
+    .hero-title{font-size:clamp(.9rem,1.6vw,1.05rem);color:#fff;margin-bottom:.8rem;font-weight:700;max-width:650px;margin-left:auto;margin-right:auto;line-height:1.5;text-shadow:0 2px 5px rgba(0,0,0,.3)}
+    .hero-status{color:#fff;font-size:clamp(.85rem,1.5vw,.95rem);margin-bottom:1.6rem;font-weight:700;text-shadow:0 2px 5px rgba(0,0,0,.3)}
+    .social-links{display:flex;justify-content:center;gap:clamp(.5rem,1.2vw,.85rem);flex-wrap:wrap;margin-top:1.6rem}
+    .social-links a{display:inline-flex;align-items:center;justify-content:center;width:clamp(42px,6vw,48px);height:clamp(42px,6vw,48px);border-radius:50%;font-size:clamp(1.1rem,1.8vw,1.4rem);transition:all var(--transition-fast) var(--easing);box-shadow:0 3px 10px rgba(0,0,0,.2);border:2px solid rgba(255,255,255,.15)}
+    .social-links a:hover{transform:translateY(-3px) scale(1.06);border-color:rgba(255,255,255,.25)}
+    .social-links a i{color:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
+    .social-links a.social-github{background:linear-gradient(135deg,#24292e 0%,#1a1e22 100%)}
+    .social-links a.social-facebook{background:linear-gradient(135deg,#1877f2 0%,#0d5cc4 100%)}
+    .social-links a.social-x{background:linear-gradient(135deg,#1da1f2 0%,#0d8bd9 100%)}
+    .social-links a.social-instagram{background:linear-gradient(135deg,#e4405f 0%,#c13584 100%)}
+    .social-links a.social-threads{background:linear-gradient(135deg,#000 0%,#333 100%)}
+    .social-links a.social-telegram{background:linear-gradient(135deg,#0088cc 0%,#069 100%)}
+    .social-links a.social-skype{background:linear-gradient(135deg,#00aff0 0%,#0078d4 100%)}
+    .social-links a.social-discord{background:linear-gradient(135deg,#5865f2 0%,#4752c4 100%)}
+    .social-links a.social-line{background:linear-gradient(135deg,#00c300 0%,#00b900 100%)}
+    .social-links a.social-linkedin{background:linear-gradient(135deg,#0077b5 0%,#005f8d 100%)}
+    .social-links a.social-tiktok{background:linear-gradient(135deg,#010101 0%,#2d2d2d 100%)}
+    .social-links a.social-youtube{background:linear-gradient(135deg,red 0%,#c00 100%)}
+    .social-links a.social-whatsapp{background:linear-gradient(135deg,#25d366 0%,#1ebd59 100%)}
+    .social-links a.social-email{background:linear-gradient(135deg,#ea4335 0%,#c5221f 100%)}
+    .social-links a.social-website{background:linear-gradient(135deg,#004499 0%,#0066cc 100%)}
+    .social-links a.social-paypal{background:linear-gradient(135deg,#003087 0%,#009cde 100%)}
+    .section-title{text-align:center;font-size:clamp(1.3rem,2.5vw,1.5rem);font-weight:800;margin-bottom:2.5rem;position:relative;letter-spacing:.05em;color:var(--text-primary)}
+    .section-title::after{content:'';display:block;width:50px;height:3px;background:var(--gradient);margin:.7rem auto 0;border-radius:3px}
+    .card{background:var(--bg-secondary);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:all var(--transition-normal) var(--easing);box-shadow:0 2px 8px var(--shadow)}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 24px var(--shadow-md);border-color:var(--primary)}
+    .card-icon{width:50px;height:50px;border-radius:12px;background:var(--gradient);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;box-shadow:0 4px 12px var(--shadow-md)}
+    .card-icon i{color:#fff;font-size:1.3rem}
+    .project-card{background:var(--bg-secondary);border:1px solid var(--border);border-radius:14px;padding:1.5rem;height:100%;display:flex;flex-direction:column;transition:all var(--transition-normal) var(--easing);box-shadow:0 2px 8px var(--shadow)}
+    .project-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px var(--shadow-md);border-color:var(--primary)}
+    .project-card-icon{width:48px;height:48px;border-radius:12px;background:var(--gradient);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;box-shadow:0 4px 12px var(--shadow-md);transition:all var(--transition-fast) var(--easing)}
+    .project-card:hover .project-card-icon{transform:scale(1.15);box-shadow:0 6px 20px var(--shadow-lg)}
+    .project-card-icon i{color:#fff;font-size:1.2rem}
+    .project-card h4{font-size:clamp(.9rem,1.8vw,1rem);font-weight:700;margin-bottom:.4rem;color:var(--text-primary)}
+    .project-card-stats{display:inline-block;font-size:.75rem;background:var(--bg-tertiary);color:var(--text-muted);padding:.25rem .6rem;border-radius:6px;margin-bottom:.7rem;font-weight:500}
+    .project-card p{font-size:.85rem;color:var(--text-secondary);flex:1;margin-bottom:1rem}
+    .project-card a{display:inline-flex;align-items:center;gap:.4rem;color:var(--primary);font-size:.85rem;font-weight:600;transition:all var(--transition-fast) var(--easing);margin-top:auto}
+    .project-card a:hover{color:var(--secondary);gap:.7rem}
+    .skill-item{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1rem;transition:all var(--transition-fast) var(--easing);display:flex;align-items:flex-start;gap:1rem}
+    .skill-item:hover{border-color:var(--primary);box-shadow:0 4px 16px var(--shadow)}
+    .skill-item h4{font-size:.95rem;font-weight:700;color:var(--primary);margin-bottom:.35rem}
+    .skill-item p{font-size:.85rem;color:var(--text-secondary);margin:0;line-height:1.55}
+    .client-card{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:1.2rem;display:flex;align-items:center;justify-content:center;min-height:90px;transition:all var(--transition-fast) var(--easing)}
+    .client-card:hover{border-color:var(--primary);box-shadow:0 4px 16px var(--shadow);transform:translateY(-2px)}
+    .client-card img{max-width:160px;max-height:65px;width:auto;height:auto;object-fit:contain;filter:grayscale(20%);transition:filter var(--transition-fast) var(--easing)}
+    [data-bs-theme=dark] .client-card img{filter:brightness(0) invert(1) opacity(.85)}
+    .client-card:hover img{filter:none}
+    .btn-custom{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.2rem;background:var(--gradient);color:#fff;border-radius:9px;font-size:.88rem;font-weight:600;border:none;transition:all var(--transition-fast) var(--easing);box-shadow:0 3px 10px var(--shadow-md)}
+    .btn-custom:hover{color:#fff;transform:translateY(-2px);box-shadow:0 6px 20px var(--shadow-lg)}
+    .footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:2rem 0;text-align:center}
+    .footer-copy{font-size:.8rem;color:var(--text-muted);line-height:1.7;letter-spacing:.04em}
+    .footer-social-link{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;margin:.3rem .2rem;font-size:.95rem;transition:all var(--transition-fast) var(--easing);border:2px solid rgba(255,255,255,.15)}
+    .footer-social-link i{color:#fff}
+    .footer-social-link:hover{transform:translateY(-2px) scale(1.08)}
+    .footer-social-link.social-github{background:linear-gradient(135deg,#24292e,#1a1e22)}
+    .footer-social-link.social-facebook{background:linear-gradient(135deg,#1877f2,#0d5cc4)}
+    .footer-social-link.social-x{background:linear-gradient(135deg,#1da1f2,#0d8bd9)}
+    .footer-social-link.social-instagram{background:linear-gradient(135deg,#e4405f,#c13584)}
+    .footer-social-link.social-threads{background:linear-gradient(135deg,#000,#333)}
+    .footer-social-link.social-telegram{background:linear-gradient(135deg,#0088cc,#069)}
+    .footer-social-link.social-skype{background:linear-gradient(135deg,#00aff0,#0078d4)}
+    .footer-social-link.social-discord{background:linear-gradient(135deg,#5865f2,#4752c4)}
+    .footer-social-link.social-line{background:linear-gradient(135deg,#00c300,#00b900)}
+    .footer-social-link.social-linkedin{background:linear-gradient(135deg,#0077b5,#005f8d)}
+    .footer-social-link.social-tiktok{background:linear-gradient(135deg,#010101,#2d2d2d)}
+    .footer-social-link.social-youtube{background:linear-gradient(135deg,red,#c00)}
+    .footer-social-link.social-whatsapp{background:linear-gradient(135deg,#25d366,#1ebd59)}
+    .footer-social-link.social-email{background:linear-gradient(135deg,#ea4335,#c5221f)}
+    .footer-social-link.social-website{background:linear-gradient(135deg,#004499,#0066cc)}
+    .footer-social-link.social-paypal{background:linear-gradient(135deg,#003087,#009cde)}
+    @media(max-width:768px){
+        #hero{min-height:70vh;padding:2rem 0 1.5rem}
+        .hero-tagline{white-space:normal;font-size:.95rem}
+        #hero h1{font-size:1.15rem;white-space:normal;letter-spacing:-.02em}
+        .social-links{gap:.5rem}
+        .social-links a{width:clamp(40px,5.5vw,48px);height:clamp(40px,5.5vw,48px);font-size:clamp(1rem,1.8vw,1.4rem)}
+    }
+    @media(min-width:3840px){
+        html{font-size:18px}
+        .navbar-logo{height:60px}
+        .profile-pic{width:180px;height:180px}
+    }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg" role="navigation">
+    <div class="container">
+        <a class="navbar-brand" href="#hero">
+            <img src="xmg/alsyundawy-it.png" alt="Alsyundawy IT Solution Logo" class="navbar-logo" onerror="this.style.display='none'">
+            <span>HARRY DERTIN SUTISNA ALSYUNDAWY</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <strong><span class="navbar-toggler-icon"></span></strong>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link active" href="#hero">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="#expertise">Keahlian</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Proyek</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#clients">Klien</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tools</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="toolsDropdown">
+                        <li><a class="dropdown-item" href="https://lg.alsyundawy.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-search"></i> Looking Glass</a></li>
+                        <li><a class="dropdown-item" href="https://lg.alsyundawy.com/lg.php" target="_blank" rel="noopener noreferrer"><i class="fas fa-network-wired"></i> Looking Glass v2.0</a></li>
+                        <li><a class="dropdown-item" href="https://lg.alsyundawy.com/lgv1.php" target="_blank" rel="noopener noreferrer"><i class="fas fa-network-wired"></i> Looking Glass v2.1</a></li>
+                        <li><a class="dropdown-item" href="https://lg.alsyundawy.com/lgv2.php" target="_blank" rel="noopener noreferrer"><i class="fas fa-network-wired"></i> Looking Glass v2.5</a></li>
+                        <li><a class="dropdown-item" href="https://lg.alsyundawy.com/lg-github.php" target="_blank" rel="noopener noreferrer"><i class="fas fa-network-wired"></i> Looking Glass GitHub</a></li>
+                        <li><a class="dropdown-item" href="https://speedtest.alsyundawy.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-gauge-high"></i> SpeedTest</a></li>
+                        <li><a class="dropdown-item" href="https://rbl.alsyundawy.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-shield-virus"></i> RBL Checker</a></li>
+                        <li><a class="dropdown-item" href="https://trustcheck.alsyundawy.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-shield-halved"></i> TrustPositif Check</a></li>
+                        <li><a class="dropdown-item" href="https://dnschecker.alsyundawy.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-circle-check"></i> DNS Checker</a></li>
+                        <li><a class="dropdown-item" href="https://repo.alsyundawy.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-box-archive"></i> Repository</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+                <li class="nav-item">
+                    <div class="theme-toggle" id="themeToggle" role="button" tabindex="0" aria-label="Toggle theme">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="hero" class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <img src="portofolio.webp" alt="ALSYUNDAWY IT SOLUTION" class="profile-pic" loading="eager"
+                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27140%27 height=%27140%27%3E%3Ccircle fill=%27%233b82f6%27 cx=%2770%27 cy=%2770%27 r=%2770%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 dy=%27.35em%27 fill=%27%23fff%27 font-size=%2756%27%3EA%3C/text%3E%3C/svg%3E';">
+            <div class="hero-tagline">HARRY DERTIN SUTISNA ALSYUNDAWY — PORTO FOLIO</div>
+            <h1>ALSYUNDAWY IT SOLUTION</h1>
+            <p class="hero-title">SYSTEM ADMINISTRATOR MAGANG, HYPERVISOR, MAIL &amp; DNS INFRASTRUCTURE SPECIALIST</p>
+            <p class="hero-status">OPISBOY | TEKNISI MAC &amp; SERVER KELILING | SYSTEM ENGINEER | MAIL, DNS &amp; ISP INFRASTRUCTURE SPECIALIST</p>
+            <p class="hero-title">ɪɴᴛᴇʀɴᴇᴛ ᴀᴅᴅɪᴄᴛ, ᴡɪɴᴅᴏᴡ, ᴍᴀᴄ &amp; ʟɪɴᴜx ʟᴏᴠᴇʀ, ɪ ᴀᴍ ɴᴏᴛ ɢᴏᴏᴅ ᴍᴀɴ ʙᴜᴛ ᴛʜᴇ ᴍᴀɴ ɪɴ ɢᴏᴏᴅ ᴅᴀʏ &amp; ɪ ᴀᴍ ᴏᴘɪsʙᴏʏ</p>
+            <div class="social-links">
+                <a href="https://github.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-github" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://facebook.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-facebook" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-x" title="X/Twitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://instagram.com/harry.ds.alsyundawy" target="_blank" rel="noopener noreferrer" class="social-instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://threads.net/@harry.ds.alsyundawy" target="_blank" rel="noopener noreferrer" class="social-threads" title="Threads"><i class="fa-brands fa-threads"></i></a>
+                <a href="https://t.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
+                <a href="https://join.skype.com/invite/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-skype" title="Skype"><i class="fab fa-skype"></i></a>
+                <a href="https://discord.com/users/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-discord" title="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://line.me/ti/p/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-line" title="Line"><i class="fab fa-line"></i></a>
+                <a href="https://linkedin.com/in/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://tiktok.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="social-tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="social-youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/6285658515212" target="_blank" rel="noopener noreferrer" class="social-whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:alsyundawy@gmail.com" class="social-email" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://alsyundawy.com" target="_blank" rel="noopener noreferrer" class="social-website" title="Website"><i class="fa-solid fa-globe"></i></a>
+                <a href="https://www.paypal.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-paypal" title="PayPal"><i class="fab fa-paypal"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERTISE SECTION -->
+<section id="expertise" class="section" style="background:var(--bg-secondary)">
+    <div class="container">
+        <h2 class="section-title">AREA KEAHLIAN</h2>
+        <div class="row">
+            <div class="col-lg-6 mb-3"><div class="card h-100"><div class="card-icon"><i class="fas fa-server"></i></div><h3>ISP Hardware &amp; System Infrastructure</h3><p>System Engineer spesialisasi hardware infrastructure management untuk ISP operations. Expert dalam server deployment, MikroTik RouterOS, bandwidth management, dan infrastructure monitoring dengan 99.9% uptime.</p></div></div>
+            <div class="col-lg-6 mb-3"><div class="card h-100"><div class="card-icon"><i class="fas fa-network-wired"></i></div><h3>DNS Infrastructure &amp; RPZ Specialist</h3><p>Expert implementation PowerDNS, BIND9, dan Response Policy Zone (RPZ) untuk DNS filtering enterprise. Spesialisasi TrustPositif integration, DNSSEC, dan DNS performance optimization for high-traffic ISP networks.</p></div></div>
+            <div class="col-lg-6 mb-3"><div class="card h-100"><div class="card-icon"><i class="fas fa-shield-halved"></i></div><h3>DNS Filtering &amp; Security TrustPositif</h3><p>Implementasi advanced DNS filtering menggunakan TrustPositif database Kementerian Kominfo RI. Expert RPZ binary conversion, automated blacklist updates, whitelist management, dan DNS-based threat intelligence dengan accuracy rate 99.9%.</p></div></div>
+            <div class="col-lg-6 mb-3"><div class="card h-100"><div class="card-icon"><i class="fas fa-cube"></i></div><h3>Hypervisor &amp; Virtualization</h3><p>Advanced administration Proxmox VE, VMware vCenter, vSphere, ESXi, KVM, dan Hyper-V. Expert VM orchestration, resource optimization, HA clustering, backup strategies, dan migration 100+ virtual machines.</p></div></div>
+            <div class="col-lg-6 mb-3"><div class="card h-100"><div class="card-icon"><i class="fas fa-envelope-circle-check"></i></div><h3>Mail, SMTP System &amp; Hosting</h3><p>Expert deployment Zimbra Collaboration Suite, Proxmox Mail Gateway, WHM cPanel, antispam (SpamAssassin, Rspamd), mail security (DKIM, SPF, DMARC), SMTP relay, dan email infrastructure optimization.</p></div></div>
+            <div class="col-lg-6 mb-3"><div class="card h-100"><div class="card-icon"><i class="fab fa-apple"></i></div><h3>Apple Mac Installation &amp; Services</h3><p>Certified specialist instalasi, konfigurasi, maintenance, dan technical support semua produk Apple Mac. Expert macOS deployment, system optimization, hardware upgrade, troubleshooting, dan enterprise infrastructure integration.</p></div></div>
+            <div class="col-lg-6 mb-3"><div class="card h-100"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>Network Monitoring &amp; Analysis</h3><p>Professional deployment Smokeping, Uptime Kuma, Cacti, PRTG, Nagios, Zabbix, MRTG, Grafana, Prometheus, dan Netdata. Comprehensive infrastructure visibility, SLA monitoring, real-time alerting, interval hingga 20 detik.</p></div></div>
+            <div class="col-lg-6 mb-3"><div class="card h-100"><div class="card-icon"><i class="fas fa-terminal"></i></div><h3>Linux System Administration</h3><p>Deep expertise Ubuntu Server, Debian, FreeBSD, dan CentOS. Advanced Bash scripting untuk automation, system monitoring, security hardening, kernel tuning. Active contributor dengan 10,407+ GitHub contributions.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects" class="section">
+    <div class="container">
+        <h2 class="section-title">PROYEK &amp; REPOSITORY</h2>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-file-code"></i></div><h4>TrustPositif To RPZ Binary</h4><span class="project-card-stats">Original Creation</span><p>Production-grade conversion tool untuk transform TrustPositif blacklist ke PowerDNS RPZ binary format dengan WhiteList support.</p><a href="https://github.com/alsyundawy/TrustPositif-To-RPZ-Binary" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-database"></i></div><h4>TrustPositif &amp; Domain Blacklist</h4><span class="project-card-stats">Original Creation</span><p>Comprehensive raw TrustPositif database dari Kementerian Kominfo RI dengan daily automated updates.</p><a href="https://github.com/alsyundawy/TrustPositif" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-globe"></i></div><h4>Sunat Database TrustPositif Komdigi</h4><span class="project-card-stats">Original Creation</span><p>Validates domain lists against official TLDs. Downloads, cleans, and processes domain data trustpositif.</p><a href="https://github.com/alsyundawy/sunat-trustpositif" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-ban"></i></div><h4>StevenBlack Blacklist RPZ</h4><span class="project-card-stats">Original Creation</span><p>Comprehensive hosts blacklist database untuk blocking ads, malware, dan tracking domains dari stevenblack RPZ version.</p><a href="https://github.com/alsyundawy/StevenBlack-Host-RPZ" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-network-wired"></i></div><h4>MikroTik Blacklist</h4><span class="project-card-stats">Original Creation</span><p>Advanced automated blacklist management system untuk MikroTik RouterOS dengan threat intelligence integration.</p><a href="https://github.com/alsyundawy/mikrotik-blacklist" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-folder-open"></i></div><h4>PHP File &amp; Directory Browser</h4><span class="project-card-stats">Original Creation</span><p>File &amp; Directory Browser berbasis PHP dengan keamanan diperkuat: CSRF protection, output sanitasi, verifikasi hash, UI responsif.</p><a href="https://github.com/alsyundawy/File-Directory-Browser" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-search"></i></div><h4>PHP Looking Glass</h4><span class="project-card-stats">Original Creation</span><p>Professional, lightweight, single-file PHP Looking Glass tool for network diagnostics. IPv4/IPv6 support, Dark/Light mode UI.</p><a href="https://github.com/alsyundawy/php-looking-glass" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-user-shield"></i></div><h4>ACL BIND9 DNS Indonesia + OpenIXP</h4><span class="project-card-stats">Original Creation</span><p>Bash Script untuk Membuat File ACL Indonesia dengan Data IP dari Nice.rsc dan APNIC untuk BIND9 DNS server.</p><a href="https://github.com/alsyundawy/bind-acl-indonesia-openixp" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-envelope"></i></div><h4>Zimbra Clean Outgoing Spam Queue</h4><span class="project-card-stats">Original Creation</span><p>Skrip memindai log untuk mencari login berlebihan yang dikaitkan dengan akun yang disusupi dan digunakan mengirim spam.</p><a href="https://github.com/alsyundawy/Zimbra-Clean-Spam" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-trash-can"></i></div><h4>Bash Script Uninstall Zimbra</h4><span class="project-card-stats">Original Creation</span><p>Bash Script Uninstall Zimbra yang lengkap. Script untuk menghapus instalasi Zimbra dari server Linux dengan mudah.</p><a href="https://github.com/alsyundawy/uninstall-zimbra" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fab fa-apple"></i></div><h4>Microsoft Office for macOS</h4><span class="project-card-stats">Original Creation · ≈5.9k★ / ≈774 forks</span><p>Installer for Microsoft Office on macOS (Intel &amp; Apple Silicon). Includes LTSC 2024 VL serializer. GPL-3.0 licensed.</p><a href="https://github.com/alsyundawy/Microsoft-Office-For-MacOS" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-cloud-arrow-up"></i></div><h4>PowerDNS Zone Backups</h4><span class="project-card-stats">Original Creation</span><p>Automated PowerDNS zone backup solution dengan incremental backups dan disaster recovery procedures.</p><a href="https://github.com/alsyundawy/PowerDNS-Zone-Backups" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-gauge-high"></i></div><h4>DNS Performance Test</h4><span class="project-card-stats">Forked &amp; Enhanced</span><p>Comprehensive DNS benchmarking tool untuk performance analysis dan latency testing dengan detailed reporting.</p><a href="https://github.com/alsyundawy/dnsperftest" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-lock"></i></div><h4>The Best Blocklist Collection</h4><span class="project-card-stats">Maintained Fork</span><p>Comprehensive repository of block lists for Pi-hole and AdGuard, featuring over 100 links and 5+ million domains.</p><a href="https://github.com/alsyundawy/Sefinek-Blocklist-Collection" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-shield-halved"></i></div><h4>Hagezi DNS Blocklists</h4><span class="project-card-stats">Maintained Fork</span><p>Hagezi DNS-Blocklists — For a better internet, keep the internet clean! Comprehensive DNS-based filtering lists.</p><a href="https://github.com/alsyundawy/dns-blocklists" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section id="skills" class="section" style="background:var(--bg-secondary)">
+    <div class="container">
+        <h2 class="section-title">KETERAMPILAN TEKNIS</h2>
+        <div class="row"><div class="col-lg-10 mx-auto">
+            <div class="skill-item"><div style="flex:1"><h4>ISP Hardware &amp; System Infrastructure</h4><p>Server hardware management, system administration, infrastructure monitoring, MikroTik RouterOS, hardware troubleshooting, system optimization, bandwidth management, VPN (WireGuard, OpenVPN), network equipment maintenance, Ubiquiti UniFi</p></div></div>
+            <div class="skill-item"><div style="flex:1"><h4>DNS Infrastructure</h4><p>DNS filtering, DNSSEC, authoritative and recursive DNS, PowerDNS, BIND9, Response Policy Zone (RPZ), DNS security extensions, zone transfers (AXFR/IXFR), DNS load balancing, Unbound, Knot DNS</p></div></div>
+            <div class="skill-item"><div style="flex:1"><h4>DNS Filtering &amp; Security</h4><p>TrustPositif integration, RPZ binary format, blacklist and whitelist management, DNS threat intelligence, DNS cache poisoning prevention, DNS amplification attack mitigation, DNS firewall, AdGuard Home</p></div></div>
+            <div class="skill-item"><div style="flex:1"><h4>Hypervisor &amp; Virtualization</h4><p>Proxmox VE, VMware vCenter, VMware vSphere, VMware ESXi, KVM, Hyper-V, VirtualBox, QEMU, VM lifecycle management, HA clustering, live migration, resource optimization, backup and recovery, V2V migration</p></div></div>
+            <div class="skill-item"><div style="flex:1"><h4>Mail, SMTP Systems &amp; Hosting</h4><p>Zimbra Collaboration Suite, Proxmox Mail Gateway, WHM/cPanel, Postfix, Dovecot, SpamAssassin, Rspamd, Amavis, DKIM, SPF, DMARC, SMTP relay, mail queue management, Roundcube, MailScanner, ClamAV</p></div></div>
+            <div class="skill-item"><div style="flex:1"><h4>Apple macOS Services</h4><p>macOS installation and configuration, macOS Server, Time Machine backup, FileVault encryption, Apple Remote Desktop, Homebrew, Mac hardware upgrades, macOS troubleshooting, iCloud integration, Apple Silicon (M1/M2/M3) optimization</p></div></div>
+            <div class="skill-item"><div style="flex:1"><h4>Monitoring &amp; Performance</h4><p>Smokeping, Uptime Kuma, Cacti, Paessler PRTG, Nagios, Zabbix, MRTG, Grafana, Prometheus, Netdata, SLA monitoring, real-time alerting, dashboard design, log aggregation (ELK Stack), incident response</p></div></div>
+            <div class="skill-item"><div style="flex:1"><h4>Linux System Administration</h4><p>Ubuntu Server, Debian, FreeBSD, CentOS, Rocky Linux, AlmaLinux, system hardening, kernel tuning, systemd, APT/YUM/DNF, performance optimization, SELinux, AppArmor, Fail2ban, UFW firewall</p></div></div>
+            <div class="skill-item"><div style="flex:1"><h4>Scripting &amp; Automation</h4><p>Bash scripting, shell automation, Python automation, AWK, SED, Grep, cron job scheduling, Ansible playbooks, log analysis, configuration management, deployment automation, Git, CI/CD pipelines, Docker, Docker Compose</p></div></div>
+        </div></div>
+    </div>
+</section>
+
+<!-- CLIENTS SECTION -->
+<section id="clients" class="section">
+    <div class="container">
+        <h2 class="section-title">KLIEN LIST</h2>
+        <div class="row justify-content-center mb-4"><div class="col-lg-8 text-center"><p style="font-size:clamp(.92rem,1.65vw,1.02rem);color:var(--text-secondary);line-height:1.6">Perusahaan dan organisasi yang telah mempercayai layanan profesional kami</p></div></div>
+        <div class="row g-3 justify-content-center">
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/gayuh.webp" alt="PT Gayuh Niaga Indonesia" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%2770%27%3E%3Crect fill=%27%23f0f0f0%27 width=%27180%27 height=%2770%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 dy=%27.35em%27 fill=%27%23999%27 font-size=%2711%27%3EClient%3C/text%3E%3C/svg%3E';"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/aneka.png" alt="Aneka Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Aneka Network</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/sibertech.png" alt="Sibertech Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Sibertech Indonesia</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/rpa.png" alt="RPA Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>RPA Network</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/menak.png" alt="Menak Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Menak Network</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/liv-logo.webp" alt="LIV Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>LIV Indonesia</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/marsdata.png" alt="Marsdata Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Marsdata Network</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/kangen.png" alt="Kangen ISP" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Kangen ISP</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/ismaya.png" alt="Ismaya Group" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Ismaya Group</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/winartha.png" alt="Winartha Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Winartha</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/astrakom1.png" alt="Astrakom Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Astrakom</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/8bit.png" alt="8Bit Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>8Bit Network</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/citranet.png" alt="Citranet Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Citranet</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/javamedia.png" alt="Java Media Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Java Media</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/jarindo.png" alt="Jarindo Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Jarindo</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/mvnet.png" alt="MVNet Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>MVNet</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/zetta.png" alt="Zettabyte" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Zettabyte</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/ion.png" alt="ION Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>ION Network</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/hypertech.png" alt="Hypertech Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Hypertech</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/rekayasa.webp" alt="PT Rekayasa Engineering" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Rekayasa Engineering</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/pabrik.png" alt="CV PabrikOnline Global Solusindo" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>PabrikOnline</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/exatel.png" alt="PT Elemen Jaringan Nusantara" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Exatel</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/wihamedia.png" alt="Wiha Media Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Wiha Media</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/wptech.png" alt="WPTech Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>WPTech</p>'"></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- SUPPORTED BY SECTION -->
+<section id="support" class="section" style="background:var(--bg-secondary)">
+    <div class="container">
+        <h2 class="section-title">DIDUKUNG OLEH</h2>
+        <div class="row justify-content-center mb-4"><div class="col-lg-8 text-center"><p style="font-size:clamp(.92rem,1.65vw,1.02rem);color:var(--text-secondary)">Yang mendukung dan memberikan support layanan profesional kami</p></div></div>
+        <div class="row g-3 justify-content-center">
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/alsyundawy-it.png" alt="Alsyundawy IT Solution" loading="lazy"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/orion.webp" alt="Orion Cyber Internet" loading="lazy"></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="section-title">MARI TERHUBUNG, BEKERJA SAMA &amp; BERKOLABORASI</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="card">
+                    <h3 class="mb-3" style="font-size:clamp(1.3rem,2.3vw,1.65rem)">Tertarik Berkolaborasi?</h3>
+                    <p class="mb-4" style="font-size:clamp(.92rem,1.65vw,1.02rem);line-height:1.65;color:var(--text-secondary)">Saya terbuka untuk kerja sama dan diskusi teknis di bidang <strong>System Administration, DNS Infrastructure, Mail Systems, dan Apple Mac Services</strong>, termasuk <strong>system &amp; network operations, hypervisor management, ISP hardware, TrustPositif implementation, MikroTik configuration</strong>, serta kolaborasi proyek <strong>open source</strong>. Mari diskusikan kebutuhan Anda dan implementasi solusi yang sesuai dengan kebutuhan operasional untuk mendukung bisnis maupun proyek jangka panjang Anda.</p>
+                    <div class="d-flex justify-content-center gap-2 flex-wrap">
+                        <a href="https://wa.me/6285658515212" target="_blank" rel="noopener noreferrer" class="btn-custom"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="https://t.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="btn-custom"><i class="fab fa-telegram"></i> Telegram</a>
+                        <a href="mailto:alsyundawy@gmail.com" class="btn-custom"><i class="fas fa-envelope"></i> Email</a>
+                        <a href="https://github.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="btn-custom"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://www.paypal.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="btn-custom"><i class="fab fa-paypal"></i> Dukung</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-copy">
+                PERSONAL PROFESSIONAL PORTFOLIO BY HARRY DERTIN SUTISNA ALSYUNDAWY<br>
+                COPYLEFT 2026 ALSYUNDAWY IT SOLUTION
+            </div>
+            <div class="d-flex justify-content-center flex-wrap mt-3">
+                <a href="https://github.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-github" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://facebook.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-facebook" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-x" title="X/Twitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://instagram.com/harry.ds.alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://threads.net/@harry.ds.alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-threads" title="Threads"><i class="fab fa-threads"></i></a>
+                <a href="https://t.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
+                <a href="https://join.skype.com/invite/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-skype" title="Skype"><i class="fab fa-skype"></i></a>
+                <a href="https://discord.com/users/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-discord" title="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://line.me/ti/p/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-line" title="Line"><i class="fab fa-line"></i></a>
+                <a href="https://linkedin.com/in/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://tiktok.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/6285658515212" target="_blank" rel="noopener noreferrer" class="footer-social-link social-whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:alsyundawy@gmail.com" target="_blank" rel="noopener noreferrer" class="footer-social-link social-email" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://alsyundawy.com" target="_blank" rel="noopener noreferrer" class="footer-social-link social-website" title="Website"><i class="fa-solid fa-globe"></i></a>
+                <a href="https://www.paypal.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-paypal" title="PayPal"><i class="fab fa-paypal"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+<!-- Main JS -->
+<script>
+!function(){"use strict";const e=document.documentElement,t=document.getElementById("themeToggle"),n=document.getElementById("themeIcon"),o=document.getElementById("backToTop"),s=document.querySelector(".navbar");let a=localStorage.getItem("theme")||"light";function r(){e.setAttribute("data-bs-theme",a),n.className="light"===a?"fas fa-moon":"fas fa-sun",localStorage.setItem("theme",a)}function c(){const e=window.scrollY;e>80?(s.classList.add("scrolled"),o.classList.add("show")):(s.classList.remove("scrolled"),o.classList.remove("show"))}r(),t.addEventListener("click",()=>{a="light"===a?"dark":"light",r()}),t.addEventListener("keypress",e=>{("Enter"===e.key||" "===e.key)&&(e.preventDefault(),a="light"===a?"dark":"light",r())}),window.addEventListener("scroll",c,{passive:!0}),o.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();const t=document.querySelector(this.getAttribute("href"));if(t){const e=t.offsetTop-70;window.scrollTo({top:e,behavior:"smooth"});const n=document.querySelector(".navbar-collapse");n&&n.classList.contains("show")&&bootstrap.Collapse.getInstance(n)?.hide()}})});const i=document.querySelectorAll(".nav-link:not(.dropdown-toggle)"),d=()=>{const e=window.scrollY+90;document.querySelectorAll("section[id]").forEach(t=>{const n=t.offsetTop,o=t.offsetHeight,s=t.getAttribute("id");e>=n&&e<n+o?i.forEach(e=>{e.classList.remove("active"),e.getAttribute("href")===`#${s}`&&e.classList.add("active")}):e<n&&i.forEach(e=>{e.getAttribute("href")===`#${s}`&&e.classList.remove("active")})})};window.addEventListener("scroll",d,{passive:!0}),d();const l=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.style.opacity="1",e.target.style.transform="translateY(0)")})},{threshold:.08,rootMargin:"0px 0px -50px 0px"});document.querySelectorAll(".card,.project-card,.skill-item,.client-card").forEach(e=>{e.style.opacity="0",e.style.transform="translateY(35px)",e.style.transition="opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1), transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)",l.observe(e)})}();
+</script>
+
+</body>
+</html>
