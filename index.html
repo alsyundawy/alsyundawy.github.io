@@ -9,7 +9,23 @@
     <meta name="keywords" content="alsyundawy, Harry Dertin Sutisna, System Administrator, DNS Specialist, PowerDNS, BIND9, RPZ, TrustPositif, MikroTik, ISP Infrastructure, Proxmox VE, VMware, ESXi, Zimbra, Jakarta">
     <meta name="author" content="Harry Dertin Sutisna Alsyundawy">
     <meta name="robots" content="index, follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="theme-color" content="#3b82f6">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; upgrade-insecure-requests">
     <link rel="canonical" href="https://alsyundawy.github.io">
+    <!--
+    DOCNOTE:
+    - Single-file static portfolio. Struktur utama, konten, section, link repository, dan desain visual dipertahankan.
+    - CDN Bootstrap dipin ke versi 5.3.8 dan diberi Subresource Integrity (SRI) sesuai dokumentasi resmi Bootstrap.
+    - Inline image error handler dipindahkan ke JavaScript berbasis data-* agar markup lebih aman dan mudah dirawat.
+    - CSP meta dibuat konservatif untuk static hosting; untuk produksi, tetap lebih baik pasang header HTTP server/CDN.
+
+    CHANGELOG:
+    - 2026-05-28: Hardened CDN loading Bootstrap dengan integrity hash dan crossorigin.
+    - 2026-05-28: Mengganti theme toggle dari div role=button menjadi button semantik dengan aria-pressed.
+    - 2026-05-28: Menghapus inline onerror pada gambar dan menggantinya dengan data-fallback-src / data-fallback-text.
+    - 2026-05-28: Menambah fallback JS defensif, prefers-reduced-motion, focus-visible, preload hero asset, dan validasi theme localStorage.
+    -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alsyundawy.github.io">
     <meta property="og:title" content="ALSYUNDAWY IT SOLUTION - Professional Portfolio">
@@ -20,8 +36,10 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Person","name":"Harry Dertin Sutisna","alternateName":"ALSYUNDAWY","url":"https://alsyundawy.com","jobTitle":"System Administrator · DNS & ISP Infrastructure Specialist","email":"alsyundawy@gmail.com","telephone":"+6285658515212","address":{"@type":"PostalAddress","addressLocality":"Tebet","addressRegion":"Jakarta Selatan","addressCountry":"ID"},"sameAs":["https://github.com/alsyundawy","https://x.com/Alsyundawy","https://www.instagram.com/harry.ds.alsyundawy/","https://www.facebook.com/alsyundawy","https://t.me/alsyundawy","https://www.linkedin.com/in/alsyundawy"]}
     </script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+    <link rel="preload" href="alsyundawy-hero.webp" as="image" type="image/webp" fetchpriority="high">
+    <link rel="preload" href="portofolio.webp" as="image" type="image/webp" fetchpriority="high">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -139,6 +157,10 @@
     .footer-social-link.social-email{background:linear-gradient(135deg,#ea4335,#c5221f)}
     .footer-social-link.social-website{background:linear-gradient(135deg,#004499,#0066cc)}
     .footer-social-link.social-paypal{background:linear-gradient(135deg,#003087,#009cde)}
+
+    .theme-toggle:focus-visible,.back-to-top:focus-visible,.btn-custom:focus-visible,.nav-link:focus-visible,.dropdown-item:focus-visible,.social-links a:focus-visible,.footer-social-link:focus-visible{outline:3px solid var(--highlight);outline-offset:3px}
+    .client-fallback-text{color:var(--text-muted);font-size:.8rem;margin:0;text-align:center}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
     @media(max-width:768px){
         #hero{min-height:70vh;padding:2rem 0 1.5rem}
         .hero-tagline{white-space:normal;font-size:.95rem}
@@ -159,7 +181,7 @@
 <nav class="navbar navbar-expand-lg" role="navigation">
     <div class="container">
         <a class="navbar-brand" href="#hero">
-            <img src="xmg/alsyundawy-it.png" alt="Alsyundawy IT Solution Logo" class="navbar-logo" onerror="this.style.display='none'">
+            <img src="xmg/alsyundawy-it.png" alt="Alsyundawy IT Solution Logo" class="navbar-logo" loading="eager" decoding="async" fetchpriority="high" data-fallback-action="hide">
             <span>HARRY DERTIN SUTISNA ALSYUNDAWY</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -189,9 +211,9 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
                 <li class="nav-item">
-                    <div class="theme-toggle" id="themeToggle" role="button" tabindex="0" aria-label="Toggle theme">
-                        <i class="fas fa-moon" id="themeIcon"></i>
-                    </div>
+                    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
+                        <i class="fas fa-moon" id="themeIcon" aria-hidden="true"></i>
+                    </button>
                 </li>
             </ul>
         </div>
@@ -202,30 +224,30 @@
 <section id="hero" class="hero-section">
     <div class="container">
         <div class="hero-content">
-            <img src="portofolio.webp" alt="ALSYUNDAWY IT SOLUTION" class="profile-pic" loading="eager"
-                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27140%27 height=%27140%27%3E%3Ccircle fill=%27%233b82f6%27 cx=%2770%27 cy=%2770%27 r=%2770%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 dy=%27.35em%27 fill=%27%23fff%27 font-size=%2756%27%3EA%3C/text%3E%3C/svg%3E';">
+            <img src="portofolio.webp" alt="ALSYUNDAWY IT SOLUTION" class="profile-pic" loading="eager" decoding="async" fetchpriority="high" width="140" height="140"
+                data-fallback-src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27140%27 height=%27140%27%3E%3Ccircle fill=%27%233b82f6%27 cx=%2770%27 cy=%2770%27 r=%2770%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 dy=%27.35em%27 fill=%27%23fff%27 font-size=%2756%27%3EA%3C/text%3E%3C/svg%3E">
             <div class="hero-tagline">HARRY DERTIN SUTISNA ALSYUNDAWY — PORTO FOLIO</div>
             <h1>ALSYUNDAWY IT SOLUTION</h1>
             <p class="hero-title">SYSTEM ADMINISTRATOR MAGANG, HYPERVISOR, MAIL &amp; DNS INFRASTRUCTURE SPECIALIST</p>
             <p class="hero-status">OPISBOY | TEKNISI MAC &amp; SERVER KELILING | SYSTEM ENGINEER | MAIL, DNS &amp; ISP INFRASTRUCTURE SPECIALIST</p>
             <p class="hero-title">ɪɴᴛᴇʀɴᴇᴛ ᴀᴅᴅɪᴄᴛ, ᴡɪɴᴅᴏᴡ, ᴍᴀᴄ &amp; ʟɪɴᴜx ʟᴏᴠᴇʀ, ɪ ᴀᴍ ɴᴏᴛ ɢᴏᴏᴅ ᴍᴀɴ ʙᴜᴛ ᴛʜᴇ ᴍᴀɴ ɪɴ ɢᴏᴏᴅ ᴅᴀʏ &amp; ɪ ᴀᴍ ᴏᴘɪsʙᴏʏ</p>
             <div class="social-links">
-                <a href="https://github.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-github" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://facebook.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-facebook" title="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://x.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-x" title="X/Twitter"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://instagram.com/harry.ds.alsyundawy" target="_blank" rel="noopener noreferrer" class="social-instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://threads.net/@harry.ds.alsyundawy" target="_blank" rel="noopener noreferrer" class="social-threads" title="Threads"><i class="fa-brands fa-threads"></i></a>
-                <a href="https://t.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
-                <a href="https://join.skype.com/invite/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-skype" title="Skype"><i class="fab fa-skype"></i></a>
-                <a href="https://discord.com/users/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-discord" title="Discord"><i class="fab fa-discord"></i></a>
-                <a href="https://line.me/ti/p/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-line" title="Line"><i class="fab fa-line"></i></a>
-                <a href="https://linkedin.com/in/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://tiktok.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="social-tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://youtube.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="social-youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="https://wa.me/6285658515212" target="_blank" rel="noopener noreferrer" class="social-whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:alsyundawy@gmail.com" class="social-email" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://alsyundawy.com" target="_blank" rel="noopener noreferrer" class="social-website" title="Website"><i class="fa-solid fa-globe"></i></a>
-                <a href="https://www.paypal.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-paypal" title="PayPal"><i class="fab fa-paypal"></i></a>
+                <a href="https://github.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-github" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://facebook.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-facebook" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-x" aria-label="X/Twitter" title="X/Twitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://instagram.com/harry.ds.alsyundawy" target="_blank" rel="noopener noreferrer" class="social-instagram" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://threads.net/@harry.ds.alsyundawy" target="_blank" rel="noopener noreferrer" class="social-threads" aria-label="Threads" title="Threads"><i class="fa-brands fa-threads"></i></a>
+                <a href="https://t.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-telegram" aria-label="Telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
+                <a href="https://join.skype.com/invite/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-skype" aria-label="Skype" title="Skype"><i class="fab fa-skype"></i></a>
+                <a href="https://discord.com/users/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-discord" aria-label="Discord" title="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://line.me/ti/p/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-line" aria-label="Line" title="Line"><i class="fab fa-line"></i></a>
+                <a href="https://linkedin.com/in/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-linkedin" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://tiktok.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="social-tiktok" aria-label="TikTok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="social-youtube" aria-label="YouTube" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/6285658515212" target="_blank" rel="noopener noreferrer" class="social-whatsapp" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:alsyundawy@gmail.com" class="social-email" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://alsyundawy.com" target="_blank" rel="noopener noreferrer" class="social-website" aria-label="Website" title="Website"><i class="fa-solid fa-globe"></i></a>
+                <a href="https://www.paypal.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="social-paypal" aria-label="PayPal" title="PayPal"><i class="fab fa-paypal"></i></a>
             </div>
         </div>
     </div>
@@ -296,30 +318,30 @@
         <h2 class="section-title">KLIEN LIST</h2>
         <div class="row justify-content-center mb-4"><div class="col-lg-8 text-center"><p style="font-size:clamp(.92rem,1.65vw,1.02rem);color:var(--text-secondary);line-height:1.6">Perusahaan dan organisasi yang telah mempercayai layanan profesional kami</p></div></div>
         <div class="row g-3 justify-content-center">
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/gayuh.webp" alt="PT Gayuh Niaga Indonesia" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%2770%27%3E%3Crect fill=%27%23f0f0f0%27 width=%27180%27 height=%2770%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 dy=%27.35em%27 fill=%27%23999%27 font-size=%2711%27%3EClient%3C/text%3E%3C/svg%3E';"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/aneka.png" alt="Aneka Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Aneka Network</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/sibertech.png" alt="Sibertech Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Sibertech Indonesia</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/rpa.png" alt="RPA Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>RPA Network</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/menak.png" alt="Menak Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Menak Network</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/liv-logo.webp" alt="LIV Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>LIV Indonesia</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/marsdata.png" alt="Marsdata Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Marsdata Network</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/kangen.png" alt="Kangen ISP" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Kangen ISP</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/ismaya.png" alt="Ismaya Group" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Ismaya Group</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/winartha.png" alt="Winartha Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Winartha</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/astrakom1.png" alt="Astrakom Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Astrakom</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/8bit.png" alt="8Bit Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>8Bit Network</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/citranet.png" alt="Citranet Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Citranet</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/javamedia.png" alt="Java Media Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Java Media</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/jarindo.png" alt="Jarindo Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Jarindo</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/mvnet.png" alt="MVNet Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>MVNet</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/zetta.png" alt="Zettabyte" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Zettabyte</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/ion.png" alt="ION Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>ION Network</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/hypertech.png" alt="Hypertech Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Hypertech</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/rekayasa.webp" alt="PT Rekayasa Engineering" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Rekayasa Engineering</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/pabrik.png" alt="CV PabrikOnline Global Solusindo" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>PabrikOnline</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/exatel.png" alt="PT Elemen Jaringan Nusantara" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Exatel</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/wihamedia.png" alt="Wiha Media Network" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>Wiha Media</p>'"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/wptech.png" alt="WPTech Indonesia" loading="lazy" onerror="this.parentElement.innerHTML='<p style=color:var(--text-muted);font-size:.8rem>WPTech</p>'"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/gayuh.webp" alt="PT Gayuh Niaga Indonesia" loading="lazy" decoding="async" data-fallback-src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%2770%27%3E%3Crect fill=%27%23f0f0f0%27 width=%27180%27 height=%2770%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 dy=%27.35em%27 fill=%27%23999%27 font-size=%2711%27%3EClient%3C/text%3E%3C/svg%3E"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/aneka.png" alt="Aneka Network" loading="lazy" decoding="async" data-fallback-text="Aneka Network"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/sibertech.png" alt="Sibertech Indonesia" loading="lazy" decoding="async" data-fallback-text="Sibertech Indonesia"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/rpa.png" alt="RPA Network" loading="lazy" decoding="async" data-fallback-text="RPA Network"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/menak.png" alt="Menak Network" loading="lazy" decoding="async" data-fallback-text="Menak Network"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/liv-logo.webp" alt="LIV Indonesia" loading="lazy" decoding="async" data-fallback-text="LIV Indonesia"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/marsdata.png" alt="Marsdata Network" loading="lazy" decoding="async" data-fallback-text="Marsdata Network"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/kangen.png" alt="Kangen ISP" loading="lazy" decoding="async" data-fallback-text="Kangen ISP"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/ismaya.png" alt="Ismaya Group" loading="lazy" decoding="async" data-fallback-text="Ismaya Group"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/winartha.png" alt="Winartha Network" loading="lazy" decoding="async" data-fallback-text="Winartha"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/astrakom1.png" alt="Astrakom Indonesia" loading="lazy" decoding="async" data-fallback-text="Astrakom"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/8bit.png" alt="8Bit Network" loading="lazy" decoding="async" data-fallback-text="8Bit Network"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/citranet.png" alt="Citranet Indonesia" loading="lazy" decoding="async" data-fallback-text="Citranet"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/javamedia.png" alt="Java Media Network" loading="lazy" decoding="async" data-fallback-text="Java Media"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/jarindo.png" alt="Jarindo Network" loading="lazy" decoding="async" data-fallback-text="Jarindo"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/mvnet.png" alt="MVNet Indonesia" loading="lazy" decoding="async" data-fallback-text="MVNet"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/zetta.png" alt="Zettabyte" loading="lazy" decoding="async" data-fallback-text="Zettabyte"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/ion.png" alt="ION Network" loading="lazy" decoding="async" data-fallback-text="ION Network"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/hypertech.png" alt="Hypertech Indonesia" loading="lazy" decoding="async" data-fallback-text="Hypertech"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/rekayasa.webp" alt="PT Rekayasa Engineering" loading="lazy" decoding="async" data-fallback-text="Rekayasa Engineering"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/pabrik.png" alt="CV PabrikOnline Global Solusindo" loading="lazy" decoding="async" data-fallback-text="PabrikOnline"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/exatel.png" alt="PT Elemen Jaringan Nusantara" loading="lazy" decoding="async" data-fallback-text="Exatel"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/wihamedia.png" alt="Wiha Media Network" loading="lazy" decoding="async" data-fallback-text="Wiha Media"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/wptech.png" alt="WPTech Indonesia" loading="lazy" decoding="async" data-fallback-text="WPTech"></div></div>
         </div>
     </div>
 </section>
@@ -330,8 +352,8 @@
         <h2 class="section-title">DIDUKUNG OLEH</h2>
         <div class="row justify-content-center mb-4"><div class="col-lg-8 text-center"><p style="font-size:clamp(.92rem,1.65vw,1.02rem);color:var(--text-secondary)">Yang mendukung dan memberikan support layanan profesional kami</p></div></div>
         <div class="row g-3 justify-content-center">
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/alsyundawy-it.png" alt="Alsyundawy IT Solution" loading="lazy"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/orion.webp" alt="Orion Cyber Internet" loading="lazy"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/alsyundawy-it.png" alt="Alsyundawy IT Solution" loading="lazy" decoding="async"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/orion.webp" alt="Orion Cyber Internet" loading="lazy" decoding="async"></div></div>
         </div>
     </div>
 </section>
@@ -367,22 +389,22 @@
                 COPYLEFT 2026 ALSYUNDAWY IT SOLUTION
             </div>
             <div class="d-flex justify-content-center flex-wrap mt-3">
-                <a href="https://github.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-github" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://facebook.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-facebook" title="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://x.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-x" title="X/Twitter"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://instagram.com/harry.ds.alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://threads.net/@harry.ds.alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-threads" title="Threads"><i class="fab fa-threads"></i></a>
-                <a href="https://t.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
-                <a href="https://join.skype.com/invite/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-skype" title="Skype"><i class="fab fa-skype"></i></a>
-                <a href="https://discord.com/users/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-discord" title="Discord"><i class="fab fa-discord"></i></a>
-                <a href="https://line.me/ti/p/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-line" title="Line"><i class="fab fa-line"></i></a>
-                <a href="https://linkedin.com/in/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://tiktok.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://youtube.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="https://wa.me/6285658515212" target="_blank" rel="noopener noreferrer" class="footer-social-link social-whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:alsyundawy@gmail.com" target="_blank" rel="noopener noreferrer" class="footer-social-link social-email" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://alsyundawy.com" target="_blank" rel="noopener noreferrer" class="footer-social-link social-website" title="Website"><i class="fa-solid fa-globe"></i></a>
-                <a href="https://www.paypal.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-paypal" title="PayPal"><i class="fab fa-paypal"></i></a>
+                <a href="https://github.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-github" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://facebook.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-facebook" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-x" aria-label="X/Twitter" title="X/Twitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://instagram.com/harry.ds.alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-instagram" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://threads.net/@harry.ds.alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-threads" aria-label="Threads" title="Threads"><i class="fab fa-threads"></i></a>
+                <a href="https://t.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-telegram" aria-label="Telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
+                <a href="https://join.skype.com/invite/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-skype" aria-label="Skype" title="Skype"><i class="fab fa-skype"></i></a>
+                <a href="https://discord.com/users/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-discord" aria-label="Discord" title="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://line.me/ti/p/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-line" aria-label="Line" title="Line"><i class="fab fa-line"></i></a>
+                <a href="https://linkedin.com/in/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-linkedin" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://tiktok.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-tiktok" aria-label="TikTok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-youtube" aria-label="YouTube" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/6285658515212" target="_blank" rel="noopener noreferrer" class="footer-social-link social-whatsapp" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:alsyundawy@gmail.com" target="_blank" rel="noopener noreferrer" class="footer-social-link social-email" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://alsyundawy.com" target="_blank" rel="noopener noreferrer" class="footer-social-link social-website" aria-label="Website" title="Website"><i class="fa-solid fa-globe"></i></a>
+                <a href="https://www.paypal.me/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-paypal" aria-label="PayPal" title="PayPal"><i class="fab fa-paypal"></i></a>
             </div>
         </div>
     </div>
@@ -394,11 +416,196 @@
 </button>
 
 <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
 
 <!-- Main JS -->
 <script>
-!function(){"use strict";const e=document.documentElement,t=document.getElementById("themeToggle"),n=document.getElementById("themeIcon"),o=document.getElementById("backToTop"),s=document.querySelector(".navbar");let a=localStorage.getItem("theme")||"light";function r(){e.setAttribute("data-bs-theme",a),n.className="light"===a?"fas fa-moon":"fas fa-sun",localStorage.setItem("theme",a)}function c(){const e=window.scrollY;e>80?(s.classList.add("scrolled"),o.classList.add("show")):(s.classList.remove("scrolled"),o.classList.remove("show"))}r(),t.addEventListener("click",()=>{a="light"===a?"dark":"light",r()}),t.addEventListener("keypress",e=>{("Enter"===e.key||" "===e.key)&&(e.preventDefault(),a="light"===a?"dark":"light",r())}),window.addEventListener("scroll",c,{passive:!0}),o.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();const t=document.querySelector(this.getAttribute("href"));if(t){const e=t.offsetTop-70;window.scrollTo({top:e,behavior:"smooth"});const n=document.querySelector(".navbar-collapse");n&&n.classList.contains("show")&&bootstrap.Collapse.getInstance(n)?.hide()}})});const i=document.querySelectorAll(".nav-link:not(.dropdown-toggle)"),d=()=>{const e=window.scrollY+90;document.querySelectorAll("section[id]").forEach(t=>{const n=t.offsetTop,o=t.offsetHeight,s=t.getAttribute("id");e>=n&&e<n+o?i.forEach(e=>{e.classList.remove("active"),e.getAttribute("href")===`#${s}`&&e.classList.add("active")}):e<n&&i.forEach(e=>{e.getAttribute("href")===`#${s}`&&e.classList.remove("active")})})};window.addEventListener("scroll",d,{passive:!0}),d();const l=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.style.opacity="1",e.target.style.transform="translateY(0)")})},{threshold:.08,rootMargin:"0px 0px -50px 0px"});document.querySelectorAll(".card,.project-card,.skill-item,.client-card").forEach(e=>{e.style.opacity="0",e.style.transform="translateY(35px)",e.style.transition="opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1), transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)",l.observe(e)})}();
+(() => {
+    "use strict";
+
+    const root = document.documentElement;
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+    const backToTop = document.getElementById("backToTop");
+    const navbar = document.querySelector(".navbar");
+    const navLinks = document.querySelectorAll(".nav-link:not(.dropdown-toggle)");
+    const animatedItems = document.querySelectorAll(".card,.project-card,.skill-item,.client-card");
+
+    const normalizeTheme = (value) => (value === "dark" ? "dark" : "light");
+
+    const readStoredTheme = () => {
+        try {
+            return normalizeTheme(window.localStorage.getItem("theme"));
+        } catch (_error) {
+            return "light";
+        }
+    };
+
+    const writeStoredTheme = (theme) => {
+        try {
+            window.localStorage.setItem("theme", theme);
+        } catch (_error) {
+            /* Storage may be disabled by privacy mode; UI still works for current session. */
+        }
+    };
+
+    let currentTheme = readStoredTheme();
+
+    const applyTheme = (theme, persist = true) => {
+        currentTheme = normalizeTheme(theme);
+        root.setAttribute("data-bs-theme", currentTheme);
+
+        if (themeIcon) {
+            themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
+        }
+
+        if (themeToggle) {
+            themeToggle.setAttribute("aria-pressed", String(currentTheme === "dark"));
+            themeToggle.setAttribute("aria-label", currentTheme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+        }
+
+        if (persist) {
+            writeStoredTheme(currentTheme);
+        }
+    };
+
+    const handleScrollState = () => {
+        const scrolled = window.scrollY > 80;
+        if (navbar) navbar.classList.toggle("scrolled", scrolled);
+        if (backToTop) backToTop.classList.toggle("show", scrolled);
+    };
+
+    const closeMobileNavbar = () => {
+        const menu = document.querySelector(".navbar-collapse.show");
+        if (!menu || !window.bootstrap?.Collapse) return;
+
+        const instance = window.bootstrap.Collapse.getInstance(menu) || new window.bootstrap.Collapse(menu, { toggle: false });
+        instance.hide();
+    };
+
+    const scrollToSection = (target) => {
+        const top = Math.max(target.getBoundingClientRect().top + window.pageYOffset - 70, 0);
+        window.scrollTo({ top, behavior: "smooth" });
+    };
+
+    const updateActiveNav = () => {
+        const currentPosition = window.scrollY + 90;
+
+        document.querySelectorAll("section[id]").forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            const sectionId = section.getAttribute("id");
+            const isActive = currentPosition >= sectionTop && currentPosition < sectionBottom;
+
+            if (isActive) {
+                navLinks.forEach((link) => {
+                    link.classList.toggle("active", link.getAttribute("href") === `#${sectionId}`);
+                });
+            }
+        });
+    };
+
+    const setupImageFallbacks = () => {
+        const fallbackImages = document.querySelectorAll("img[data-fallback-action],img[data-fallback-src],img[data-fallback-text]");
+
+        fallbackImages.forEach((img) => {
+            const applyFallback = () => {
+                if (img.dataset.fallbackHandled === "1") return;
+                img.dataset.fallbackHandled = "1";
+
+                if (img.dataset.fallbackAction === "hide") {
+                    img.hidden = true;
+                    return;
+                }
+
+                if (img.dataset.fallbackSrc) {
+                    img.src = img.dataset.fallbackSrc;
+                    return;
+                }
+
+                if (img.dataset.fallbackText) {
+                    const textNode = document.createElement("p");
+                    textNode.className = "client-fallback-text";
+                    textNode.textContent = img.dataset.fallbackText;
+                    img.replaceWith(textNode);
+                }
+            };
+
+            img.addEventListener("error", applyFallback, { once: true });
+
+            if (img.complete && img.naturalWidth === 0) {
+                applyFallback();
+            }
+        });
+    };
+
+    const setupRevealAnimation = () => {
+        if (!("IntersectionObserver" in window)) {
+            animatedItems.forEach((item) => {
+                item.style.opacity = "1";
+                item.style.transform = "translateY(0)";
+            });
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, instance) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                instance.unobserve(entry.target);
+            });
+        }, {
+            threshold: 0.08,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        animatedItems.forEach((item) => {
+            item.style.opacity = "0";
+            item.style.transform = "translateY(35px)";
+            item.style.transition = "opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1), transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)";
+            observer.observe(item);
+        });
+    };
+
+    applyTheme(currentTheme, false);
+    setupImageFallbacks();
+    setupRevealAnimation();
+    handleScrollState();
+    updateActiveNav();
+
+    if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+            applyTheme(currentTheme === "light" ? "dark" : "light");
+        });
+    }
+
+    if (backToTop) {
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const selector = link.getAttribute("href");
+            if (!selector || selector === "#") return;
+
+            const target = document.querySelector(selector);
+            if (!target) return;
+
+            event.preventDefault();
+            scrollToSection(target);
+            closeMobileNavbar();
+        });
+    });
+
+    window.addEventListener("scroll", () => {
+        handleScrollState();
+        updateActiveNav();
+    }, { passive: true });
+})();
 </script>
 
 </body>
