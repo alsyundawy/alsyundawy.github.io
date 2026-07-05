@@ -12,15 +12,35 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="theme-color" content="#3b82f6">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; upgrade-insecure-requests">
+    <script>
+        (() => {
+            try {
+                const stored = window.localStorage.getItem("theme");
+                const theme = stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+                document.documentElement.setAttribute("data-bs-theme", theme);
+            } catch (_) {}
+        })();
+    </script>
     <link rel="canonical" href="https://alsyundawy.github.io">
     <!--
     DOCNOTE:
     - Single-file static portfolio. Struktur utama, konten, section, link repository, dan desain visual dipertahankan.
     - CDN Bootstrap dipin ke versi 5.3.8 dan diberi Subresource Integrity (SRI) sesuai dokumentasi resmi Bootstrap.
+    - Menambahkan Subresource Integrity (SRI) pada Font Awesome 6.7.2 CDN untuk meningkatkan keamanan.
+    - Mencegah Flash of Light Theme dengan inline script awal di head untuk menginisialisasi tema sebelum body dimuat.
+    - Mengintegrasikan deteksi preferensi skema warna sistem perangkat (prefers-color-scheme) sebagai default.
     - Inline image error handler dipindahkan ke JavaScript berbasis data-* agar markup lebih aman dan mudah dirawat.
+    - Mengoptimalkan Cumulative Layout Shift (CLS) dengan menambahkan dimensi eksplisit pada gambar logo & klien.
+    - Mengoptimalkan performa event listener scroll dengan requestAnimationFrame dan caching query selector sections.
     - CSP meta dibuat konservatif untuk static hosting; untuk produksi, tetap lebih baik pasang header HTTP server/CDN.
 
     CHANGELOG:
+    - 2026-07-05: Mengoptimalkan scroll performance menggunakan requestAnimationFrame dan caching DOM queries untuk section.
+    - 2026-07-05: Mencegah 'Flash of Light Theme' menggunakan skrip inisialisasi di head dan dynamic logo swapping inline.
+    - 2026-07-05: Menambahkan dukungan dynamic theme-color meta tag untuk sinkronisasi warna bar status peramban mobile.
+    - 2026-07-05: Menambahkan visual/aspect-ratio hardening pada gambar logo & daftar klien untuk meminimalisasi CLS.
+    - 2026-07-05: Memasang Subresource Integrity (SRI) hash untuk stylesheet Font Awesome v6.7.2.
+    - 2026-07-05: Mengganti penggunaan window.pageYOffset yang deprecated dengan window.scrollY.
     - 2026-05-28: Hardened CDN loading Bootstrap dengan integrity hash dan crossorigin.
     - 2026-05-28: Mengganti theme toggle dari div role=button menjadi button semantik dengan aria-pressed.
     - 2026-05-28: Menghapus inline onerror pada gambar dan menggantinya dengan data-fallback-src / data-fallback-text.
@@ -39,7 +59,7 @@
     <link rel="preload" href="alsyundawy-hero.webp" as="image" type="image/webp" fetchpriority="high">
     <link rel="preload" href="portofolio.webp" as="image" type="image/webp" fetchpriority="high">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -181,7 +201,16 @@
 <nav class="navbar navbar-expand-lg" role="navigation">
     <div class="container">
         <a class="navbar-brand" href="#hero">
-            <img src="xmg/alsyundawy-it.png" alt="Alsyundawy IT Solution Logo" class="navbar-logo" loading="eager" decoding="async" fetchpriority="high" data-fallback-action="hide">
+            <img id="navbarLogo" src="xmg/alsyundawy-it.png" alt="Alsyundawy IT Solution Logo" class="navbar-logo" width="74" height="46" loading="eager" decoding="async" fetchpriority="high" data-fallback-action="hide">
+            <script>
+                try {
+                    const stored = localStorage.getItem("theme");
+                    const theme = stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+                    if (theme === "dark") {
+                        document.getElementById("navbarLogo").src = "xmg/alsyundawy-it-dark.webp";
+                    }
+                } catch (_) {}
+            </script>
             <span>HARRY DERTIN SUTISNA ALSYUNDAWY</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -318,33 +347,33 @@
         <h2 class="section-title">KLIEN LIST</h2>
         <div class="row justify-content-center mb-4"><div class="col-lg-8 text-center"><p style="font-size:clamp(.92rem,1.65vw,1.02rem);color:var(--text-secondary);line-height:1.6">Perusahaan dan organisasi yang telah mempercayai layanan profesional kami</p></div></div>
         <div class="row g-3 justify-content-center">
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/gayuh.webp" alt="PT Gayuh Niaga Indonesia" loading="lazy" decoding="async" data-fallback-src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%2770%27%3E%3Crect fill=%27%23f0f0f0%27 width=%27180%27 height=%2770%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 dy=%27.35em%27 fill=%27%23999%27 font-size=%2711%27%3EClient%3C/text%3E%3C/svg%3E"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/aneka.png" alt="Aneka Network" loading="lazy" decoding="async" data-fallback-text="Aneka Network"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/sibertech.png" alt="Sibertech Indonesia" loading="lazy" decoding="async" data-fallback-text="Sibertech Indonesia"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/rpa.png" alt="RPA Network" loading="lazy" decoding="async" data-fallback-text="RPA Network"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/menak.png" alt="Menak Network" loading="lazy" decoding="async" data-fallback-text="Menak Network"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/liv-logo.webp" alt="LIV Indonesia" loading="lazy" decoding="async" data-fallback-text="LIV Indonesia"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/marsdata.png" alt="Marsdata Network" loading="lazy" decoding="async" data-fallback-text="Marsdata Network"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/kangen.png" alt="Kangen ISP" loading="lazy" decoding="async" data-fallback-text="Kangen ISP"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/ismaya.png" alt="Ismaya Group" loading="lazy" decoding="async" data-fallback-text="Ismaya Group"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/winartha.png" alt="Winartha Network" loading="lazy" decoding="async" data-fallback-text="Winartha"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/astrakom1.png" alt="Astrakom Indonesia" loading="lazy" decoding="async" data-fallback-text="Astrakom"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/8bit.png" alt="8Bit Network" loading="lazy" decoding="async" data-fallback-text="8Bit Network"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/citranet.png" alt="Citranet Indonesia" loading="lazy" decoding="async" data-fallback-text="Citranet"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/javamedia.png" alt="Java Media Network" loading="lazy" decoding="async" data-fallback-text="Java Media"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/jarindo.png" alt="Jarindo Network" loading="lazy" decoding="async" data-fallback-text="Jarindo"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/mvnet.png" alt="MVNet Indonesia" loading="lazy" decoding="async" data-fallback-text="MVNet"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/zetta.png" alt="Zettabyte" loading="lazy" decoding="async" data-fallback-text="Zettabyte"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/ion.png" alt="ION Network" loading="lazy" decoding="async" data-fallback-text="ION Network"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/hypertech.png" alt="Hypertech Indonesia" loading="lazy" decoding="async" data-fallback-text="Hypertech"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/rekayasa.webp" alt="PT Rekayasa Engineering" loading="lazy" decoding="async" data-fallback-text="Rekayasa Engineering"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/pabrik.png" alt="CV PabrikOnline Global Solusindo" loading="lazy" decoding="async" data-fallback-text="PabrikOnline"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/exatel.png" alt="PT Elemen Jaringan Nusantara" loading="lazy" decoding="async" data-fallback-text="Exatel"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/wihamedia.png" alt="Wiha Media Network" loading="lazy" decoding="async" data-fallback-text="Wiha Media"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/logo-lg-aksesdata.webp" alt="AKSES DATA" loading="lazy" decoding="async" data-fallback-text="AKSESDATA"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/logo-fiber-akses.webp" alt="FIBER AKSES" loading="lazy" decoding="async" data-fallback-text="FIBERAKSES"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/logo-cryptonet.webp" alt="CRYPTONET" loading="lazy" decoding="async" data-fallback-text="CRYPTONET"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/wptech.png" alt="WPTech Indonesia" loading="lazy" decoding="async" data-fallback-text="WPTech"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/gayuh.webp" alt="PT Gayuh Niaga Indonesia" width="160" height="65" loading="lazy" decoding="async" data-fallback-src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%2770%27%3E%3Crect fill=%27%23f0f0f0%27 width=%27180%27 height=%2770%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 dy=%27.35em%27 fill=%27%23999%27 font-size=%2711%27%3EClient%3C/text%3E%3C/svg%3E"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/aneka.png" alt="Aneka Network" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Aneka Network"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/sibertech.png" alt="Sibertech Indonesia" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Sibertech Indonesia"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/rpa.png" alt="RPA Network" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="RPA Network"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/menak.png" alt="Menak Network" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Menak Network"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/liv-logo.webp" alt="LIV Indonesia" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="LIV Indonesia"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/marsdata.png" alt="Marsdata Network" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Marsdata Network"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/kangen.png" alt="Kangen ISP" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Kangen ISP"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/ismaya.png" alt="Ismaya Group" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Ismaya Group"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/winartha.png" alt="Winartha Network" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Winartha"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/astrakom1.png" alt="Astrakom Indonesia" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Astrakom"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/8bit.png" alt="8Bit Network" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="8Bit Network"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/citranet.png" alt="Citranet Indonesia" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Citranet"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/javamedia.png" alt="Java Media Network" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Java Media"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/jarindo.png" alt="Jarindo Network" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Jarindo"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/mvnet.png" alt="MVNet Indonesia" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="MVNet"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/zetta.png" alt="Zettabyte" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Zettabyte"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/ion.png" alt="ION Network" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="ION Network"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/hypertech.png" alt="Hypertech Indonesia" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Hypertech"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/rekayasa.webp" alt="PT Rekayasa Engineering" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Rekayasa Engineering"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/pabrik.png" alt="CV PabrikOnline Global Solusindo" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="PabrikOnline"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/exatel.png" alt="PT Elemen Jaringan Nusantara" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Exatel"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/wihamedia.png" alt="Wiha Media Network" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="Wiha Media"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/logo-lg-aksesdata.webp" alt="AKSES DATA" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="AKSESDATA"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/logo-fiber-akses.webp" alt="FIBER AKSES" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="FIBERAKSES"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/logo-cryptonet.webp" alt="CRYPTONET" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="CRYPTONET"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/wptech.png" alt="WPTech Indonesia" width="160" height="65" loading="lazy" decoding="async" data-fallback-text="WPTech"></div></div>
         </div>
     </div>
 </section>
@@ -355,8 +384,8 @@
         <h2 class="section-title">DIDUKUNG OLEH</h2>
         <div class="row justify-content-center mb-4"><div class="col-lg-8 text-center"><p style="font-size:clamp(.92rem,1.65vw,1.02rem);color:var(--text-secondary)">Yang mendukung dan memberikan support layanan profesional kami</p></div></div>
         <div class="row g-3 justify-content-center">
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/alsyundawy-it.png" alt="Alsyundawy IT Solution" loading="lazy" decoding="async"></div></div>
-            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/orion.webp" alt="Orion Cyber Internet" loading="lazy" decoding="async"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/alsyundawy-it.png" alt="Alsyundawy IT Solution" width="160" height="65" loading="lazy" decoding="async"></div></div>
+            <div class="col-6 col-md-4 col-lg-3"><div class="client-card"><img src="xmg/orion.webp" alt="Orion Cyber Internet" width="160" height="65" loading="lazy" decoding="async"></div></div>
         </div>
     </div>
 </section>
@@ -433,12 +462,15 @@
     const navbar = document.querySelector(".navbar");
     const navLinks = document.querySelectorAll(".nav-link:not(.dropdown-toggle)");
     const animatedItems = document.querySelectorAll(".card,.project-card,.skill-item,.client-card");
+    const sections = document.querySelectorAll("section[id]");
 
     const normalizeTheme = (value) => (value === "dark" ? "dark" : "light");
 
     const readStoredTheme = () => {
         try {
-            return normalizeTheme(window.localStorage.getItem("theme"));
+            const stored = window.localStorage.getItem("theme");
+            if (stored) return normalizeTheme(stored);
+            return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         } catch (_error) {
             return "light";
         }
@@ -467,6 +499,16 @@
             themeToggle.setAttribute("aria-label", currentTheme === "dark" ? "Switch to light theme" : "Switch to dark theme");
         }
 
+        const navbarLogo = document.getElementById("navbarLogo");
+        if (navbarLogo) {
+            navbarLogo.src = currentTheme === "dark" ? "xmg/alsyundawy-it-dark.webp" : "xmg/alsyundawy-it.png";
+        }
+
+        const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeColorMeta) {
+            themeColorMeta.setAttribute("content", currentTheme === "dark" ? "#0f172a" : "#3b82f6");
+        }
+
         if (persist) {
             writeStoredTheme(currentTheme);
         }
@@ -487,14 +529,14 @@
     };
 
     const scrollToSection = (target) => {
-        const top = Math.max(target.getBoundingClientRect().top + window.pageYOffset - 70, 0);
+        const top = Math.max(target.getBoundingClientRect().top + window.scrollY - 70, 0);
         window.scrollTo({ top, behavior: "smooth" });
     };
 
     const updateActiveNav = () => {
         const currentPosition = window.scrollY + 90;
 
-        document.querySelectorAll("section[id]").forEach((section) => {
+        sections.forEach((section) => {
             const sectionTop = section.offsetTop;
             const sectionBottom = sectionTop + section.offsetHeight;
             const sectionId = section.getAttribute("id");
@@ -604,9 +646,16 @@
         });
     });
 
+    let isScrolling = false;
     window.addEventListener("scroll", () => {
-        handleScrollState();
-        updateActiveNav();
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                handleScrollState();
+                updateActiveNav();
+                isScrolling = false;
+            });
+            isScrolling = true;
+        }
     }, { passive: true });
 })();
 </script>
