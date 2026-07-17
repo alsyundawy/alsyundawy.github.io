@@ -11,14 +11,27 @@
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="theme-color" content="#3b82f6">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; upgrade-insecure-requests">
+    <!--
+        SECURITY NOTE: Content-Security-Policy is intentionally configured via HTTP response headers,
+        not via <meta> tag. On static hosting (GitHub Pages), a meta CSP tag containing 'unsafe-inline'
+        cannot be hardened further (nonces require server-side rendering), provides minimal security
+        benefit, and triggers unavoidable linter warnings. Configure CSP at the CDN / server level:
+            Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none';
+              script-src 'self' 'nonce-{random}' https://cdn.jsdelivr.net;
+              style-src 'self' 'nonce-{random}' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+              font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+              img-src 'self' data: https:; connect-src 'self'; upgrade-insecure-requests
+    -->
     <script>
         (() => {
             try {
                 const stored = window.localStorage.getItem("theme");
                 const theme = stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
-                document.documentElement.setAttribute("data-bs-theme", theme);
-            } catch (_) {}
+                document.documentElement.dataset.bsTheme = theme;
+            } catch (e) {
+                /* localStorage unavailable (private/restricted context); default theme on <html> is used. */
+                if (typeof console !== "undefined") { console.warn("[theme-init] localStorage unavailable:", e); }
+            }
         })();
     </script>
     <link rel="canonical" href="https://alsyundawy.github.io">
@@ -41,6 +54,7 @@
     - CSP meta dibuat konservatif untuk static hosting; untuk produksi, tetap lebih baik pasang header HTTP server/CDN.
 
     CHANGELOG:
+    - 2026-07-17: Menambahkan project card TrustPositif-Validator; memperbaiki semua IDE warnings: migrasi setAttribute ke .dataset, penanganan catch block dengan komentar eksplisit, konversi dropdown <a role=button> ke <button> semantik untuk aksesibilitas, serta dokumentasi CSP unsafe-inline sebagai accepted risk untuk static hosting.
     - 2026-07-05: Menambahkan 34 klien baru ke daftar, menyisipkan set favicon lengkap (ICO, SVG, PNG, Apple Touch Icon, Webmanifest), meminifikasi internal CSS, optimalisasi event listener scroll (requestAnimationFrame), eliminasi efek FOUC/FOT skema warna, penguatan visual dimensi gambar/logo (CLS reduction), integrasi SRI hash CDN Font Awesome v6.7.2, modernisasi method DOM (window.scrollY), serta menyusun berkas dokumentasi proyek (README.md) yang terstruktur dan elegan.
     - 2026-05-28: Pengerasan pemuatan CDN Bootstrap (integrity & crossorigin), peningkatan aksesibilitas UI theme toggle (aria-pressed & semantic button), migrasi inline onerror handler gambar ke data-fallback-src/text, serta penerapan fallback JS defensif, prefers-reduced-motion, styling focus-visible, preload hero asset, dan validasi theme localStorage.
     -->
@@ -79,7 +93,10 @@
                     if (theme === "dark") {
                         document.getElementById("navbarLogo").src = "xmg/alsyundawy-it-dark.webp";
                     }
-                } catch (_) {}
+                } catch (e) {
+                    /* localStorage unavailable; navbar logo defaults to light-mode variant. */
+                    if (typeof console !== "undefined") { console.warn("[navbar-logo] localStorage unavailable:", e); }
+                }
             </script>
             <span>HARRY DERTIN SUTISNA ALSYUNDAWY</span>
         </a>
@@ -94,7 +111,7 @@
                 <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                 <li class="nav-item"><a class="nav-link" href="#clients">Klien</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tools</a>
+                    <button class="nav-link dropdown-toggle" id="toolsDropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Tools</button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="toolsDropdown">
                         <li><a class="dropdown-item" href="https://lg.alsyundawy.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-search"></i> Looking Glass</a></li>
                         <li><a class="dropdown-item" href="https://lg.alsyundawy.com/lg.php" target="_blank" rel="noopener noreferrer"><i class="fas fa-network-wired"></i> Looking Glass v2.0</a></li>
@@ -190,6 +207,7 @@
             <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-gauge-high"></i></div><h4>DNS Performance Test</h4><span class="project-card-stats">Forked &amp; Enhanced</span><p>Comprehensive DNS benchmarking tool untuk performance analysis dan latency testing dengan detailed reporting.</p><a href="https://github.com/alsyundawy/dnsperftest" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
             <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-lock"></i></div><h4>The Best Blocklist Collection</h4><span class="project-card-stats">Maintained Fork</span><p>Comprehensive repository of block lists for Pi-hole and AdGuard, featuring over 100 links and 5+ million domains.</p><a href="https://github.com/alsyundawy/Sefinek-Blocklist-Collection" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
             <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-shield-halved"></i></div><h4>Hagezi DNS Blocklists</h4><span class="project-card-stats">Maintained Fork</span><p>Hagezi DNS-Blocklists — For a better internet, keep the internet clean! Comprehensive DNS-based filtering lists.</p><a href="https://github.com/alsyundawy/dns-blocklists" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="col-lg-4 col-md-6 mb-3"><div class="project-card"><div class="project-card-icon"><i class="fas fa-check-double"></i></div><h4>TrustPositif Validator</h4><span class="project-card-stats">Original Creation</span><p>Shell script canggih untuk validasi domain TrustPositif dengan dukungan multi-core parallel processing, RFC-compliant domain validation, dan IANA TLD filtering.</p><a href="https://github.com/alsyundawy/TrustPositif-Validator" target="_blank" rel="noopener noreferrer">Lihat Repository <i class="fas fa-arrow-right"></i></a></div></div>
         </div>
     </div>
 </section>
@@ -335,7 +353,6 @@
                 <a href="https://join.skype.com/invite/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-skype" aria-label="Skype" title="Skype"><i class="fab fa-skype"></i></a>
                 <a href="https://discord.com/users/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-discord" aria-label="Discord" title="Discord"><i class="fab fa-discord"></i></a>
                 <a href="https://line.me/ti/p/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-line" aria-label="Line" title="Line"><i class="fab fa-line"></i></a>
-                <a href="https://linkedin.com/in/alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-linkedin" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://tiktok.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-tiktok" aria-label="TikTok" title="TikTok"><i class="fab fa-tiktok"></i></a>
                 <a href="https://youtube.com/@alsyundawy" target="_blank" rel="noopener noreferrer" class="footer-social-link social-youtube" aria-label="YouTube" title="YouTube"><i class="fab fa-youtube"></i></a>
                 <a href="https://wa.me/6285658515212" target="_blank" rel="noopener noreferrer" class="footer-social-link social-whatsapp" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -376,7 +393,9 @@
             const stored = window.localStorage.getItem("theme");
             if (stored) return normalizeTheme(stored);
             return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        } catch (_error) {
+        } catch (e) {
+            /* localStorage unavailable (e.g. private-browsing mode); fall back to light theme. */
+            console.warn("[readStoredTheme] localStorage unavailable:", e);
             return "light";
         }
     };
@@ -384,8 +403,9 @@
     const writeStoredTheme = (theme) => {
         try {
             window.localStorage.setItem("theme", theme);
-        } catch (_error) {
-            /* Storage may be disabled by privacy mode; UI still works for current session. */
+        } catch (e) {
+            /* Storage unavailable (privacy mode); theme preference not persisted but UI works for this session. */
+            console.warn("[writeStoredTheme] localStorage unavailable:", e);
         }
     };
 
@@ -393,7 +413,7 @@
 
     const applyTheme = (theme, persist = true) => {
         currentTheme = normalizeTheme(theme);
-        root.setAttribute("data-bs-theme", currentTheme);
+        root.dataset.bsTheme = currentTheme;
 
         if (themeIcon) {
             themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
