@@ -10,7 +10,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-alsyundawy-black?style=flat-square&logo=github)](https://github.com/alsyundawy)
 [![Email](https://img.shields.io/badge/Email-alsyundawy%40gmail.com-red?style=flat-square&logo=gmail)](mailto:alsyundawy@gmail.com)
 [![Phone](https://img.shields.io/badge/Phone-%2B6285658515212-green?style=flat-square&logo=whatsapp)](https://wa.me/6285658515212)
-[![License](https://img.shields.io/badge/License-Copyleft-lightgrey?style=flat-square)](#license)
+[![License](https://img.shields.io/badge/License-Copyleft-lightgrey?style=flat-square)](#copyleft-2026-alsyundawy-it-solution)
 
 [![Followers](https://img.shields.io/github/followers/alsyundawy?label=Followers&style=flat-square&color=3b82f6)](https://github.com/alsyundawy)
 [![Stars](https://img.shields.io/github/stars/alsyundawy/alsyundawy.github.io?style=flat-square&color=7c3aed)](https://github.com/alsyundawy/alsyundawy.github.io/stargazers)
@@ -217,8 +217,6 @@ Kontribusi sangat diterima! Jika Anda ingin:
 Silakan buat [Issue](https://github.com/alsyundawy/alsyundawy.github.io/issues) atau [Pull Request](https://github.com/alsyundawy/alsyundawy.github.io/pulls).
 
 ---
-
-## License
 
 ## Copyleft 2026 ALSYUNDAWY IT SOLUTION
 
