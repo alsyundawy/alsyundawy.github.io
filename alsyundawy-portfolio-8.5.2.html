@@ -1,0 +1,2152 @@
+<!--
+========================================================================
+ALSYUNDAWY - PROFESSIONAL SYSTEM ADMINISTRATOR PORTFOLIO
+========================================================================
+Version     : 8.5.2-static (HTML Edition)
+Source      : Converted & audited from index-portofolio-8.5.1.php
+Author      : Harry Dertin Sutisna Alsyundawy <alsyundawy@gmail.com>
+Website     : https://alsyundawy.com
+Phone       : +62 856-5851-5212
+Location    : DKI Jakarta, Indonesia
+Updated     : August 21, 2026
+License     : Free to use and modify (Copyleft)
+
+DOCNOTE
+-------
+- Pure static HTML5 file. No PHP runtime required.
+- All tutorial links point to https://alsyundawy.com/[filename].html
+- Assets (images, favicons, logos) remain relative; place them in the same
+  directory structure as the original (xmg/, portofolio.webp, etc.).
+- Theme toggle, scroll-spy, reveal animations, image fallbacks preserved.
+- CSP nonces removed for offline/static compatibility (no server headers).
+- Bootstrap 5.3.8 + Font Awesome 6.7.2 loaded from CDN with SRI.
+- Fully responsive (320px → 4K), WCAG-oriented, SEO-ready (2026).
+- Open offline or host on any static server; no build step needed.
+
+CHANGELOG
+---------
+VERSION 8.5.2-static (August 21, 2026) — AUDIT & HARDENING
+- Removed duplicate DOCNOTE/CHANGELOG block after <!DOCTYPE html>.
+- Fixed invalid <strong> wrapper around .navbar-toggler-icon.
+- Removed empty fb:app_id / fb:admins meta tags (no value, no benefit).
+- Aligned JS theme-color updates with brand colors (#004499 light / #002244 dark).
+- Updated dropdown aria-haspopup from "true" to "menu" for clearer semantics.
+- Normalized footer COPYLEFT year whitespace.
+- Confirmed JSON-LD validity, SRI integrity attributes, and section completeness.
+- No functional regressions; appearance and behavior unchanged.
+
+VERSION 8.5.1-static (August 21, 2026) — STATIC CONVERSION
+- Converted PHP dynamic portfolio to single self-contained HTML file.
+- Updated all 16 tutorial hrefs to absolute https://alsyundawy.com/*.html.
+- Removed PHP-generated CSP nonces (incompatible with pure static download).
+- Preserved all content, sections, data, styles, and JavaScript behavior.
+- Kept production CSS/JS, structured data (JSON-LD), and meta tags.
+
+Original changelog (v7.3.0 → v8.5.1) retained in source PHP for history.
+========================================================================
+-->
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=5">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script>(()=>{try{const stored=window.localStorage.getItem("theme");const prefersDark=window.matchMedia("(prefers-color-scheme:dark)").matches;const theme=stored==="dark"||(!stored&&prefersDark)?"dark":"light";document.documentElement.dataset.bsTheme=theme;}catch(e){if(typeof console!=="undefined"){console.warn("[theme-init]localStorage unavailable:",e);}}})();</script>
+    <!-- ========================================================================
+         META TAGS - COMPREHENSIVE SEO OPTIMIZATION (50+ TAGS)
+         Enhanced with geo location, social media, and structured data support
+         ======================================================================== -->
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=5">
+<!-- Primary Meta Tags -->
+    <title>ALSYUNDAWY IT Solution | System Administrator</title>
+    <meta name="title" content="ALSYUNDAWY IT SOLUTION - SYSTEM ADMINISTRATOR MAGANG, HYPERVISOR, MAIL &amp; DNS INFRASTRUCTURE SPECIALIST">
+    <meta name="description" content="System Administrator dengan 15+ tahun pengalaman spesialisasi dalam DNS infrastructure (PowerDNS, BIND9, RPZ, RTBH, Trust-NG), ISP hardware &amp; system infrastructure management, hypervisor administration (Proxmox VE, VMware vCenter/vSphere, ESXi), mail systems (Zimbra, Proxmox Mail Gateway, WHM cPanel), dan Apple Mac ecosystem services.">
+    <meta name="keywords" content="Alsyundawy, Harry Dertin Sutisna, System Administrator Indonesia, DNS Specialist, PowerDNS, BIND9, RPZ, TrustPositif, MikroTik, ISP Infrastructure, Proxmox VE, VMware ESXi, Zimbra, Mail Server, Linux System Administration, Network Monitoring, Smokeping, Uptime Kuma, Apple Mac Services, Jakarta IT Consultant, Looking Glass Indonesia, DNS Checker, RBL Checker, Speedtest Indonesia">
+    <meta name="author" content="ALSYUNDAWY IT SOLUTION">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="googlebot" content="index,follow">
+    <meta name="bingbot" content="index,follow">
+    <meta name="language" content="Indonesian">
+    <meta name="revisit-after" content="5 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+
+    <!-- Geo Location Meta Tags -->
+    <meta name="geo.region" content="ID-JK">
+    <meta name="geo.placename" content="Jakarta">
+    <meta name="geo.position" content="-6.2088,106.8456">
+    <meta name="ICBM" content="-6.2088,106.8456">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alsyundawy.com">
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+    <!-- Open Graph Meta Tags for Facebook, LinkedIn -->
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Alsyundawy IT Solution">
+    <meta property="og:url" content="https://alsyundawy.com">
+    <meta property="og:title" content="ALSYUNDAWY IT SOLUTION - Professional System Administrator">
+    <meta property="og:description" content="System Administrator dengan 15+ tahun pengalaman spesialisasi dalam DNS infrastructure (PowerDNS, BIND9, RPZ, RTBH, Trust-NG), ISP hardware &amp; system infrastructure management, hypervisor administration (Proxmox VE, VMware vCenter/vSphere, ESXi), mail systems (Zimbra, Proxmox Mail Gateway, WHM cPanel), dan Apple Mac ecosystem services.">
+    <meta property="og:image" content="https://alsyundawy.com/portofolio.webp">
+    <meta property="og:image:secure_url" content="https://alsyundawy.com/portofolio.webp">
+    <meta property="og:image:type" content="image/webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ALSYUNDAWY IT SOLUTION Portfolio">
+    <meta property="og:locale" content="id_ID">
+    <meta property="profile:first_name" content="Harry Dertin Sutisna">
+    <meta property="profile:last_name" content="Alsyundawy">
+    <meta property="profile:username" content="alsyundawy">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@alsyundawy">
+    <meta name="twitter:creator" content="@alsyundawy">
+    <meta name="twitter:title" content="ALSYUNDAWY IT SOLUTION">
+    <meta name="twitter:description" content="System Administrator dengan 15+ tahun pengalaman spesialisasi dalam DNS infrastructure (PowerDNS, BIND9, RPZ, RTBH, Trust-NG), ISP hardware &amp; system infrastructure management, hypervisor administration (Proxmox VE, VMware vCenter/vSphere, ESXi), mail systems (Zimbra, Proxmox Mail Gateway, WHM cPanel), dan Apple Mac ecosystem services.">
+    <meta name="twitter:image" content="https://alsyundawy.com/portofolio.webp">
+    <meta name="twitter:image:alt" content="ALSYUNDAWY IT SOLUTION Portfolio">
+
+    <!-- Additional Social Media Meta Tags -->
+    <meta name="pinterest" content="nopin">
+
+    <!-- Mobile App Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Alsyundawy Portfolio">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Alsyundawy Portfolio">
+
+    <!-- Theme Color Meta Tags -->
+    <meta name="theme-color" content="#004499" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#002244" media="(prefers-color-scheme: dark)">
+    <meta name="msapplication-TileColor" content="#004499">
+    <meta name="msapplication-navbutton-color" content="#004499">
+
+    <!-- DNS Prefetch and Preconnect for Performance -->
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"
+        rel="stylesheet" integrity="sha384-nRgPTkuX86pH8yjPJUAFuASXQSSl2/bBUiNV47vSYpKFxHJhbcrGnmlYpYJMeD7a"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon (Classic ICO, SVG, PNG) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#004499">
+    <meta name="msapplication-TileImage" content="mstile-144x144.png">
+    <meta name="msapplication-config" content="browserconfig.xml">
+
+    <!-- ================= STRUCTURED DATA (SCHEMA.ORG) ================= -->
+    <script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alsyundawy.com/#person","name":"Harry Dertin Sutisna","alternateName":["ALSYUNDAWY","Harry DS"],"url":"https://alsyundawy.com","image":"https://alsyundawy.com/portofolio.webp","jobTitle":"System Administrator · DNS \u0026 ISP Infrastructure Specialist · Apple Mac Technician","description":"System Administrator dengan 15+ tahun pengalaman spesialisasi dalam DNS infrastructure (PowerDNS, BIND9, RPZ, RTBH, Trust-NG), ISP hardware \u0026 system infrastructure management, hypervisor administration (Proxmox VE, VMware vCenter/vSphere, ESXi), mail systems (Zimbra, Proxmox Mail Gateway, WHM cPanel), dan Apple Mac ecosystem services.","email":"alsyundawy@gmail.com","telephone":"+6285658515212","sameAs":["https://github.com/alsyundawy","https://alsyundawy.github.io","https://x.com/Alsyundawy","https://www.instagram.com/harry.ds.alsyundawy/","https://www.facebook.com/alsyundawy","https://t.me/alsyundawy","https://www.youtube.com/@HarryDSAlsyundawy","https://www.paypal.me/alsyundawy","https://bgp.he.net/AS696969","https://www.peeringdb.com/net/696969","https://bgpview.io/as/696969","https://stat.ripe.net/AS696969","https://bgp.tools/as/696969","https://ipinfo.io/AS696969"],"address":{"@type":"PostalAddress","addressLocality":"Jakarta","addressRegion":"DKI Jakarta","addressCountry":"ID"},"knowsAbout":["ISP Hardware \u0026 System Infrastructure","DNS Infrastructure \u0026 RPZ Specialist","DNS Filtering \u0026 Security TrustPositif","Hypervisor \u0026 Virtualization","Mail, SMTP System \u0026 Hosting","Apple Mac Installation \u0026 Services","Network Monitoring \u0026 Analysis","Linux System Administration","DNS Infrastructure","DNS Filtering \u0026 Security","Mail, SMTP Systems \u0026 Hosting","Apple macOS Services","Monitoring \u0026 Performance","Scripting \u0026 Automation"],"worksFor":{"@id":"https://alsyundawy.com/#organization"}},{"@type":"Organization","@id":"https://alsyundawy.com/#organization","name":"ALSYUNDAWY IT SOLUTION","url":"https://alsyundawy.com","founder":{"@id":"https://alsyundawy.com/#person"},"sameAs":["https://github.com/alsyundawy","https://alsyundawy.github.io","https://x.com/Alsyundawy","https://www.instagram.com/harry.ds.alsyundawy/","https://www.facebook.com/alsyundawy","https://t.me/alsyundawy","https://www.youtube.com/@HarryDSAlsyundawy","https://www.paypal.me/alsyundawy","https://bgp.he.net/AS696969","https://www.peeringdb.com/net/696969","https://bgpview.io/as/696969","https://stat.ripe.net/AS696969","https://bgp.tools/as/696969","https://ipinfo.io/AS696969"],"contactPoint":[{"@type":"ContactPoint","contactType":"technical support","telephone":"+6285658515212","email":"alsyundawy@gmail.com","areaServed":"ID","availableLanguage":["id","en"]}],"areaServed":{"@type":"Country","name":"Indonesia"}},{"@type":"WebSite","@id":"https://alsyundawy.com/#website","name":"ALSYUNDAWY — Professional Portfolio","url":"https://alsyundawy.com","publisher":{"@id":"https://alsyundawy.com/#organization"},"inLanguage":"id-ID"},{"@type":"ItemList","@id":"https://alsyundawy.com/#network-tools","name":"ALSYUNDAWY Network Tools","itemListElement":[{"@type":"ListItem","position":1,"name":"Looking Glass","url":"https://lg.alsyundawy.com"},{"@type":"ListItem","position":2,"name":"Looking Glass v2.0","url":"https://lg.alsyundawy.com/lg.php"},{"@type":"ListItem","position":3,"name":"Looking Glass v2.1","url":"https://lg.alsyundawy.com/lgv1.php"},{"@type":"ListItem","position":4,"name":"Looking Glass v2.5","url":"https://lg.alsyundawy.com/lgv2.php"},{"@type":"ListItem","position":5,"name":"Looking Glass GitHub","url":"https://lg.alsyundawy.com/lg-github.php"},{"@type":"ListItem","position":6,"name":"MultiPing Location","url":"https://lg.alsyundawy.com/multiping.php"},{"@type":"ListItem","position":7,"name":"SpeedTest","url":"https://speedtest.alsyundawy.com/"},{"@type":"ListItem","position":8,"name":"RBL Checker","url":"https://rbl.alsyundawy.com/"},{"@type":"ListItem","position":9,"name":"TrustPositif Check","url":"https://trustcheck.alsyundawy.com/"},{"@type":"ListItem","position":10,"name":"DNS CHECKER","url":"https://dnschecker.alsyundawy.com/"},{"@type":"ListItem","position":11,"name":"Repository","url":"https://repo.alsyundawy.com/"}]}]}
+    </script>
+
+<!-- ========================================================================
+         MINIFIED CSS - PRODUCTION READY v8.4.6
+         Enhanced dark mode hero gradient based on #004499
+         Client images optimized for dark mode, CSP-safe utility classes added
+         Added media queries for 4K display optimization
+         ======================================================================== -->
+    <style>:root,[data-bs-theme=light]{--primary:#3b82f6;--secondary:#7c3aed;--accent:#10b981;--highlight:#f97316;--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;--text-primary:#0f172a;--text-secondary:#475569;--text-muted:#64748b;--border:#e2e8f0;--shadow:rgba(59,130,246,.12);--shadow-md:rgba(59,130,246,.18);--shadow-lg:rgba(59,130,246,.25);--gradient:linear-gradient(135deg,#3b82f6 0%,#7c3aed 100%);--navbar-bg:rgba(255,255,255,.98);--hero-gradient:linear-gradient(135deg,#0066cc 0%,#004499 100%);--font-primary:'Inter',system-ui,sans-serif;--transition-fast:.15s;--transition-normal:.3s;--easing:cubic-bezier(.4,0,.2,1)}[data-bs-theme=dark]{--primary:#60a5fa;--secondary:#a78bfa;--accent:#34d399;--highlight:#fb923c;--bg-primary:#0f172a;--bg-secondary:#1e293b;--bg-tertiary:#334155;--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-muted:#94a3b8;--border:#334155;--shadow:rgba(0,0,0,.3);--shadow-md:rgba(0,0,0,.4);--shadow-lg:rgba(0,0,0,.5);--gradient:linear-gradient(135deg,#60a5fa 0%,#a78bfa 100%);--navbar-bg:rgba(15,23,42,.98);--hero-gradient:linear-gradient(135deg,#002244 0%,#004499 50%,#003366 100%)}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;font-size:13px;scroll-padding-top:70px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;height:100%}body{font-family:var(--font-primary);background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden;transition:background-color var(--transition-normal) var(--easing),color var(--transition-normal) var(--easing);font-size:.9rem}h1,h2,h3,h4,h5,h6{font-weight:700;line-height:1.2;margin-bottom:.8rem;color:var(--text-primary)}h1{font-size:clamp(1.3rem,3vw,1.5rem)}h2{font-size:clamp(1.3rem,2.8vw,1.5rem)}h3{font-size:clamp(1.05rem,2.2vw,1.15rem)}p{margin-bottom:.8rem;color:var(--text-secondary);font-size:.9rem}a{color:var(--primary);text-decoration:none;transition:color var(--transition-fast) var(--easing)}a:hover{color:var(--secondary)}section{padding:clamp(2.5rem,6vw,4rem) 0;position:relative}.container{max-width:1200px;margin:0 auto;padding:0 1.2rem}.navbar{background:var(--navbar-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.8rem 0;position:sticky;top:0;z-index:1000;transition:all var(--transition-fast) var(--easing);box-shadow:0 2px 8px var(--shadow)}.navbar.scrolled{padding:.6rem 0;box-shadow:0 2px 12px var(--shadow-md)}.navbar-brand{font-size:clamp(.82rem,1.8vw,1.05rem);font-weight:700;color:var(--text-primary);display:flex;align-items:center;gap:.5rem;transition:all var(--transition-fast) var(--easing);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100vw - 140px)}.navbar-logo{height:clamp(32px,6vw,46px);width:auto;object-fit:contain;transition:all var(--transition-fast) var(--easing)}.navbar-logo:hover{transform:scale(1.05) rotate(-2deg)}.navbar-brand:hover{color:var(--primary)}.navbar-toggler{border:none;padding:.4rem .6rem;font-size:1.1rem}.navbar-toggler:focus{box-shadow:none}.nav-link{color:#334155!important;font-weight:600;font-size:clamp(.8rem,1.4vw,.88rem);padding:.5rem .8rem!important;margin:0 .15rem;border-radius:8px;transition:all var(--transition-fast) var(--easing);position:relative;letter-spacing:.01em}[data-bs-theme=dark] .nav-link{color:var(--text-secondary)!important}.nav-link::before{content:'';position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--gradient);transition:width var(--transition-fast) var(--easing)}.nav-link:hover,.nav-link.active{color:var(--primary)!important;background:var(--bg-tertiary)}.nav-link:hover::before{width:50%}.dropdown-menu{background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;box-shadow:0 4px 16px var(--shadow-lg);padding:.4rem;margin-top:.4rem;min-width:200px}.dropdown-item{color:var(--text-secondary);padding:.5rem .9rem;border-radius:7px;font-size:.85rem;transition:all var(--transition-fast) var(--easing);display:flex;align-items:center;gap:.6rem}.dropdown-item i{color:var(--primary);width:18px;text-align:center}.dropdown-item:hover{background:var(--bg-tertiary);color:var(--primary)}.theme-toggle{appearance:none;background:var(--bg-secondary);border:2px solid var(--border);border-radius:9px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--transition-fast) var(--easing);margin-left:.8rem;color:var(--text-primary);box-shadow:0 2px 6px var(--shadow)}.theme-toggle:hover{border-color:var(--primary);transform:scale(1.05);box-shadow:0 4px 12px var(--shadow-md)}.theme-toggle i{font-size:1rem;transition:transform .4s}.theme-toggle:hover i{transform:rotate(15deg)}.back-to-top{position:fixed;bottom:25px;right:25px;width:45px;height:45px;background:var(--gradient);color:#fff;border:none;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;z-index:999;box-shadow:0 4px 16px var(--shadow-lg);transition:all var(--transition-fast) var(--easing);opacity:0;transform:scale(0)}.back-to-top.show{display:flex;opacity:1;transform:scale(1)}.back-to-top:hover{transform:scale(1.1);box-shadow:0 6px 24px var(--shadow-lg)}#hero{min-height:60vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:2.5vw 0 2vw;background:url(alsyundawy-hero.webp?w=1366) no-repeat center center,var(--hero-gradient);background-size:cover;flex-shrink:0}#hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,68,153,.3);pointer-events:none;z-index:1}.hero-content{text-align:center;position:relative;z-index:3;animation:fadeInUp .8s ease;max-width:1100px;margin:0 auto;padding:0 1.2rem}@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}.profile-pic{width:clamp(110px,16vw,140px);height:clamp(110px,16vw,140px);border-radius:50%;border:4px solid rgba(255,255,255,.7);box-shadow:0 10px 28px rgba(0,0,0,.25);margin:0 auto 1.2rem;object-fit:cover;transition:all var(--transition-normal) var(--easing);background:var(--bg-secondary)}.profile-pic:hover{transform:scale(1.05) rotate(3deg);box-shadow:0 14px 36px rgba(0,0,0,.35)}.hero-tagline{font-size:clamp(.95rem,1.7vw,1rem);color:#fff;margin-bottom:.7rem;font-weight:900;letter-spacing:.04em;text-shadow:0 2px 6px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.5);text-rendering:optimizeLegibility;white-space:nowrap;overflow:visible}#hero h1{color:#fff!important;text-shadow:0 3px 10px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.5);font-weight:900;font-size:clamp(1.15rem,3.2vw,2.75rem);text-rendering:optimizeLegibility;white-space:nowrap;overflow:visible}.hero-title{font-size:clamp(.9rem,1.6vw,1.05rem);color:#fff;margin-bottom:.8rem;font-weight:700;max-width:650px;margin-left:auto;margin-right:auto;line-height:1.5;text-shadow:0 2px 5px rgba(0,0,0,.3),0 1px 2px rgba(0,0,0,.4);text-rendering:optimizeLegibility}.hero-status{color:#fff;font-size:clamp(.85rem,1.5vw,.95rem);margin-bottom:1.6rem;font-weight:700;text-shadow:0 2px 5px rgba(0,0,0,.3),0 1px 2px rgba(0,0,0,.4);text-rendering:optimizeLegibility}.social-links{display:flex;justify-content:center;gap:clamp(.5rem,1.2vw,.85rem);flex-wrap:wrap;margin-top:1.6rem}.social-links a{display:inline-flex;align-items:center;justify-content:center;width:clamp(42px,6vw,48px);height:clamp(42px,6vw,48px);border-radius:50%;font-size:clamp(1.1rem,1.8vw,1.4rem);transition:all var(--transition-fast) var(--easing);position:relative;box-shadow:0 3px 10px rgba(0,0,0,.2);border:2px solid rgba(255,255,255,.15)}.social-links a:hover{transform:translateY(-3px) scale(1.06);border-color:rgba(255,255,255,.25)}.social-links a i{color:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}.social-links a.social-github{background:linear-gradient(135deg,#24292e 0%,#1a1e22 100%)}.social-links a.social-facebook{background:linear-gradient(135deg,#1877f2 0%,#0d5cc4 100%)}.social-links a.social-x{background:linear-gradient(135deg,#1da1f2 0%,#0d8bd9 100%)}.social-links a.social-instagram{background:linear-gradient(135deg,#e4405f 0%,#c13584 100%)}.social-links a.social-telegram{background:linear-gradient(135deg,#0088cc 0%,#069 100%)}.social-links a.social-youtube{background:linear-gradient(135deg,red 0%,#c00 100%)}.social-links a.social-whatsapp{background:linear-gradient(135deg,#25d366 0%,#1ebd59 100%)}.social-links a.social-email{background:linear-gradient(135deg,#ea4335 0%,#d33426 100%)}.social-links a.social-website{background:linear-gradient(135deg,#06c 0%,#0052a3 100%)}.social-links a.social-paypal{background:linear-gradient(135deg,#0070ba 0%,#005a99 100%)}.section-title{margin-bottom:clamp(2rem,4vw,3rem);text-align:center;font-weight:700;position:relative;display:inline-block;left:50%;transform:translateX(-50%);font-size:clamp(1.3rem,2.8vw,1.5rem)}.section-title::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:70px;height:4px;background:var(--gradient);border-radius:3px}.card{background:var(--bg-secondary);border:1px solid var(--border);border-radius:14px;padding:clamp(1.1rem,2.2vw,1.4rem);margin-bottom:1.3rem;transition:all var(--transition-fast) var(--easing);position:relative;overflow:hidden;box-shadow:0 2px 8px var(--shadow)}.card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gradient);transform:scaleX(0);transform-origin:left;transition:transform .4s}.card:hover{transform:translateY(-6px);box-shadow:0 7px 20px var(--shadow-lg);border-color:var(--primary)}.card:hover::before{transform:scaleX(1)}.card-icon{width:52px;height:52px;background:var(--bg-tertiary);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:clamp(1.3rem,2.2vw,1.5rem);color:var(--primary);margin-bottom:.9rem;transition:all var(--transition-normal) var(--easing);box-shadow:0 2px 6px var(--shadow)}.card:hover .card-icon{background:var(--gradient);color:#fff;transform:scale(1.1) rotate(-6deg);box-shadow:0 4px 12px var(--shadow-lg)}.card h3{font-size:clamp(1rem,2vw,1.15rem);margin-bottom:.7rem;color:var(--text-primary);font-weight:700}.card p{color:var(--text-secondary);line-height:1.5;font-size:clamp(.82rem,1.5vw,.9rem)}.project-card{background:var(--bg-secondary);border:1px solid var(--border);border-radius:13px;padding:clamp(1rem,1.9vw,1.3rem);transition:all var(--transition-normal) var(--easing);height:100%;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 2px 8px var(--shadow)}.project-card:hover{transform:translateY(-5px);border-color:var(--primary);box-shadow:0 6px 18px var(--shadow-lg)}.project-card-icon{width:48px;height:48px;background:var(--bg-tertiary);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:clamp(1.25rem,2.1vw,1.5rem);color:var(--primary);margin-bottom:.7rem;transition:all var(--transition-normal) var(--easing);box-shadow:0 2px 6px var(--shadow)}.project-card:hover .project-card-icon{background:var(--gradient);color:#fff;transform:scale(1.15);box-shadow:0 8px 20px var(--shadow-lg)}[data-bs-theme=dark] .project-card:hover .project-card-icon{color:#fff}.project-card h4{font-size:clamp(.92rem,1.6vw,1.05rem);margin-bottom:.55rem;color:var(--text-primary);font-weight:700}.project-card p{color:var(--text-secondary);flex-grow:1;line-height:1.4;font-size:clamp(.78rem,1.35vw,.86rem);margin-bottom:.6rem}.project-card-stats{display:inline-block;padding:.25rem .6rem;background:var(--bg-tertiary);border-radius:12px;font-size:.7rem;color:var(--primary);font-weight:600;margin-bottom:.6rem}.project-card a{color:var(--primary);font-weight:600;display:inline-flex;align-items:center;gap:.35rem;margin-top:auto;transition:all var(--transition-fast) var(--easing);font-size:.82rem}.project-card:hover a{gap:.6rem}.skill-item{background:var(--bg-secondary);border:1px solid var(--border);border-radius:13px;padding:clamp(1.05rem,2.2vw,1.35rem);margin-bottom:1.15rem;transition:all var(--transition-fast) var(--easing);box-shadow:0 2px 8px var(--shadow);display:flex;align-items:start;gap:.9rem}.skill-item::before{content:'';width:4px;min-width:4px;height:100%;background:var(--gradient);border-radius:3px;opacity:0;transition:opacity var(--transition-fast) var(--easing)}.skill-item:hover{border-color:var(--primary);box-shadow:0 4px 15px var(--shadow-lg);transform:translateX(6px)}.skill-item:hover::before{opacity:1}.skill-item h4{font-size:clamp(.98rem,1.85vw,1.12rem);color:var(--primary);margin-bottom:.55rem;font-weight:700}.skill-item p{color:var(--text-secondary);margin:0;line-height:1.55;font-size:clamp(.84rem,1.6vw,.94rem)}.client-card{background:var(--bg-secondary);border:1px solid var(--border);border-radius:13px;padding:clamp(.9rem,1.8vw,1.3rem);transition:all var(--transition-fast) var(--easing);height:100%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 2px 8px var(--shadow);min-height:100px}.client-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gradient);transform:scaleX(0);transform-origin:left;transition:transform .4s}.client-card:hover{transform:translateY(-4px);box-shadow:0 5px 18px var(--shadow-lg);border-color:var(--primary)}.client-card:hover::before{transform:scaleX(1)}.client-card img{max-width:160px;max-height:65px;width:auto;height:auto;object-fit:contain;filter:grayscale(20%);transition:filter var(--transition-fast) var(--easing)}[data-bs-theme=dark] .client-card{background:#ffffff !important;border-color:rgba(0,0,0,.08) !important}[data-bs-theme=dark] .client-card img{filter:grayscale(20%) !important;opacity:.95 !important}[data-bs-theme=dark] .client-card .client-fallback-text{color:#64748b}.client-card:hover img{filter:none !important;opacity:1 !important}.btn-custom{display:inline-flex;align-items:center;gap:.45rem;padding:.7rem 1.3rem;background:var(--gradient);color:#fff;border:none;border-radius:40px;font-weight:600;transition:all var(--transition-fast) var(--easing);box-shadow:0 3px 10px var(--shadow-md);text-decoration:none;font-size:.86rem}.btn-custom:hover{transform:translateY(-2px);box-shadow:0 5px 18px var(--shadow-lg);color:#fff}.footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:2.2rem 0 1.3rem;margin-top:4rem;position:relative}.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient)}.footer-copy{display:flex;flex-direction:column;align-items:center;gap:0.4rem;font-size:clamp(.78rem,1.35vw,.85rem);color:var(--text-secondary);margin-bottom:1.5rem;text-align:center;line-height:1.6}.footer-brand{font-weight:700;letter-spacing:0.06em;color:var(--text-primary)}.footer-line{font-weight:600;letter-spacing:0.04em;color:var(--text-secondary)}.footer-highlight{background:var(--gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}.footer-social-link{display:inline-flex;align-items:center;justify-content:center;width:clamp(40px,5.5vw,45px);height:clamp(40px,5.5vw,45px);border-radius:50%;font-size:clamp(1rem,1.8vw,1.3rem);transition:all var(--transition-fast) var(--easing);margin:.25rem .35rem;box-shadow:0 3px 9px rgba(0,0,0,.18);border:2px solid rgba(255,255,255,.12)}.footer-social-link:hover{transform:translateY(-4px) scale(1.06);border-color:rgba(255,255,255,.22)}.footer-social-link i{color:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}.footer-social-link.social-github{background:linear-gradient(135deg,#24292e 0%,#1a1e22 100%)}.footer-social-link.social-facebook{background:linear-gradient(135deg,#1877f2 0%,#0d5cc4 100%)}.footer-social-link.social-x{background:linear-gradient(135deg,#1da1f2 0%,#0d8bd9 100%)}.footer-social-link.social-instagram{background:linear-gradient(135deg,#e4405f 0%,#c13584 100%)}.footer-social-link.social-telegram{background:linear-gradient(135deg,#0088cc 0%,#069 100%)}.footer-social-link.social-youtube{background:linear-gradient(135deg,red 0%,#c00 100%)}.footer-social-link.social-whatsapp{background:linear-gradient(135deg,#25d366 0%,#1ebd59 100%)}.footer-social-link.social-email{background:linear-gradient(135deg,#ea4335 0%,#d33426 100%)}.footer-social-link.social-website{background:linear-gradient(135deg,#06c 0%,#0052a3 100%)}.footer-social-link.social-paypal{background:linear-gradient(135deg,#0070ba 0%,#005a99 100%)}.theme-toggle:focus-visible,.back-to-top:focus-visible,.btn-custom:focus-visible,.nav-link:focus-visible,.dropdown-item:focus-visible,.social-links a:focus-visible,.footer-social-link:focus-visible{outline:3px solid var(--highlight);outline-offset:3px}.client-fallback-text{color:var(--text-muted);font-size:.8rem;margin:0;text-align:center}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}@media (max-width:767px){.navbar-brand{font-size:.82rem!important;gap:.4rem;max-width:calc(100vw - 120px)}.navbar-logo{height:32px!important}.theme-toggle{width:36px;height:36px;margin-left:.5rem}.theme-toggle i{font-size:.95rem}.nav-link{font-size:.84rem;padding:.45rem .7rem!important}.social-links{gap:.5rem}.client-card{min-height:90px}.client-card img{max-height:55px}.profile-pic{width:110px;height:110px}#hero{min-height:70vh;padding:2vw 0 1.5vw}#hero h1{font-size:1.15rem!important;letter-spacing:-0.02em;word-spacing:-0.05em}.hero-tagline{font-size:.95rem!important}}@media (min-width:768px) and (max-width:1023px){.navbar-brand{font-size:.92rem;max-width:calc(100vw - 160px)}.navbar-logo{height:38px}#hero{min-height:60vh}#hero h1{font-size:1.55rem!important;letter-spacing:-0.01em}}@media (min-width:1024px){.navbar-brand{font-size:1.05rem;max-width:none}.navbar-logo{height:46px}#hero{min-height:60vh}#hero h1{font-size:2.75rem!important}}@media(min-width:2560px){body{font-size:1.15rem}.container{max-width:2200px;padding:0 3rem}h1{font-size:4.2rem!important}.navbar-brand{font-size:1.6rem}.navbar-logo{height:84px}.hero-content{max-width:1600px}.card,.project-card,.skill-item{padding:2rem}.client-card img{max-height:100px}}@media(min-width:3840px){body{font-size:1.35rem}.container{max-width:3200px;padding:0 4rem}h1{font-size:5.5rem!important}.navbar-brand{font-size:2rem}.navbar-logo{height:110px}.hero-content{max-width:2400px}.card,.project-card,.skill-item{padding:3rem}.client-card img{max-height:150px}}.js-reveal-enabled .card,.js-reveal-enabled .project-card,.js-reveal-enabled .skill-item,.js-reveal-enabled .client-card{opacity:0;transform:translateY(35px);transition:opacity 0.55s cubic-bezier(0.4,0,0.2,1),transform 0.55s cubic-bezier(0.4,0,0.2,1)}.js-reveal-enabled .card.is-visible,.js-reveal-enabled .project-card.is-visible,.js-reveal-enabled .skill-item.is-visible,.js-reveal-enabled .client-card.is-visible{opacity:1;transform:translateY(0)}.section-alt{background:var(--bg-secondary)}.section-lead{font-size:clamp(.92rem,1.65vw,1.02rem);color:var(--text-secondary);line-height:1.6}.contact-heading{font-size:clamp(1.3rem,2.3vw,1.65rem)}.contact-copy{font-size:clamp(.92rem,1.65vw,1.02rem);line-height:1.65;color:var(--text-secondary)}@media(prefers-reduced-motion:reduce){.js-reveal-enabled .card,.js-reveal-enabled .project-card,.js-reveal-enabled .skill-item,.js-reveal-enabled .client-card{opacity:1 !important;transform:translateY(0) !important;transition:none !important}}</style>
+</head>
+
+<body>
+    <!-- ========================================================================
+         NAVIGATION BAR - Responsive sticky navigation
+         Professional navigation with dropdown tools menu
+         ======================================================================== -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#hero">
+                <img id="navbarLogo" src="xmg/alsyundawy-it.png"
+                    alt="Alsyundawy IT Solution Logo" class="navbar-logo"
+                    width="74" height="46" loading="eager" decoding="async"
+                    fetchpriority="high" data-fallback-action="hide">
+                <script>try{const stored=localStorage.getItem("theme");const prefersDark=window.matchMedia("(prefers-color-scheme:dark)").matches;const theme=stored==="dark"||(!stored&&prefersDark)?"dark":"light";if(theme==="dark"){document.getElementById("navbarLogo").src="xmg/alsyundawy-it-dark.webp";}}catch(e){if(typeof console!=="undefined"){console.warn("[navbar-logo]localStorage unavailable:",e);}}</script>
+                <span>HARRY DERTIN SUTISNA ALSYUNDAWY</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#hero" aria-current="page">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#expertise">Keahlian</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Proyek</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#clients">Klien</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tutorials">Tutorials</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="nav-link dropdown-toggle"
+                            id="toolsDropdown" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            aria-haspopup="menu">Tools</button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="toolsDropdown">
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://lg.alsyundawy.com"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-search"></i>
+                                    Looking Glass                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://lg.alsyundawy.com/lg.php"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-network-wired"></i>
+                                    Looking Glass v2.0                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://lg.alsyundawy.com/lgv1.php"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-network-wired"></i>
+                                    Looking Glass v2.1                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://lg.alsyundawy.com/lgv2.php"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-network-wired"></i>
+                                    Looking Glass v2.5                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://lg.alsyundawy.com/lg-github.php"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-network-wired"></i>
+                                    Looking Glass GitHub                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://lg.alsyundawy.com/multiping.php"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-satellite-dish"></i>
+                                    MultiPing Location                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://speedtest.alsyundawy.com/"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-gauge-high"></i>
+                                    SpeedTest                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://rbl.alsyundawy.com/"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-shield-virus"></i>
+                                    RBL Checker                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://trustcheck.alsyundawy.com/"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-shield-halved"></i>
+                                    TrustPositif Check                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://dnschecker.alsyundawy.com/"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-circle-check"></i>
+                                    DNS CHECKER                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://repo.alsyundawy.com/"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-box-archive"></i>
+                                    Repository                                </a>
+                            </li>
+                                                    </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="nav-link dropdown-toggle" id="tutorialsDropdown" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="menu">Tutorial</button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="tutorialsDropdown">
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/Build-Zimbra-FOSS.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    Build Zimbra FOSS                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/Cacti.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-chart-simple"></i>
+                                    Cacti Monitoring Stack                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/HyperGlass.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-eye"></i>
+                                    HyperGlass                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/Install-Zimbra-FOSS.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-server"></i>
+                                    Install Zimbra FOSS                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/Ookla-Speedtest.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-gauge-high"></i>
+                                    Ookla Speedtest Server                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/OpenVPN-Install.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    OpenVPN Road Warrior                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/PowerAdmin.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-globe"></i>
+                                    PHP PowerAdmin                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/PHP-LookingGlass.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    PHP-LookingGlass                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/phpIPAM.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-sitemap"></i>
+                                    phpIPAM                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/PowerDNS-Admin-Debian.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-diagram-project"></i>
+                                    PowerDNS-Admin Debian 13                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/PowerDNS-Admin-Ubuntu.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-network-wired"></i>
+                                    PowerDNS-Admin Ubuntu 22.04                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/Prometheus-Grafana-Debian.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                    Prometheus &amp; Grafana                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/Proxmox-VE-9.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-cube"></i>
+                                    Proxmox VE 9                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/TrustPositif-RPZ-Install.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    TrustPositif To RPZ Binary                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/vSphere.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-hard-drive"></i>
+                                    vSphere Unsupported HW                                </a>
+                            </li>
+                                                        <li>
+                                <a class="dropdown-item"
+                                    href="https://alsyundawy.com/WalkieFleet.html"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-tower-broadcast"></i>
+                                    WalkieFleet Server                                </a>
+                            </li>
+                                                    </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle"
+                            type="button" aria-label="Toggle theme"
+                            aria-pressed="false">
+                            <i class="fas fa-moon" id="themeIcon" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================================================
+         HERO SECTION - Profile introduction with optimized spacing
+         Enhanced dark mode gradient based on #004499 color scheme
+         ======================================================================== -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <img src="portofolio.webp" alt="ALSYUNDAWY IT SOLUTION"
+                    class="profile-pic" loading="eager" decoding="async" fetchpriority="high"
+                    width="140" height="140" data-fallback-src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27140%27 height=%27140%27%3E%3Ccircle fill=%27%233b82f6%27 cx=%2770%27 cy=%2770%27 r=%2770%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 dy=%27.35em%27 fill=%27%23fff%27 font-size=%2756%27%3EA%3C/text%3E%3C/svg%3E">
+                <div class="hero-tagline">HARRY DERTIN SUTISNA ALSYUNDAWY — PORTO FOLIO</div>
+                <h1>ALSYUNDAWY IT SOLUTION</h1>
+                <p class="hero-title">SYSTEM ADMINISTRATOR MAGANG, HYPERVISOR, MAIL &amp; DNS INFRASTRUCTURE SPECIALIST</p>
+                <p class="hero-status">OPISBOY | TEKNISI MAC &amp; SERVER KELILING | SYSTEM ENGINEER | MAIL, DNS &amp; ISP INFRASTRUCTURE SPECIALIST</p>
+                <p class="hero-title">ɪɴᴛᴇʀɴᴇᴛ ᴀᴅᴅɪᴄᴛ, ᴡɪɴᴅᴏᴡ, ᴍᴀᴄ &amp; ʟɪɴᴜx ʟᴏᴠᴇʀ, ɪ ᴀᴍ ɴᴏᴛ ɢᴏᴏᴅ ᴍᴀɴ ʙᴜᴛ ᴛʜᴇ ᴍᴀɴ ɪɴ ɢᴏᴏᴅ ᴅᴀʏ &amp; ɪ ᴀᴍ ᴏᴘɪsʙᴏʏ</p>
+                <div class="social-links">
+                    <a href="https://github.com/alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="social-github" aria-label="GitHub" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://facebook.com/alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="social-facebook" aria-label="Facebook" title="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://x.com/alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="social-x" aria-label="X/Twitter" title="X/Twitter">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/harry.ds.alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="social-instagram" aria-label="Instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="social-telegram" aria-label="Telegram" title="Telegram">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://youtube.com/@alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="social-youtube" aria-label="YouTube" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://wa.me/6285658515212"
+                        target="_blank" rel="noopener noreferrer"
+                        class="social-whatsapp" aria-label="WhatsApp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:alsyundawy@gmail.com" class="social-email" aria-label="Email" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://alsyundawy.com"
+                        target="_blank" rel="noopener noreferrer"
+                        class="social-website" aria-label="Website" title="Website">
+                        <i class="fa-solid fa-globe"></i>
+                    </a>
+                    <a href="https://www.paypal.me/alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="social-paypal" aria-label="PayPal" title="PayPal">
+                        <i class="fab fa-paypal"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         EXPERTISE SECTION - 8 core competency areas
+         Comprehensive technical expertise with detailed descriptions
+         ======================================================================== -->
+    <section id="expertise" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">AREA KEAHLIAN</h2>
+            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>ISP Hardware &amp; System Infrastructure</h3>
+                        <p>System Engineer spesialisasi hardware infrastructure management dan system administration untuk ISP operations. Expert dalam server deployment, hardware maintenance, MikroTik RouterOS, bandwidth management, dan infrastructure monitoring dengan 99.9% uptime.</p>
+                    </div>
+                </div>
+                                <div class="col-lg-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>DNS Infrastructure &amp; RPZ Specialist</h3>
+                        <p>Expert implementation PowerDNS, BIND9, dan Response Policy Zone (RPZ) untuk DNS filtering enterprise. Spesialisasi TrustPositif integration, DNSSEC, dan DNS performance optimization for high-traffic infrastructure ISP and corporate networks.</p>
+                    </div>
+                </div>
+                                <div class="col-lg-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-icon">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <h3>DNS Filtering &amp; Security TrustPositif</h3>
+                        <p>Implementasi advanced DNS filtering menggunakan TrustPositif database Kementerian Kominfo RI. Expert dalam RPZ binary conversion, automated blacklist updates, whitelist management, dan DNS-based threat intelligence dengan accuracy rate 99.9%.</p>
+                    </div>
+                </div>
+                                <div class="col-lg-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3>Hypervisor &amp; Virtualization</h3>
+                        <p>Advanced administration Proxmox VE, VMware vCenter, vSphere, ESXi, KVM, dan Hyper-V. Expert dalam VM orchestration, resource optimization, HA clustering, backup strategies, disaster recovery, dan migration projects untuk 100+ virtual machines.</p>
+                    </div>
+                </div>
+                                <div class="col-lg-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope-circle-check"></i>
+                        </div>
+                        <h3>Mail, SMTP System &amp; Hosting</h3>
+                        <p>Expert deployment dan management Zimbra Collaboration Suite, Proxmox Mail Gateway, WHM cPanel, antispam solutions (SpamAssassin, Rspamd), mail security (DKIM, SPF, DMARC), SMTP relay configuration, dan email infrastructure optimization untuk corporate environments.</p>
+                    </div>
+                </div>
+                                <div class="col-lg-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-icon">
+                            <i class="fa-brands fa-apple"></i>
+                        </div>
+                        <h3>Apple Mac Installation &amp; Services</h3>
+                        <p>Certified specialist untuk instalasi, konfigurasi, maintenance, dan technical support semua produk Apple Mac ecosystem. Expert dalam macOS deployment, system optimization, hardware upgrade, troubleshooting, dan integration dengan enterprise infrastructure.</p>
+                    </div>
+                </div>
+                                <div class="col-lg-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Network Monitoring &amp; Analysis</h3>
+                        <p>Professional deployment and operation of Smokeping for latency monitoring, along with Uptime Kuma, Cacti, Paessler PRTG, Nagios, Zabbix, MRTG, Grafana, Prometheus, and Netdata. Delivering comprehensive infrastructure visibility including network performance analysis, SLA monitoring, real-time alerting, and capacity planning, with monitoring intervals as low as 20 seconds.</p>
+                    </div>
+                </div>
+                                <div class="col-lg-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-icon">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <h3>Linux System Administration</h3>
+                        <p>Deep expertise Ubuntu Server, Debian, FreeBSD, dan CentOS. Advanced Bash scripting untuk automation, system monitoring, security hardening, kernel tuning, dan service orchestration. Active contributor dengan 10,407+ GitHub contributions dan automated deployment solutions.</p>
+                    </div>
+                </div>
+                            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         PROJECTS SECTION - 12 GitHub repositories
+         Open source contributions and original creations
+         ======================================================================== -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">PROYEK &amp; REPOSITORY</h2>
+            <div class="row">
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-file-code"></i>
+                        </div>
+                        <h4>TrustPositif To RPZ Binary</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Production-grade conversion tool untuk transform TrustPositif blacklist ke PowerDNS RPZ binary format dengan WhiteList support.</p>
+                        <a href="https://github.com/alsyundawy/TrustPositif-To-RPZ-Binary" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h4>TrustPositif &amp; Domain Blacklist</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Comprehensive raw TrustPositif database dari Kementerian Kominfo RI dengan daily automated updates.</p>
+                        <a href="https://github.com/alsyundawy/TrustPositif" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-check-double"></i>
+                        </div>
+                        <h4>TrustPositif Validator</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Shell script canggih untuk validasi domain TrustPositif dengan dukungan multi-core parallel processing, RFC-compliant domain validation, dan IANA TLD filtering.</p>
+                        <a href="https://github.com/alsyundawy/TrustPositif-Validator" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <h4>Sunat Database TrustPositif Komdigi</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Validates domain lists against official TLDs. Downloads, cleans, and processes domain data trustpositif.</p>
+                        <a href="https://github.com/alsyundawy/sunat-trustpositif" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-ban"></i>
+                        </div>
+                        <h4>StevenBlack Blacklist RPZ</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Comprehensive hosts blacklist database untuk blocking ads, malware, dan tracking domains dari stevenblack RPZ version.</p>
+                        <a href="https://github.com/alsyundawy/StevenBlack-Host-RPZ" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <h4>The Best Blocklist Collection</h4>
+                        <span class="project-card-stats">Maintained Fork</span>
+                        <p>Comprehensive repository of block lists for Pi-hole and AdGuard, featuring over 100 links and 5+ million domains.</p>
+                        <a href="https://github.com/alsyundawy/Sefinek-Blocklist-Collection" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4>Hagezi DNS Blocklists</h4>
+                        <span class="project-card-stats">Maintained Fork</span>
+                        <p>Hagezi DNS-Blocklists - For a better internet, keep the internet clean! Comprehensive DNS-based filtering lists.</p>
+                        <a href="https://github.com/alsyundawy/dns-blocklists" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-search"></i>
+                        </div>
+                        <h4>PHP Looking Glass</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Professional, lightweight, single-file PHP Looking Glass tool for network diagnostics. IPv4/IPv6 support, Dark/Light mode UI.</p>
+                        <a href="https://github.com/alsyundawy/php-looking-glass" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-scroll"></i>
+                        </div>
+                        <h4>MikroTik Script Automation</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Kumpulan script otomatisasi pilihan untuk konfigurasi, optimasi, backup, dan pengelolaan sistem MikroTik RouterOS.</p>
+                        <a href="https://github.com/alsyundawy/MIKROTIK-SCRIPT" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h4>MikroTik Blacklist</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Advanced automated blacklist management system untuk MikroTik RouterOS dengan threat intelligence integration.</p>
+                        <a href="https://github.com/alsyundawy/mikrotik-blacklist" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <h4>ACL BIND9 DNS Indonesia + OpenIXP</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Bash Script untuk Membuat File ACL Indonesia dengan Data IP dari Nice.rsc dan APNIC untuk BIND9 DNS server.</p>
+                        <a href="https://github.com/alsyundawy/bind-acl-indonesia-openixp" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <h4>DNS Performance Test</h4>
+                        <span class="project-card-stats">Forked &amp; Enhanced</span>
+                        <p>Comprehensive DNS benchmarking tool untuk performance analysis dan latency testing dengan detailed reporting.</p>
+                        <a href="https://github.com/alsyundawy/dnsperftest" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-shield"></i>
+                        </div>
+                        <h4>UFW Ipset Blocklist Auto Update</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Skrip otomatisasi untuk memperbarui daftar blokir IP secara real-time menggunakan ipset dan UFW firewall.</p>
+                        <a href="https://github.com/alsyundawy/ufw-ipset-blocklist-autoupdate" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <h4>PowerDNS Zone Backups</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Automated PowerDNS zone backup solution dengan incremental backups dan disaster recovery procedures.</p>
+                        <a href="https://github.com/alsyundawy/PowerDNS-Zone-Backups" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-brands fa-apple"></i>
+                        </div>
+                        <h4>Microsoft Office for macOS</h4>
+                        <span class="project-card-stats">Original Creation - 5.9k stars / 774 forks</span>
+                        <p>Installer for Microsoft Office on macOS (Intel &amp; Apple Silicon). Includes LTSC 2024 VL serializer. GPL-3.0 licensed.</p>
+                        <a href="https://github.com/alsyundawy/Microsoft-Office-For-MacOS" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-unlock-keyhole"></i>
+                        </div>
+                        <h4>SkipMDM macOS Bypass</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Skrip otomatisasi bypass MDM (Mobile Device Management) untuk macOS Monterey, Ventura, dan Sonoma.</p>
+                        <a href="https://github.com/alsyundawy/skipmdm-bypass" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-folder-open"></i>
+                        </div>
+                        <h4>PHP File &amp; Directory Browser</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>File &amp; Directory Browser berbasis PHP dengan keamanan diperkuat: CSRF protection, output sanitasi, verifikasi hash, UI responsif.</p>
+                        <a href="https://github.com/alsyundawy/File-Directory-Browser" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-terminal"></i>
+                        </div>
+                        <h4>Generic Shell Script Compiler (SHC)</h4>
+                        <span class="project-card-stats">Maintained Fork</span>
+                        <p>Kompiler skrip shell dengan enkripsi dan audit keamanan tambahan untuk mengubah skrip shell menjadi biner.</p>
+                        <a href="https://github.com/alsyundawy/shc" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h4>Zimbra Clean Outgoing Spam Queue</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Skrip memindai log untuk mencari login berlebihan yang dikaitkan dengan akun yang disusupi dan digunakan mengirim spam.</p>
+                        <a href="https://github.com/alsyundawy/Zimbra-Clean-Spam" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </div>
+                        <h4>Bash Script Uninstall Zimbra</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Bash Script Uninstall Zimbra yang lengkap. Script untuk menghapus instalasi Zimbra dari server Linux dengan mudah.</p>
+                        <a href="https://github.com/alsyundawy/uninstall-zimbra" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-file-import"></i>
+                        </div>
+                        <h4>Zimbra to Carbonio Migration (Z2C)</h4>
+                        <span class="project-card-stats">Original Creation</span>
+                        <p>Alat migrasi Zimbra ke Carbonio untuk mengekspor domain, akun, alias, dan mailbox secara paralel.</p>
+                        <a href="https://github.com/alsyundawy/Z2C" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                        <h4>NotepadNext for macOS</h4>
+                        <span class="project-card-stats">Maintained Fork</span>
+                        <p>Implementasi editor Notepad++ untuk macOS yang cepat, ringan, kaya fitur, dan berbasis open source.</p>
+                        <a href="https://github.com/alsyundawy/NotepadNext-MacOS" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h4>Xiaomi ADB &amp; Fastboot Tools</h4>
+                        <span class="project-card-stats">Maintained Fork</span>
+                        <p>Perangkat diagnostik ADB dan Fastboot yang dioptimalkan untuk perangkat Xiaomi di sistem Windows.</p>
+                        <a href="https://github.com/alsyundawy/XiaomiADBFastbootTools-Win32" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4>OpenVPN Road Warrior Installer</h4>
+                        <span class="project-card-stats">Maintained Fork</span>
+                        <p>Maintained fork OpenVPN Road Warrior installer dengan dual-stack IPv4/IPv6, Unbound DNS, security hardening, dan manajemen client yang diperluas untuk deployment produksi.</p>
+                        <a href="https://github.com/alsyundawy/OpenVPN-Install" target="_blank" rel="noopener noreferrer">
+                            Lihat Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                            </div>
+        </div>
+    </section>
+
+     <!-- ========================================================================
+          TUTORIALS SECTION - 14 comprehensive technical guide HTML documents
+          Detailed step-by-step tutorials with direct access links
+          ======================================================================== -->
+    <section id="tutorials" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">TUTORIAL &amp; PANDUAN TEKNIS</h2>
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-8 text-center">
+                    <p class="section-lead">
+                        Panduan praktis, arsitektur server, instalasi, dan
+                        dokumentasi sistem untuk administrasi jaringan dan
+                        infrastruktur ISP.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h4>Build Zimbra FOSS</h4>
+                        <p>Panduan komprehensif build Zimbra Collaboration 10.1.20 FOSS dari source (zm-build) untuk Ubuntu Server 24.04 LTS dan Rocky Linux 9: dependency, tag release, build.pl, installer .tgz, validasi, instalasi testing, DNS, firewall, dan security baseline.</p>
+                        <a href="https://alsyundawy.com/Build-Zimbra-FOSS.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-chart-simple"></i>
+                        </div>
+                        <h4>Cacti Monitoring Stack</h4>
+                        <p>Panduan instalasi Cacti network graphing tool pada Debian dengan Apache/Nginx pada root domain.</p>
+                        <a href="https://alsyundawy.com/Cacti.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h4>HyperGlass</h4>
+                        <p>Panduan instalasi hyperglass BGP Looking Glass modern berbasis Python dengan integrasi routing daemon (Bird, FRR, Quagga, OpenBGPD), Nginx reverse proxy, Redis, dan Netmiko automation.</p>
+                        <a href="https://alsyundawy.com/HyperGlass.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h4>Install Zimbra FOSS</h4>
+                        <p>Panduan instalasi Zimbra Collaboration 10.1.20 FOSS pada Ubuntu Server 24.04 LTS dan Rocky Linux 9 / AlmaLinux 9: DNS, firewall, install.sh, post-install, security baseline, dan validasi.</p>
+                        <a href="https://alsyundawy.com/Install-Zimbra-FOSS.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <h4>Ookla Speedtest Server</h4>
+                        <p>Deployment OoklaSpeedtest Server versi produksi dengan konfigurasi Dual-Stack IPv4 &amp; IPv6 dan systemd.</p>
+                        <a href="https://alsyundawy.com/Ookla-Speedtest.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4>OpenVPN Road Warrior</h4>
+                        <p>Panduan instalasi OpenVPN Road Warrior dual-stack IPv4/IPv6 di Debian, Ubuntu, AlmaLinux, Rocky, CentOS, Fedora dengan Unbound DNS, security hardening, dan manajemen client.</p>
+                        <a href="https://alsyundawy.com/OpenVPN-Install.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <h4>PHP PowerAdmin</h4>
+                        <p>Instalasi PowerDNS Authoritative dengan antarmuka web Poweradmin untuk manajemen zone DNS, Master-Slave replication, REST API, DNSSEC, dan kontrol akses berbasis peran.</p>
+                        <a href="https://alsyundawy.com/PowerAdmin.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <h4>PHP-LookingGlass</h4>
+                        <p>Alat diagnostik jaringan single-file PHP untuk pemeriksaan ping, traceroute, BGP route lookup, dan DNS resolution dengan dukungan IPv4/IPv6 dan Dark/Light mode UI.</p>
+                        <a href="https://alsyundawy.com/PHP-LookingGlass.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-sitemap"></i>
+                        </div>
+                        <h4>phpIPAM</h4>
+                        <p>Panduan instalasi phpIPAM open-source IP Address Management untuk manajemen alamat IP, VLAN, subnetting, dan dokumentasi jaringan dengan automated IP scanning.</p>
+                        <a href="https://alsyundawy.com/phpIPAM.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <h4>PowerDNS-Admin Debian 13</h4>
+                        <p>Konfigurasi Master-Slave PowerDNS dengan web interface PowerAdmin untuk skema DNS redundan ISP.</p>
+                        <a href="https://alsyundawy.com/PowerDNS-Admin-Debian.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h4>PowerDNS-Admin Ubuntu 22.04</h4>
+                        <p>Panduan otomatisasi dan manual PowerDNS Authoritative dengan backend MariaDB 10.11 dan Web Admin UI (Flask).</p>
+                        <a href="https://alsyundawy.com/PowerDNS-Admin-Ubuntu.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h4>Prometheus &amp; Grafana</h4>
+                        <p>Stack monitoring infrastruktur lengkap dengan Prometheus, Node Exporter, Grafana, dan Zabbix 7.0.</p>
+                        <a href="https://alsyundawy.com/Prometheus-Grafana-Debian.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-cube"></i>
+                        </div>
+                        <h4>Proxmox VE 9</h4>
+                        <p>Panduan instalasi dan konfigurasi Proxmox VE 9 pada Debian serta Ubuntu dengan setup cluster, storage, dan VM/container.</p>
+                        <a href="https://alsyundawy.com/Proxmox-VE-9.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4>TrustPositif To RPZ Binary</h4>
+                        <p>Panduan instalasi BIND9 DNS Filtering dengan Response Policy Zone TrustPositif Komdigi: auto-install, multi-source database, WhiteList, Google SafeSearch, dan hardening keamanan.</p>
+                        <a href="https://alsyundawy.com/TrustPositif-RPZ-Install.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-hard-drive"></i>
+                        </div>
+                        <h4>vSphere Unsupported HW</h4>
+                        <p>Panduan instalasi dan upgrade VMware vSphere / ESXi pada perangkat keras server yang tidak didukung.</p>
+                        <a href="https://alsyundawy.com/vSphere.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="project-card">
+                        <div class="project-card-icon">
+                            <i class="fa-solid fa-tower-broadcast"></i>
+                        </div>
+                        <h4>WalkieFleet Server</h4>
+                        <p>Panduan lengkap instalasi WalkieFleet Push-to-Talk server pada Linux Debian &amp; Ubuntu.</p>
+                        <a href="https://alsyundawy.com/WalkieFleet.html" target="_blank" rel="noopener noreferrer">
+                            Buka Tutorial <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         SKILLS SECTION - 10 technical skill categories
+         Comprehensive technical expertise across multiple domains
+         ======================================================================== -->
+    <section id="skills" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">KETERAMPILAN TEKNIS</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                                        <div class="skill-item">
+                        <div class="skill-text">
+                            <h4>ISP Hardware &amp; System Infrastructure</h4>
+                            <p>Server hardware management, system administration, infrastructure monitoring, MikroTik RouterOS, hardware troubleshooting, system optimization, bandwidth management, VPN configuration (WireGuard, OpenVPN), network equipment maintenance, Ubiquiti UniFi</p>
+                        </div>
+                    </div>
+                                        <div class="skill-item">
+                        <div class="skill-text">
+                            <h4>DNS Infrastructure</h4>
+                            <p>DNS filtering, DNSSEC, authoritative and recursive DNS, PowerDNS, BIND9, Response Policy Zone (RPZ), DNS security extensions, zone transfers (AXFR/IXFR), DNS load balancing, Unbound, Knot DNS</p>
+                        </div>
+                    </div>
+                                        <div class="skill-item">
+                        <div class="skill-text">
+                            <h4>DNS Filtering &amp; Security</h4>
+                            <p>TrustPositif integration, RPZ binary format, blacklist and whitelist management, DNS threat intelligence, DNS cache poisoning prevention, DNS amplification attack mitigation, DNS firewall implementation, AdGuard Home</p>
+                        </div>
+                    </div>
+                                        <div class="skill-item">
+                        <div class="skill-text">
+                            <h4>Hypervisor &amp; Virtualization</h4>
+                            <p>Proxmox VE, VMware vCenter, VMware vSphere, VMware ESXi, KVM (Kernel-based Virtual Machine), Hyper-V, VirtualBox, QEMU, virtual machine lifecycle management, high availability clustering, live migration, resource optimization, backup and recovery, V2V migration</p>
+                        </div>
+                    </div>
+                                        <div class="skill-item">
+                        <div class="skill-text">
+                            <h4>Mail, SMTP Systems &amp; Hosting</h4>
+                            <p>Zimbra Collaboration Suite, Proxmox Mail Gateway, WHM/cPanel, Postfix, Dovecot, SpamAssassin, Rspamd, Amavis, DKIM, SPF, DMARC, SMTP relay configuration, mail queue management, Roundcube, MailScanner, ClamAV antivirus</p>
+                        </div>
+                    </div>
+                                        <div class="skill-item">
+                        <div class="skill-text">
+                            <h4>Apple macOS Services</h4>
+                            <p>macOS installation and configuration, macOS Server, Time Machine backup, FileVault encryption, Apple Remote Desktop, Homebrew package management, Mac hardware upgrades, macOS troubleshooting, iCloud integration, macOS security hardening, Apple Silicon (M1/M2/M3) optimization, Boot Camp configuration</p>
+                        </div>
+                    </div>
+                                        <div class="skill-item">
+                        <div class="skill-text">
+                            <h4>Monitoring &amp; Performance</h4>
+                            <p>Smokeping latency monitoring, Uptime Kuma infrastructure monitoring, Cacti, Paessler PRTG, Nagios, Zabbix, MRTG, Grafana, Prometheus, Netdata, network performance analysis, SLA monitoring, real-time alerting, dashboard design, log aggregation (ELK Stack), incident response</p>
+                        </div>
+                    </div>
+                                        <div class="skill-item">
+                        <div class="skill-text">
+                            <h4>Linux System Administration</h4>
+                            <p>Ubuntu Server, Debian, FreeBSD, CentOS, Rocky Linux, AlmaLinux, system hardening, kernel tuning, service management (systemd), package management (APT, YUM, DNF), performance optimization, SELinux, AppArmor, Fail2ban, UFW firewall</p>
+                        </div>
+                    </div>
+                                        <div class="skill-item">
+                        <div class="skill-text">
+                            <h4>Scripting &amp; Automation</h4>
+                            <p>Bash scripting, shell automation, Python automation, AWK, SED, Grep, cron job scheduling, Ansible playbooks, log analysis, configuration management, deployment automation, Git version control, CI/CD pipelines, Docker containers, Docker Compose</p>
+                        </div>
+                    </div>
+                                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         CLIENTS SECTION - 56 trusted clients (46 original + 10 dummy)
+         Professional client portfolio with automatic brightness in dark mode
+         ======================================================================== -->
+    <section id="clients" class="section">
+        <div class="container">
+            <h2 class="section-title">KLIEN LIST</h2>
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-8 text-center">
+                    <p class="section-lead">
+                        Perusahaan dan organisasi yang telah mempercayai layanan profesional kami
+                    </p>
+                </div>
+            </div>
+            <div class="row g-3 justify-content-center">
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/gayuh.webp"
+                             alt="PT Gayuh Niaga Indonesia"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="PT Gayuh Niaga Indonesia">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/aneka.png"
+                             alt="Aneka Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Aneka Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/sibertech.png"
+                             alt="Sibertech Indonesia"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Sibertech Indonesia">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/rpa.png"
+                             alt="RPA Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="RPA Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/menak.png"
+                             alt="Menak Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Menak Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/liv-logo.webp"
+                             alt="LIV Indonesia"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="LIV Indonesia">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/marsdata.png"
+                             alt="Marsdata Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Marsdata Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/kangen.png"
+                             alt="Kangen ISP"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Kangen ISP">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/ismaya.png"
+                             alt="Ismaya Group"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Ismaya Group">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/winartha.png"
+                             alt="Winartha Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Winartha Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/astrakom1.png"
+                             alt="Astrakom Indonesia"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Astrakom Indonesia">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/8bit.png"
+                             alt="8Bit Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="8Bit Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/astro.png"
+                             alt="Astro Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Astro Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/idt.png"
+                             alt="IDT Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="IDT Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/citranet.png"
+                             alt="Citranet Indonesia"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Citranet Indonesia">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/jdp.png"
+                             alt="JDP Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="JDP Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/jarindo.png"
+                             alt="Jarindo Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Jarindo Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/javamedia.png"
+                             alt="Java Media Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Java Media Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/BarokahNetLogo_.png"
+                             alt="Barokah Net"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Barokah Net">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/vnt.png"
+                             alt="VNT Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="VNT Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/jartel.png"
+                             alt="Jartel Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Jartel Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/ljn.png"
+                             alt="LJN Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="LJN Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/benetindo.png"
+                             alt="Benetindo"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Benetindo">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/rinjani.png"
+                             alt="Rinjani Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Rinjani Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/jinus.png"
+                             alt="Jinus Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Jinus Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/mvnet.png"
+                             alt="MVNet Indonesia"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="MVNet Indonesia">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/rapid.png"
+                             alt="Rapid Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Rapid Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/dataprime.png"
+                             alt="Dataprime Indonesia"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Dataprime Indonesia">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/rajasa-logo.png"
+                             alt="Rajasa Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Rajasa Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/zetta.png"
+                             alt="Zettabyte"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Zettabyte">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/jms.png"
+                             alt="JMS Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="JMS Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/yesi.jpg"
+                             alt="Yesi Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Yesi Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/sambas.webp"
+                             alt="Sambas Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Sambas Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/ion.png"
+                             alt="ION Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="ION Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/hypertech.png"
+                             alt="Hypertech Indonesia"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Hypertech Indonesia">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/austin.png"
+                             alt="Austin Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Austin Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/adela.png"
+                             alt="Adela Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Adela Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/sq.png"
+                             alt="SQ Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="SQ Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/pejoeang.png"
+                             alt="Pejoeang Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Pejoeang Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/ise.svg"
+                             alt="ISE Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="ISE Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/wptech.png"
+                             alt="WPTech Indonesia"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="WPTech Indonesia">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/wds.png"
+                             alt="WDS Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="WDS Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/sai.png"
+                             alt="SAI Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="SAI Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/panca.png"
+                             alt="Panca Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Panca Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/daily.webp"
+                             alt="Daily budget"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Daily budget">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/wihamedia.png"
+                             alt="Wiha Media Network"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Wiha Media Network">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/rekayasa.webp"
+                             alt="PT REKAYASA ENGINEERING"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="PT REKAYASA ENGINEERING">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/pabrik.png"
+                             alt="CV PabrikOnline Global Solusindo"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="CV PabrikOnline Global Solusindo">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/exatel.png"
+                             alt="PT. ELEMEN JARINGAN NUSANTARA"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="PT. ELEMEN JARINGAN NUSANTARA">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/drajat.png"
+                             alt="Client Partner 4"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 4">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/alphaplus.png"
+                             alt="Client Partner 5"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 5">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/csnet.webp"
+                             alt="Client Partner 6"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 6">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/abys.png"
+                             alt="Client Partner 7"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 7">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/andro.png"
+                             alt="Client Partner 8"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 8">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/maxnet.png"
+                             alt="Client Partner 9"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 9">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/hijrahnet.png"
+                             alt="Client Partner 10"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 10">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/smsnet.png"
+                             alt="Client Partner 6"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 6">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/dexano.png"
+                             alt="Client Partner 7"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 7">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/lexxadata.png"
+                             alt="LexxaData"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="LexxaData">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/bitsnet.png"
+                             alt="Bitsnet"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Bitsnet">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/logo-cryptonet.webp"
+                             alt="Client Partner 8"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 8">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/logo-fiber-akses.webp"
+                             alt="Client Partner 9"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 9">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/logo-lg-aksesdata.webp"
+                             alt="Client Partner 6"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 6">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/pelanggan2.webp"
+                             alt="Client Partner 7"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 7">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/pelanggan3.webp"
+                             alt="Client Partner 8"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 8">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/pelanggan4.webp"
+                             alt="Client Partner 9"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 9">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/pelanggan5.webp"
+                             alt="Client Partner 6"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Client Partner 6">
+                    </div>
+                </div>
+                            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         SUPPORTED BY SECTION - 2 supporting organizations
+         Business partnerships with automatic brightness in dark mode
+         ======================================================================== -->
+    <section id="support" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">DIDUKUNG OLEH</h2>
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-8 text-center">
+                    <p class="section-lead">
+                        Yang mendukung dan memberikan support layanan profesional kami
+                    </p>
+                </div>
+            </div>
+            <div class="row g-3 justify-content-center">
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/alsyundawy-it.png"
+                             alt="Alsyundawy IT Solution"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Alsyundawy IT Solution">
+                    </div>
+                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="client-card">
+                        <img src="xmg/orion.webp"
+                             alt="Orion Cyber Internet"
+                             width="160"
+                             height="65"
+                             loading="lazy"
+                             decoding="async"
+                             data-fallback-text="Orion Cyber Internet">
+                    </div>
+                </div>
+                            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         CONTACT SECTION - Enhanced with detailed technical services
+         Multiple communication channels with professional call-to-action
+         ======================================================================== -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">MARI TERHUBUNG, BEKERJA SAMA &amp; BERKOLABORASI</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="card">
+                        <h3 class="mb-3 contact-heading">Tertarik Berkolaborasi?</h3>
+                        <p class="mb-4 contact-copy">
+                            Saya terbuka untuk kerja sama dan diskusi teknis
+                            di bidang <strong>System Administration, DNS
+                            Infrastructure, Mail Systems, dan Apple Mac
+                            Services</strong>, termasuk <strong>system &amp;
+                            network operations, hypervisor management, ISP
+                            hardware, TrustPositif implementation, MikroTik
+                            configuration</strong>, serta kolaborasi proyek
+                            <strong>open source</strong>. Mari diskusikan
+                            kebutuhan Anda dan implementasi solusi yang sesuai
+                            dengan kebutuhan operasional untuk mendukung bisnis
+                            maupun proyek jangka panjang anda.
+                        </p>
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                            <a href="https://wa.me/6285658515212"
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+                                 class="btn-custom">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="https://t.me/alsyundawy"
+                                target="_blank" rel="noopener noreferrer"
+                                class="btn-custom">
+                                <i class="fab fa-telegram"></i> Telegram
+                            </a>
+                            <a href="mailto:alsyundawy@gmail.com" class="btn-custom">
+                                <i class="fas fa-envelope"></i> Email
+                            </a>
+                            <a href="https://github.com/alsyundawy"
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+                                 class="btn-custom">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="https://www.paypal.me/alsyundawy"
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+                                 class="btn-custom">
+                                <i class="fab fa-paypal"></i> Dukung
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         FOOTER - Copyright and social media links
+         Professional footer with comprehensive social media integration
+         ======================================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-copy">
+                    <span class="footer-brand">PERSONAL PROFESSIONAL PORTFOLIO BY HARRY DERTIN SUTISNA ALSYUNDAWY</span>
+                    <span class="footer-line">COPYLEFT
+                        2026
+                        <span class="footer-highlight">ALSYUNDAWY IT SOLUTION</span>
+                    </span>
+                </div>
+                <div class="d-flex justify-content-center flex-wrap mt-3">
+                    <a href="https://github.com/alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="footer-social-link social-github"
+                        aria-label="GitHub" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://facebook.com/alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="footer-social-link social-facebook"
+                        aria-label="Facebook" title="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://x.com/alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="footer-social-link social-x"
+                        aria-label="X/Twitter" title="X/Twitter">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/harry.ds.alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="footer-social-link social-instagram"
+                        aria-label="Instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="footer-social-link social-telegram"
+                        aria-label="Telegram" title="Telegram">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://youtube.com/@alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="footer-social-link social-youtube"
+                        aria-label="YouTube" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://wa.me/6285658515212"
+                        target="_blank" rel="noopener noreferrer"
+                        class="footer-social-link social-whatsapp"
+                        aria-label="WhatsApp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:alsyundawy@gmail.com" target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer-social-link social-email"
+                        aria-label="Email" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://alsyundawy.com"
+                        target="_blank" rel="noopener noreferrer"
+                        class="footer-social-link social-website"
+                        aria-label="Website" title="Website">
+                        <i class="fa-solid fa-globe"></i>
+                    </a>
+                    <a href="https://www.paypal.me/alsyundawy"
+                        target="_blank" rel="noopener noreferrer"
+                        class="footer-social-link social-paypal"
+                        aria-label="PayPal" title="PayPal">
+                        <i class="fab fa-paypal"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button - Smooth scroll to top functionality -->
+    <button type="button" class="back-to-top" id="backToTop" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Structured data is generated once in the document head to avoid duplicate JSON-LD. -->
+
+    <!-- ========================================================================
+         EXTERNAL SCRIPTS - Bootstrap and JavaScript
+         Minified production-ready scripts for optimal performance
+         ======================================================================== -->
+    <script></script>
+
+    <!-- ========================================================================
+         MINIFIED JAVASCRIPT - PRODUCTION READY v8.4.6
+         Theme toggle, smooth scroll, active sections, image fallback, intersection observer
+         All functionality optimized for performance and user experience
+         ======================================================================== -->
+    <script>(()=>{"use strict";const root=document.documentElement;const themeToggle=document.getElementById("themeToggle");const themeIcon=document.getElementById("themeIcon");const backToTop=document.getElementById("backToTop");const navbar=document.querySelector(".navbar");const navLinks=document.querySelectorAll(".nav-link:not(.dropdown-toggle)");const animatedItems=document.querySelectorAll(".card,.project-card,.skill-item,.client-card");const sections=document.querySelectorAll("section[id]");const normalizeTheme=(value)=>(value==="dark"?"dark":"light");const readStoredTheme=()=>{try{const stored=window.localStorage.getItem("theme");if(stored)return normalizeTheme(stored);return window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";}catch(e){console.warn("[readStoredTheme]localStorage unavailable:",e);return"light";}};const writeStoredTheme=(theme)=>{try{window.localStorage.setItem("theme",theme);}catch(e){console.warn("[writeStoredTheme]localStorage unavailable:",e);}};let currentTheme=readStoredTheme();const applyTheme=(theme,persist=true)=>{currentTheme=normalizeTheme(theme);root.dataset.bsTheme=currentTheme;if(themeIcon){themeIcon.className=currentTheme==="light"?"fas fa-moon":"fas fa-sun";}if(themeToggle){themeToggle.setAttribute("aria-pressed",String(currentTheme==="dark"));themeToggle.setAttribute("aria-label",currentTheme==="dark"?"Switch to light theme":"Switch to dark theme");}const navbarLogo=document.getElementById("navbarLogo");if(navbarLogo){navbarLogo.src=currentTheme==="dark"?"xmg/alsyundawy-it-dark.webp":"xmg/alsyundawy-it.png";}document.querySelectorAll('meta[name="theme-color"]').forEach((meta)=>{meta.setAttribute("content",currentTheme==="dark"?"#002244":"#004499");});if(persist){writeStoredTheme(currentTheme);}};const handleScrollState=()=>{const scrolled=window.scrollY>80;if(navbar)navbar.classList.toggle("scrolled",scrolled);if(backToTop)backToTop.classList.toggle("show",scrolled);};const closeMobileNavbar=()=>{const menu=document.querySelector(".navbar-collapse.show");if(!menu||!window.bootstrap?.Collapse)return;const instance=window.bootstrap.Collapse.getInstance(menu)||new window.bootstrap.Collapse(menu,{toggle:false});instance.hide();};const scrollToSection=(target)=>{const top=Math.max(target.getBoundingClientRect().top+window.scrollY-70,0);window.scrollTo({top,behavior:"smooth"});};const updateActiveNav=()=>{const currentPosition=window.scrollY+70;sections.forEach((section)=>{const sectionTop=section.offsetTop;const sectionBottom=sectionTop+section.offsetHeight;const sectionId=section.getAttribute("id");const isActive=currentPosition>=sectionTop&&currentPosition<sectionBottom;if(isActive){navLinks.forEach((link)=>{link.classList.toggle("active",link.getAttribute("href")===`#${sectionId}`);});}});};const setupImageFallbacks=()=>{const fallbackImages=document.querySelectorAll("img[data-fallback-action],img[data-fallback-src],"+"img[data-fallback-text]");fallbackImages.forEach((img)=>{const applyFallback=()=>{if(img.dataset.fallbackHandled==="1")return;img.dataset.fallbackHandled="1";if(img.dataset.fallbackAction==="hide"){img.hidden=true;}else if(img.dataset.fallbackSrc){img.src=img.dataset.fallbackSrc;}else if(img.dataset.fallbackText){const textNode=document.createElement("p");textNode.className="client-fallback-text";textNode.textContent=img.dataset.fallbackText;img.replaceWith(textNode);}};img.addEventListener("error",applyFallback,{once:true});if(img.complete&&img.naturalWidth===0){applyFallback();}});};const setupRevealAnimation=()=>{if(!("IntersectionObserver"in window)){return;}document.documentElement.classList.add("js-reveal-enabled");const observer=new IntersectionObserver((entries,instance)=>{entries.forEach((entry)=>{if(!entry.isIntersecting)return;entry.target.classList.add("is-visible");instance.unobserve(entry.target);});},{threshold:0.08,rootMargin:"0px 0px-50px 0px"});animatedItems.forEach((item)=>{observer.observe(item);});};applyTheme(currentTheme,false);setupImageFallbacks();setupRevealAnimation();handleScrollState();updateActiveNav();if(themeToggle){themeToggle.addEventListener("click",()=>{applyTheme(currentTheme==="light"?"dark":"light");});}if(backToTop){backToTop.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"});});}document.querySelectorAll('a[href^="#"]').forEach((link)=>{link.addEventListener("click",(event)=>{const selector=link.getAttribute("href");if(!selector||selector==="#")return;const target=document.querySelector(selector);if(!target)return;event.preventDefault();scrollToSection(target);closeMobileNavbar();});});let isScrolling=false;window.addEventListener("scroll",()=>{if(!isScrolling){window.requestAnimationFrame(()=>{handleScrollState();updateActiveNav();isScrolling=false;});isScrolling=true;}},{passive:true});})();</script>
+
+</body>
+</html>
