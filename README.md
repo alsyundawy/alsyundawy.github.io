@@ -10,7 +10,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-alsyundawy-black?style=flat-square&logo=github)](https://github.com/alsyundawy)
 [![Email](https://img.shields.io/badge/Email-alsyundawy%40gmail.com-red?style=flat-square&logo=gmail)](mailto:alsyundawy@gmail.com)
 [![Phone](https://img.shields.io/badge/Phone-%2B6285658515212-green?style=flat-square&logo=whatsapp)](https://wa.me/6285658515212)
-[![License](https://img.shields.io/badge/License-Copyleft-lightgrey?style=flat-square)](#copyleft-2026-alsyundawy-it-solution)
+[![License](https://img.shields.io/badge/License-Copyleft-lightgrey?style=flat-square)](#license)
 
 [![Followers](https://img.shields.io/github/followers/alsyundawy?label=Followers&style=flat-square&color=3b82f6)](https://github.com/alsyundawy)
 [![Stars](https://img.shields.io/github/stars/alsyundawy/alsyundawy.github.io?style=flat-square&color=7c3aed)](https://github.com/alsyundawy/alsyundawy.github.io/stargazers)
@@ -18,7 +18,7 @@
 
 ---
 
-## About
+## Overview
 
 Portfolio profesional satu halaman yang menampilkan keahlian teknis tingkat lanjut di bidang **System Administration**, **DNS/RPZ Infrastructure**, **ISP Hardware**, **Hypervisor & Virtualization**, **Mail Systems**, dan **Apple Mac Ecosystem**.
 
@@ -34,6 +34,71 @@ Dikembangkan dengan fokus pada:
 
 ---
 
+## Quickstart
+
+Untuk menjalankan atau meninjau portfolio secara lokal di komputer Anda:
+
+```bash
+# Clone repository
+git clone https://github.com/alsyundawy/alsyundawy.github.io.git
+cd alsyundawy.github.io
+
+# Opsi 1: Buka langsung index.html di browser
+open index.html
+
+# Opsi 2: Menggunakan HTTP server lokal (direkomendasikan)
+python3 -m http.server 8000
+# Buka http://localhost:8000 pada browser
+```
+
+---
+
+## Dependencies
+
+Repository ini menggunakan arsitektur web modern tanpa dependency build framework yang rumit, mengandalkan CDN assets terlindungi Subresource Integrity (SRI):
+
+| Komponen | Teknologi / Library | Versi / Sumber |
+| ---------- | -------------------- | ---------------- |
+| **Structure** | HTML5 Semantic | Standar W3C Living Standard |
+| **Styling** | Vanilla CSS + CSS Custom Properties | Native CSS |
+| **UI Framework** | Bootstrap (Grid, Utilities & Components) | 5.3.8 (CDN via jsDelivr + SRI) |
+| **Icons** | Font Awesome Free | 6.7.2 (CDN via cdnjs + SRI) |
+| **Typography** | Google Fonts (Inter) | Modern Sans-Serif |
+| **Logic** | Vanilla JavaScript | ES6+ Modern JavaScript |
+| **Hosting** | GitHub Pages & Custom Domain | GitHub Static Infrastructure |
+
+---
+
+## Configuration
+
+Website portofolio ini dapat dikonfigurasi melalui beberapa file kunci:
+
+- **Metadata & SEO**: Diatur langsung di bagian `<head>` pada `index.html` (OpenGraph, Twitter Cards, dan Schema.org JSON-LD).
+- **Theme & Color Modes**: Mendukung light/dark theme otomatis sesuai preferensi sistem (`prefers-color-scheme`) atau disimpan manual di `localStorage` dengan key `theme`.
+- **PWA & Manifest**: Dikonfigurasi pada `site.webmanifest` untuk metadata nama aplikasi, ikon, dan tema browser.
+- **Sitemap**: Didefinisikan pada `sitemap.xml` untuk indexing search engine (Google, Bing).
+- **Minifikasi Inline**: Skrip pemroses `minify_inline.py` tersedia untuk memadatkan inline CSS dan JS secara aman sebelum rilis.
+
+---
+
+## Running Tests
+
+Uji kualitas, validitas sintaks, dan performa halaman web dapat dijalankan menggunakan:
+
+```bash
+# 1. Validasi struktur HTML dan data JSON-LD (Python)
+python3 -c "import json, re; c=open('index.html').read(); json.loads(re.search(r'<script type=\"application/ld\+json\">(.*?)</script>', c, re.S).group(1)); print('JSON-LD OK')"
+
+# 2. Uji HTTP server lokal
+python3 -m http.server 8899 &
+curl -I http://localhost:8899/index.html
+
+# 3. Audit performa & aksesibilitas
+# Buka Google Chrome DevTools -> Lighthouse -> Run Navigation Audit (Performance, Accessibility, Best Practices, SEO)
+```
+
+---
+
 ## Area Keahlian
 
 | Domain | Spesialisasi |
@@ -42,24 +107,10 @@ Dikembangkan dengan fokus pada:
 | **DNS & RPZ** | PowerDNS, BIND9, DNSSEC, TrustPositif integration, DNS filtering enterprise |
 | **DNS Security** | RPZ binary conversion, blacklist/whitelist management, threat intelligence |
 | **Virtualization** | Proxmox VE, VMware vCenter/ESXi, KVM, Hyper-V, HA clustering, VM migration 100+ |
-| **Mail & SMTP** | Zimbra, Proxmox Mail Gateway, WHM/cPanel, DKIM/SPF/DMARC, antispam |
+| **Mail & SMTP** | Zimbra, Proxmox Mail Gateway, WHM/cPanel, DKIM/SPF/DMARC, antispam, forensic incident response & malware remediation |
 | **Apple macOS** | macOS deployment, FileVault, Apple Silicon optimization, MDM bypass |
 | **Monitoring** | Smokeping, Uptime Kuma, Grafana, Prometheus, Zabbix, Nagios, PRTG |
 | **Linux SysAdmin** | Ubuntu, Debian, FreeBSD, CentOS, Bash automation, SELinux, Fail2ban |
-
----
-
-## Tech Stack
-
-| Komponen | Teknologi |
-| ---------- | ---------- |
-| **Structure** | HTML5 Semantic |
-| **Styling** | Vanilla CSS + CSS Variables |
-| **Framework** | Bootstrap 5.3.8 |
-| **Icons** | Font Awesome 6.7.2 |
-| **Typography** | Google Fonts (Inter) |
-| **Logic** | Vanilla JavaScript (ES6+) |
-| **Hosting** | GitHub Pages |
 
 ---
 
@@ -89,24 +140,8 @@ Dikembangkan dengan fokus pada:
 ├── apple-touch-icon.png         # Ikon untuk sistem iOS/Apple Devices
 ├── site.webmanifest             # Manifest konfigurasi aplikasi web
 ├── sitemap.xml                  # Peta situs untuk pengoptimalan SEO
+├── minify_inline.py             # Script helper minifikasi inline CSS & JS
 └── xmg/                         # Direktori gambar logo klien & branding IT
-```
-
----
-
-## Menjalankan Secara Lokal
-
-```bash
-# Clone repository
-git clone https://github.com/alsyundawy/alsyundawy.github.io.git
-cd alsyundawy.github.io
-
-# Opsi 1: Buka langsung index.html di browser
-open index.html
-
-# Opsi 2: Server lokal (direkomendasikan)
-python3 -m http.server 8000
-# Buka http://localhost:8000
 ```
 
 ---
@@ -130,6 +165,7 @@ python3 -m http.server 8000
 - [Microsoft Office for macOS](https://github.com/alsyundawy/Microsoft-Office-For-MacOS) — Installer Office macOS (Intel & Apple Silicon) ⭐ 5.9k
 - [SkipMDM macOS Bypass](https://github.com/alsyundawy/skipmdm-bypass) — Bypass MDM untuk macOS Monterey/Ventura/Sonoma
 - [PHP File & Directory Browser](https://github.com/alsyundawy/File-Directory-Browser) — Browser file PHP dengan CSRF protection
+- [ZCS Eradicate Malware Suite](https://github.com/alsyundawy/eradicate-zimbra-malware) — Enterprise Forensic Incident Response, Anti-Ransomware & Zimbra Permission Healing Suite
 - [Zimbra Clean Spam](https://github.com/alsyundawy/Zimbra-Clean-Spam) — Pembersihan antrian spam Zimbra
 - [Bash Script Uninstall Zimbra](https://github.com/alsyundawy/uninstall-zimbra) — Uninstall Zimbra lengkap
 - [Z2C Migration](https://github.com/alsyundawy/Z2C) — Migrasi Zimbra ke Carbonio
@@ -147,7 +183,7 @@ python3 -m http.server 8000
 
 ## Tutorial & Panduan Teknis
 
-14+ panduan komprehensif untuk administrasi sistem dan infrastruktur:
+16 panduan komprehensif untuk administrasi sistem dan infrastruktur:
 
 | Tutorial | Topik |
 | ---------- | ------- |
@@ -205,22 +241,24 @@ Dipercaya oleh **56+ perusahaan dan organisasi** di bidang ISP, networking, dan 
 
 ---
 
-## Kontribusi
+## Contributing
 
 Kontribusi sangat diterima! Jika Anda ingin:
 
-- Melaporkan bug atau masalah
-- Mengajukan fitur baru
+- Melaporkan bug atau masalah tampilan
+- Mengajukan fitur atau optimasi baru
 - Memperbaiki dokumentasi
-- Menambahkan tutorial
+- Menambahkan tautan tutorial
 
-Silakan buat [Issue](https://github.com/alsyundawy/alsyundawy.github.io/issues) atau [Pull Request](https://github.com/alsyundawy/alsyundawy.github.io/pulls).
+Silakan buat [Issue](https://github.com/alsyundawy/alsyundawy.github.io/issues) atau ajukan [Pull Request](https://github.com/alsyundawy/alsyundawy.github.io/pulls).
 
 ---
 
-## Copyleft 2026 ALSYUNDAWY IT SOLUTION
+## License
 
-Kode sumber terbuka bagi siapa saja yang ingin berkreasi dan memanfaatkannya dengan tetap mencantumkan kredit pemilik asli.
+Copyleft (c) 2026 **ALSYUNDAWY IT SOLUTION** (Harry Dertin Sutisna).
+
+Kode sumber terbuka bagi siapa saja yang ingin berkreasi dan memanfaatkannya dengan tetap mencantumkan atribusi kredit pemilik asli.
 
 ---
 
