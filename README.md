@@ -165,6 +165,7 @@ curl -I http://localhost:8899/index.html
 - [Microsoft Office for macOS](https://github.com/alsyundawy/Microsoft-Office-For-MacOS) — Installer Office macOS (Intel & Apple Silicon) ⭐ 5.9k
 - [SkipMDM macOS Bypass](https://github.com/alsyundawy/skipmdm-bypass) — Bypass MDM untuk macOS Monterey/Ventura/Sonoma
 - [PHP File & Directory Browser](https://github.com/alsyundawy/File-Directory-Browser) — Browser file PHP dengan CSRF protection
+- [Zimbra Link Installer & Archive](https://github.com/alsyundawy/Zimbra-Link-Installer) — Enterprise ZCS binary archive, checksum index, CLI installer & CVE dossier
 - [ZCS Eradicate Malware Suite](https://github.com/alsyundawy/eradicate-zimbra-malware) — Enterprise Forensic Incident Response, Anti-Ransomware & Zimbra Permission Healing Suite
 - [Zimbra Clean Spam](https://github.com/alsyundawy/Zimbra-Clean-Spam) — Pembersihan antrian spam Zimbra
 - [Bash Script Uninstall Zimbra](https://github.com/alsyundawy/uninstall-zimbra) — Uninstall Zimbra lengkap
@@ -172,12 +173,37 @@ curl -I http://localhost:8899/index.html
 
 ### Maintained Forks
 
+- [Visual Subnet Calculator](https://github.com/alsyundawy/visualsubnetcalc) — Kalkulator subnet visual dan perencana hierarki CIDR/IP interaktif
 - [The Best Blocklist Collection](https://github.com/alsyundawy/Sefinek-Blocklist-Collection) — 100+ links, 5+ juta domain
 - [Hagezi DNS Blocklists](https://github.com/alsyundawy/dns-blocklists) — DNS filtering lists komprehensif
 - [Generic Shell Script Compiler (SHC)](https://github.com/alsyundawy/shc) — Kompiler shell script dengan enkripsi
+- [macOS Unlocker v4 for VMware ESXi](https://github.com/alsyundawy/esxi-unlocker-v4) — VMware ESXi utilities untuk virtualisasi dan instalasi guest OS macOS
+- [ZMBackup Enterprise Suite](https://github.com/alsyundawy/zmbackup) — Multi-threaded hot backup, restore, dan disaster recovery untuk Zimbra
+- [Zimbra to Zimbra Migration Tool (Z2Z)](https://github.com/alsyundawy/Zimbra2Zimbra-Migration-Tool) — Enterprise migration engine lintas versi Zimbra Collaboration
 - [NotepadNext for macOS](https://github.com/alsyundawy/NotepadNext-MacOS) — Notepad++ untuk macOS
 - [Xiaomi ADB & Fastboot Tools](https://github.com/alsyundawy/XiaomiADBFastbootTools-Win32) — Tools diagnostik Xiaomi
 - [OpenVPN Road Warrior Installer](https://github.com/alsyundawy/OpenVPN-Install) — Installer OpenVPN dual-stack IPv4/IPv6
+
+---
+
+## Alat Jaringan & Diagnostik (Network Tools)
+
+Suite perangkat diagnostik jaringan, telemetri DNS, dan utilitas ISP yang dihosting mandiri:
+
+| Tool | Fungsi / URL |
+| ---- | ------------ |
+| [Looking Glass](https://lg.alsyundawy.com) | BGP & Network Diagnostics Suite (BGP route, ping, traceroute) |
+| [Looking Glass v2.0](https://lg.alsyundawy.com/lg.php) | Looking Glass Engine versi 2.0 |
+| [Looking Glass v2.1](https://lg.alsyundawy.com/lgv1.php) | Looking Glass Engine versi 2.1 |
+| [Looking Glass v2.5](https://lg.alsyundawy.com/lgv2.php) | Looking Glass Engine versi 2.5 |
+| [Looking Glass GitHub](https://lg.alsyundawy.com/lg-github.php) | Looking Glass terintegrasi GitHub |
+| [MultiPing Location](https://lg.alsyundawy.com/multiping.php) | Uji latensi & ping multi-titik lintas lokasi |
+| [Open DNS Scanner](https://lg.alsyundawy.com/resolver.php) | Open DNS Prefix Scanner & Telemetry Auditor |
+| [SpeedTest](https://speedtest.alsyundawy.com/) | Bandwidth & latency benchmark server |
+| [RBL Checker](https://rbl.alsyundawy.com/) | Multi-RBL/DNSBL IP reputation checker |
+| [TrustPositif Check](https://trustcheck.alsyundawy.com/) | Verifikasi status domain di database TrustPositif Kominfo |
+| [DNS CHECKER](https://dnschecker.alsyundawy.com/) | Global DNS propagation & record verification |
+| [Repository](https://repo.alsyundawy.com/) | Arsip paket & repositori binary |
 
 ---
 
