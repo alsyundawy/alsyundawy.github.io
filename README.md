@@ -142,35 +142,6 @@ Panduan deployment dan administrasi sistem tingkat enterprise:
 
 ---
 
-## Arsitektur Keamanan & Standar Kualitas (13 Pilar Review)
-
-Portofolio ini diaudit secara mendalam mengacu pada **OWASP Top 10:2025**, **CWE Top 25**, serta prinsip rekayasa sistem Linux:
-
-1. **Strict Content-Security-Policy (CSP)**: Nonce kriptografis acak per request dengan fallback OpenSSL strong entropy dan timer nanodetik SHA-256 (`random_bytes(16) -> openssl_random_pseudo_bytes(16, $is_strong) -> hash('sha256', hrtime() ...)`), 100% bebas dari weak hash (`md5`) dan weak PRNG (`mt_rand`).
-2. **Subresource Integrity (SRI)**: Seluruh stylesheet dan script eksternal diamankan dengan SHA-384 cryptographic integrity hash.
-3. **Cross-Origin Isolation**: Dilengkapi header `Cross-Origin-Opener-Policy: same-origin` dan `Cross-Origin-Resource-Policy: same-origin`.
-4. **Hardware Safe-Area Inset Handling**: Padding dinamis menggunakan `env(safe-area-inset-*)` mencegah pemotongan konten pada layar bertakik (*notch*) dan *punch-hole* kamera.
-5. **Anti-Font Boosting**: Mengunci penskalaan teks Android WebKit via `-webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; text-size-adjust: 100%;` untuk mencegah card melebar ke kanan pada Xiaomi Redmi MIUI dan POCO HyperOS.
-6. **Zero Horizontal Overflow**: Terverifikasi melalui suite pengujian otomatis Playwright pada 20 perangkat nyata dengan overflow 0 pixel.
-
----
-
-## Verifikasi Linter & Toolchain (0 Errors)
-
-| Tool Linter | Standar Kualitas | Hasil Verifikasi | Status |
-| :--- | :--- | :--- | :--- |
-| **PHP Syntax (`php -l`)** | AST Syntax Check | `No syntax errors detected` | **PASSED (0 Errors)** |
-| **PHP_CodeSniffer (`phpcs`)** | PSR-12 Standard | `0 errors, 0 warnings` | **PASSED (Clean)** |
-| **PHPStan** | Level Max (Level 9) | `[OK] No errors` | **PASSED (Clean)** |
-| **Psalm** | Strict Type Check | `No errors found! Inferred: 99.63%` | **PASSED (Clean)** |
-| **PHP-CS-Fixer** | Rule `@PSR12` | `Found 0 of 1 files that can be fixed` | **PASSED (Clean)** |
-| **ESLint** | Flat Config Standard | `0 errors, 0 warnings` | **PASSED (Clean)** |
-| **Stylelint** | CSS Standard | `0 errors, 0 warnings` | **PASSED (Clean)** |
-| **Markdownlint** | Markdown Quality | `0 errors, 0 warnings` | **PASSED (Clean)** |
-| **Playwright E2E** | 20 Device Viewports | `20/20 Devices 0px Overflow` | **PASSED (100%)** |
-
----
-
 ## Klien & Mitra Industri
 
 Dipercaya oleh **56+ penyedia jasa internet (ISP), operator jaringan, dan enterprise** di Indonesia dalam penanganan DNS, routing BGP, virtualisasi, dan pemulihan insiden sistem email.
