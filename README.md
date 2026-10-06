@@ -148,8 +148,10 @@ curl -I http://localhost:8899/index.html
 
 ## Repositori & Proyek
 
-### Original Creations
+### Original Creations (26 Repositories)
 
+- [ZCS Eradicate Malware Suite](https://github.com/alsyundawy/eradicate-zimbra-malware) — Enterprise Forensic Incident Response, Anti-Ransomware & Zimbra Permission Healing Suite
+- [Zimbra Link Installer & Archive](https://github.com/alsyundawy/Zimbra-Link-Installer) — Enterprise ZCS binary archive, checksum index, CLI installer & CVE dossier
 - [TrustPositif To RPZ Binary](https://github.com/alsyundawy/TrustPositif-To-RPZ-Binary) — Konversi blacklist TrustPositif ke PowerDNS RPZ binary
 - [TrustPositif Database](https://github.com/alsyundawy/TrustPositif) — Database TrustPositif Kominfo dengan auto-update harian
 - [TrustPositif Validator](https://github.com/alsyundawy/TrustPositif-Validator) — Validasi domain multi-core dengan RFC compliance
@@ -159,32 +161,37 @@ curl -I http://localhost:8899/index.html
 - [MikroTik Script Automation](https://github.com/alsyundawy/MIKROTIK-SCRIPT) — Kumpulan script otomatisasi MikroTik
 - [MikroTik Blacklist](https://github.com/alsyundawy/mikrotik-blacklist) — Sistem manajemen blacklist otomatis
 - [ACL BIND9 Indonesia + OpenIXP](https://github.com/alsyundawy/bind-acl-indonesia-openixp) — Generator ACL Indonesia untuk BIND9
-- [DNS Performance Test](https://github.com/alsyundawy/dnsperftest) — Benchmarking DNS dengan reporting detail
 - [UFW Ipset Blocklist Auto Update](https://github.com/alsyundawy/ufw-ipset-blocklist-autoupdate) — Auto-update blokir IP dengan ipset & UFW
 - [PowerDNS Zone Backups](https://github.com/alsyundawy/PowerDNS-Zone-Backups) — Backup otomatis PowerDNS dengan incremental backup
-- [Microsoft Office for macOS](https://github.com/alsyundawy/Microsoft-Office-For-MacOS) — Installer Office macOS (Intel & Apple Silicon) ⭐ 5.9k
 - [SkipMDM macOS Bypass](https://github.com/alsyundawy/skipmdm-bypass) — Bypass MDM untuk macOS Monterey/Ventura/Sonoma
 - [PHP File & Directory Browser](https://github.com/alsyundawy/File-Directory-Browser) — Browser file PHP dengan CSRF protection
-- [Zimbra Link Installer & Archive](https://github.com/alsyundawy/Zimbra-Link-Installer) — Enterprise ZCS binary archive, checksum index, CLI installer & CVE dossier
-- [ZCS Eradicate Malware Suite](https://github.com/alsyundawy/eradicate-zimbra-malware) — Enterprise Forensic Incident Response, Anti-Ransomware & Zimbra Permission Healing Suite
 - [Zimbra Clean Spam](https://github.com/alsyundawy/Zimbra-Clean-Spam) — Pembersihan antrian spam Zimbra
 - [Bash Script Uninstall Zimbra](https://github.com/alsyundawy/uninstall-zimbra) — Uninstall Zimbra lengkap
 - [Z2C Migration](https://github.com/alsyundawy/Z2C) — Migrasi Zimbra ke Carbonio
+- [PHP-PDNSManager](https://github.com/alsyundawy/PHP-PDNSManager) — Enterprise DNS Management Web GUI & REST API Gateway untuk PowerDNS
+- [bailu-kilo-agent](https://github.com/alsyundawy/bailu-kilo-agent) — Agentic coding sidebar untuk BAILU AI & VS Code / Code-OSS forks
+- [PHP-BindManager](https://github.com/alsyundawy/PHP-BindManager) — Enterprise Web GUI manajemen BIND9 DNS Server (PHP 8.4+, REST API)
+- [Disable-MacOS-Updates](https://github.com/alsyundawy/Disable-MacOS-Updates) — Reversible Bash scripts kontrol penuh pembaruan otomatis macOS
+- [PNetLab v8](https://github.com/alsyundawy/PnetLab-v8) — Enterprise network virtualization & emulation platform berbasis Ubuntu 26.04
 - [PowerDNS-Admin-PHP](https://github.com/alsyundawy/PowerDNS-Admin-PHP) — Enterprise Authoritative PowerDNS Web Control Plane in Native PHP & PDO
 - [SubNetCalc Electron](https://github.com/alsyundawy/SubNetCalc-Electron) — Kalkulator subnet IPv4/IPv6 presisi tinggi dengan 14 multi-theme untuk desktop
 
-### Maintained Forks
+### Maintained Forks (14 Repositories)
 
 - [Visual Subnet Calculator](https://github.com/alsyundawy/visualsubnetcalc) — Kalkulator subnet visual dan perencana hierarki CIDR/IP interaktif
-- [The Best Blocklist Collection](https://github.com/alsyundawy/Sefinek-Blocklist-Collection) — 100+ links, 5+ juta domain
-- [Hagezi DNS Blocklists](https://github.com/alsyundawy/dns-blocklists) — DNS filtering lists komprehensif
-- [Generic Shell Script Compiler (SHC)](https://github.com/alsyundawy/shc) — Kompiler shell script dengan enkripsi
 - [macOS Unlocker v4 for VMware ESXi](https://github.com/alsyundawy/esxi-unlocker-v4) — VMware ESXi utilities untuk virtualisasi dan instalasi guest OS macOS
 - [ZMBackup Enterprise Suite](https://github.com/alsyundawy/zmbackup) — Multi-threaded hot backup, restore, dan disaster recovery untuk Zimbra
 - [Zimbra to Zimbra Migration Tool (Z2Z)](https://github.com/alsyundawy/Zimbra2Zimbra-Migration-Tool) — Enterprise migration engine lintas versi Zimbra Collaboration
-- [NotepadNext for macOS](https://github.com/alsyundawy/NotepadNext-MacOS) — Notepad++ untuk macOS
-- [Xiaomi ADB & Fastboot Tools](https://github.com/alsyundawy/XiaomiADBFastbootTools-Win32) — Tools diagnostik Xiaomi
+- [The Best Blocklist Collection](https://github.com/alsyundawy/Sefinek-Blocklist-Collection) — 100+ links, 5+ juta domain
+- [Hagezi DNS Blocklists](https://github.com/alsyundawy/dns-blocklists) — DNS filtering lists komprehensif
+- [DNS Performance Test](https://github.com/alsyundawy/dnsperftest) — Benchmarking DNS dengan reporting detail
+- [Microsoft Office for macOS](https://github.com/alsyundawy/Microsoft-Office-For-MacOS) — Installer Office macOS (Universal 2: M1-M4 & Intel) ⭐ 5.9k
+- [Generic Shell Script Compiler (SHC)](https://github.com/alsyundawy/shc) — Kompiler shell script dengan enkripsi biner
+- [NotepadNext for macOS](https://github.com/alsyundawy/NotepadNext-MacOS) — Reimplementasi Notepad++ modern Qt untuk macOS
+- [Xiaomi ADB & Fastboot Tools](https://github.com/alsyundawy/XiaomiADBFastbootTools-Win32) — Tools diagnostik Xiaomi Android
 - [OpenVPN Road Warrior Installer](https://github.com/alsyundawy/OpenVPN-Install) — Installer OpenVPN dual-stack IPv4/IPv6
+- [OpenSSL 1.0.2 Hardened Fork](https://github.com/alsyundawy/openssl-1.0.2) — Production-grade security hardened fork dan backported CVE mitigations
+- [Pear Desktop Mac](https://github.com/alsyundawy/pear-desktop-mac) — Desktop player YouTube Music dengan built-in ad blocker untuk macOS
 - [SubnetCalc for macOS](https://github.com/alsyundawy/SubnetCalc-MacOS) — Kalkulator subnet IPv4/IPv6 native Swift & Cocoa untuk macOS (Universal 2)
 
 ---
@@ -207,6 +214,7 @@ Suite perangkat diagnostik jaringan, telemetri DNS, dan utilitas ISP yang dihost
 | [TrustPositif Check](https://trustcheck.alsyundawy.com/) | Verifikasi status domain di database TrustPositif Kominfo |
 | [DNS CHECKER](https://dnschecker.alsyundawy.com/) | Global DNS propagation & record verification |
 | [Repository](https://repo.alsyundawy.com/) | Arsip paket & repositori binary |
+| [Visual Subnet Calculator](https://alsyundawy.com/subnet/) | Interaktif CIDR/VLSM IPv4 & IPv6 Subnet Calculator |
 
 ---
 
@@ -218,6 +226,8 @@ Suite perangkat diagnostik jaringan, telemetri DNS, dan utilitas ISP yang dihost
 | ---------- | ------- |
 | [Build Zimbra FOSS](https://alsyundawy.com/Build-Zimbra-FOSS.html) | Build Zimbra dari source |
 | [Install Zimbra FOSS](https://alsyundawy.com/Install-Zimbra-FOSS.html) | Instalasi Zimbra pada Ubuntu/Rocky Linux |
+| [Install & Deploy PNETLab v8](https://alsyundawy.com/PNETLab-v8.html) | Deployment panduan PNETLab v8 di Ubuntu 26.04 |
+| [Install & Deploy PNETLab Klasik](https://alsyundawy.com/PNETLab-v4.html) | Panduan instalasi PNETLab v4 · v5 · v6 (Bionic & Focal) |
 | [Cacti Monitoring Stack](https://alsyundawy.com/Cacti.html) | Network graphing pada Debian |
 | [HyperGlass](https://alsyundawy.com/HyperGlass.html) | BGP Looking Glass modern berbasis Python |
 | [Ookla Speedtest Server](https://alsyundawy.com/Ookla-Speedtest.html) | Deployment Speedtest Server dual-stack |
