@@ -9,6 +9,7 @@
 ---
 
 ## 1. System Architecture & Runtime Invariants
+
 - **Runtime Environment**: Standalone PHP 8.1+ single-file deployment (`index-portofolio-8.5.5.php`) and static Jamstack web deployment (`index.html`, `alsyundawy-portfolio-8.5.5.html`).
 - **Zero-Framework Foundation**: Pure vanilla PHP 8.1+ with strict type declarations (`declare(strict_types=1);`), zero external Composer dependencies, and sub-millisecond execution times.
 - **Static Artifact Generation**: Automated, nonce-neutral static generation ensuring seamless GitHub Pages deployment without CSP or server-side nonce mismatches.
@@ -25,6 +26,7 @@
 ---
 
 ## 2. Security & Hardening Architecture (DevSecOps)
+
 - **Dynamic Content Security Policy (CSP)**:
   - Cryptographically secure CSP nonce generated per request via `random_bytes(16)`.
   - Cryptographic CSPRNG with OpenSSL strong entropy verification and SHA-256 high-resolution timer fallback; zero weak hashes (md5) & zero weak PRNGs (mt_rand), 100% SonarLint clean.
@@ -46,11 +48,12 @@
 ---
 
 ## 3. Responsive & Viewport Hardening (Xiaomi, POCO & Universal)
+
 - **Deep Research Root-Cause Resolution**:
   - **Xiaomi MIUI / HyperOS Viewport Clipping**: Resolved via `<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">`.
   - **Android Font Boosting Layout Blowout**: Fixed with `-webkit-text-size-adjust: 100%`, `-moz-text-size-adjust: 100%`, and `text-size-adjust: 100%` on root element.
   - **Hardware Safe-Area Notch/Cutout Clipping**: Implemented CSS padding leveraging `env(safe-area-inset-top/bottom/left/right)` across `.navbar`, `.footer`, `.back-to-top`, and `body`.
-  - **Flex & Grid Child Containment**: Enforced `word-break: break-word`, `overflow-wrap: anywhere`, and `min-width: 0` on cards, badges, and code blocks, preventing wide repo titles from breaking mobile columns.
+  - **Flex & Grid Child Containment**: Enforced `overflow-wrap: anywhere` and `min-width: 0` on cards, badges, and code blocks, preventing wide repo titles from breaking mobile columns.
   - **Dual Overflow Protection**: Applied `overflow-x: clip` and `overflow-x: hidden` to eliminate horizontal scrollbars.
 - **Comprehensive Viewport Range**:
   - Validated from **VGA (640x480 / 480x640)** to **2K (2560x1440)**, **4K (3840x2160)**, tablets (iPad 768x1024, iPad Pro 1024x1366), and smartphones (iPhone SE, iPhone 14/15/16 Pro, Samsung Galaxy S21/S24, Xiaomi Redmi Note 12/13/14, POCO X5/X6/F5/F6).
@@ -59,6 +62,7 @@
 ---
 
 ## 4. Showcase Repositories, Tools & Technical Knowledge
+
 - **Total Repositories (40)**:
   - 26 Original Creations (PowerDNS-Admin-PHP, SubnetCalc-MacOS, SubNetCalc-Electron, ISP-Billing-Radius, Postfix-Dovecot-Automated, macOS-Pro-Tweaks, Nginx-Reverse-Proxy-Cluster, etc.).
   - 14 Actively Maintained Specialized Forks (PostfixAdmin, PowerDNS Authoritative, Roundcube Webmail, Pi-hole, FreeRADIUS, etc.).
@@ -70,6 +74,7 @@
 ---
 
 ## 5. Technical SEO & Schema.org Semantic Data
+
 - **Structured Data Graph**:
   - Full JSON-LD graph implementing `Person`, `Organization`, `ProfilePage`, `WebSite`, and `ItemList` schemas.
   - Semantic relations connecting repositories to GitHub API endpoints and technical documentation.
@@ -82,6 +87,7 @@
 ---
 
 ## 6. Verification & Automated Test Summary
+
 | Tool / Test Suite | Scope | Target / Requirement | Result |
 | :--- | :--- | :--- | :--- |
 | **PHP Syntax (`php -l`)** | AST syntax check | Zero syntax errors | **PASSED** (`No syntax errors detected`) |
