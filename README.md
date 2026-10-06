@@ -170,6 +170,8 @@ curl -I http://localhost:8899/index.html
 - [Zimbra Clean Spam](https://github.com/alsyundawy/Zimbra-Clean-Spam) — Pembersihan antrian spam Zimbra
 - [Bash Script Uninstall Zimbra](https://github.com/alsyundawy/uninstall-zimbra) — Uninstall Zimbra lengkap
 - [Z2C Migration](https://github.com/alsyundawy/Z2C) — Migrasi Zimbra ke Carbonio
+- [PowerDNS-Admin-PHP](https://github.com/alsyundawy/PowerDNS-Admin-PHP) — Enterprise Authoritative PowerDNS Web Control Plane in Native PHP & PDO
+- [SubNetCalc Electron](https://github.com/alsyundawy/SubNetCalc-Electron) — Kalkulator subnet IPv4/IPv6 presisi tinggi dengan 14 multi-theme untuk desktop
 
 ### Maintained Forks
 
@@ -183,6 +185,7 @@ curl -I http://localhost:8899/index.html
 - [NotepadNext for macOS](https://github.com/alsyundawy/NotepadNext-MacOS) — Notepad++ untuk macOS
 - [Xiaomi ADB & Fastboot Tools](https://github.com/alsyundawy/XiaomiADBFastbootTools-Win32) — Tools diagnostik Xiaomi
 - [OpenVPN Road Warrior Installer](https://github.com/alsyundawy/OpenVPN-Install) — Installer OpenVPN dual-stack IPv4/IPv6
+- [SubnetCalc for macOS](https://github.com/alsyundawy/SubnetCalc-MacOS) — Kalkulator subnet IPv4/IPv6 native Swift & Cocoa untuk macOS (Universal 2)
 
 ---
 
