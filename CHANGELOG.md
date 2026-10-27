@@ -8,10 +8,11 @@ All notable changes to this project are documented in this file in accordance wi
 
 ### Added & Expanded (Repositories & Tools)
 
-- **Showcase Expansion (Total 40 Repositories)**:
+- **Showcase Expansion (Total 41 Repositories)**:
   - **PowerDNS-Admin-PHP** (`https://github.com/alsyundawy/PowerDNS-Admin-PHP`): Enterprise Authoritative PowerDNS Web Control Plane in Native PHP & PDO without external frameworks. Sub-millisecond bootstrap (<1ms), zero-CDN offline capability, RFC 6238 TOTP 2FA authentication, multi-server node clustering, APCu caching, and PowerDNS HTTP API v1 integration.
   - **SubnetCalc-MacOS** (`https://github.com/alsyundawy/SubnetCalc-MacOS`): High-performance native Swift & AppKit Cocoa IPv4/IPv6 subnet calculator for macOS Universal 2 (Apple Silicon M1-M4 & Intel x64). Equipped with 25 developer theme suites, CIDR/VLSM calculation, netmask, wildcard mask, and hierarchical menu navigation.
   - **SubNetCalc-Electron** (`https://github.com/alsyundawy/SubNetCalc-Electron`): High-precision, memory-efficient IPv4/IPv6 subnet calculator for macOS & cross-platform desktop. Built with Electron 44, Node 24, React 19, and TypeScript; features 14 multi-themes, RFC classification, binary bit visualization, and real-time CIDR computation.
+  - **SparkNotePad** (`https://github.com/alsyundawy/SparkNotePad`): Lightweight, blazing-fast native Scintilla & Qt text and source code editor for Linux and macOS. Engineered with C++20, Qt 6, and Scintilla 5.6.7 / Lexilla 5.5.4 core for minimal memory footprint (<35MB), AES-256 document encryption, and 75 developer themes.
 
 ### Fixed & Hardened (13-Pillar Code Quality & Security)
 

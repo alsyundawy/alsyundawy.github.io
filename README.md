@@ -43,13 +43,14 @@ Dibangun dengan fokus pada prinsip rekayasa sistem berkinerja tinggi:
 
 ---
 
-## Showcase Repositori (40 Repositori Produksi)
+## Showcase Repositori (41 Repositori Produksi)
 
-### Original Creations (26 Repositories)
+### Original Creations (27 Repositories)
 
 - **[PowerDNS-Admin-PHP](https://github.com/alsyundawy/PowerDNS-Admin-PHP)**: Enterprise Authoritative PowerDNS Web Control Plane dalam Native PHP & PDO tanpa external framework bloat. Dilengkapi sub-millisecond bootstrap (<1ms), zero-CDN offline capability, RFC 6238 TOTP 2FA, multi-server node clustering, APCu caching, dan PowerDNS HTTP API v1 integration.
 - **[SubnetCalc-MacOS](https://github.com/alsyundawy/SubnetCalc-MacOS)**: Kalkulator subnet IPv4/IPv6 native Swift & AppKit Cocoa berkinerja tinggi untuk macOS Universal 2 (Apple Silicon M1-M4 & Intel x64). Dilengkapi 25 developer theme suite, kalkulasi CIDR/VLSM, netmask, wildcard mask, dan hierarchical menu navigation.
 - **[SubNetCalc-Electron](https://github.com/alsyundawy/SubNetCalc-Electron)**: Kalkulator subnet IPv4/IPv6 desktop presisi tinggi dan hemat memori. Dibangun dengan Electron 44, Node 24, React 19, dan TypeScript; mendukung 14 multi-theme, klasifikasi RFC, visualisasi bit biner, dan kalkulasi CIDR real-time.
+- **[SparkNotePad](https://github.com/alsyundawy/SparkNotePad)**: Editor teks dan kode sumber native berkinerja tinggi berbasis Scintilla & Qt untuk Linux dan macOS. Dibangun dengan C++20, Qt 6, dan core Scintilla 5.6.7 / Lexilla 5.5.4, mendukung enkripsi berkas AES-256, 75 tema pengembang, tail -f log viewer, dan memory footprint <35MB.
 - **[ZCS Eradicate Malware Suite](https://github.com/alsyundawy/eradicate-zimbra-malware)**: Enterprise Forensic Incident Response, Anti-Ransomware & Zimbra Permission Healing Suite untuk pembersihan malware, webshell, dan injeksi crontab pada Zimbra Collaboration Server.
 - **[Zimbra Link Installer & Archive](https://github.com/alsyundawy/Zimbra-Link-Installer)**: Enterprise ZCS binary archive, checksum index, CLI installer, dan CVE security dossier untuk deployment cepat Zimbra FOSS.
 - **[TrustPositif To RPZ Binary](https://github.com/alsyundawy/TrustPositif-To-RPZ-Binary)**: Generator konversi database blacklist TrustPositif Kominfo ke format biner PowerDNS Response Policy Zone (RPZ) dengan optimasi performa tinggi.

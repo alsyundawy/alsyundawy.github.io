@@ -63,8 +63,8 @@
 
 ## 4. Showcase Repositories, Tools & Technical Knowledge
 
-- **Total Repositories (40)**:
-  - 26 Original Creations (PowerDNS-Admin-PHP, SubnetCalc-MacOS, SubNetCalc-Electron, ISP-Billing-Radius, Postfix-Dovecot-Automated, macOS-Pro-Tweaks, Nginx-Reverse-Proxy-Cluster, etc.).
+- **Total Repositories (41)**:
+  - 27 Original Creations (PowerDNS-Admin-PHP, SubnetCalc-MacOS, SubNetCalc-Electron, SparkNotePad, ISP-Billing-Radius, Postfix-Dovecot-Automated, macOS-Pro-Tweaks, Nginx-Reverse-Proxy-Cluster, etc.).
   - 14 Actively Maintained Specialized Forks (PostfixAdmin, PowerDNS Authoritative, Roundcube Webmail, Pi-hole, FreeRADIUS, etc.).
 - **Telemetry & Diagnostic Tools (13)**:
   - IPv4/IPv6 CIDR Subnet Calculator, DNS Record Lookup, TLS/SSL Certificate Inspector, HTTP Security Header Auditor, Base64/Hex Encoder, Password Entropy Meter, Port Ping Tester, and Network Latency Gauge.
