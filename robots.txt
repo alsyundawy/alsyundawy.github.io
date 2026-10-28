@@ -1,0 +1,11 @@
+# robots.txt for alsyundawy.com
+# https://alsyundawy.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://alsyundawy.com/sitemap.xml
+
+# Host directive for canonical domain
+Host: https://alsyundawy.com
